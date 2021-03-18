@@ -16,7 +16,7 @@ To that end, Target Memberships are the preferred mechanism to share code across
 
 The main components are as follows:
 
-* CoreResolve: Swift Package with app-agnostic core interfaces and classes
+* [CoreResolve](https://github.com/theappstudiollc/CoreResolve): Swift Package with app-agnostic core interfaces and classes
 * Resolve: app code containing apps, frameworks, and extensions
 	- Should be renamed to the App name (you may duplicate and rename if you wish to build a suite of apps)
 	- 4 app targets + any extensions
