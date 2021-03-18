@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DIz-tt-Whz">
+    <device id="appleTV" appearance="light"/>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photos-->
+        <scene sceneID="V3C-vQ-2jt">
+            <objects>
+                <viewController storyboardIdentifier="PhotosViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lb1-Jx-SaI" customClass="PhotosViewController" customModule="Resolve" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jZg-jU-rIX"/>
+                        <viewControllerLayoutGuide type="bottom" id="RhZ-iL-q1W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sKp-6q-LpJ">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zhT-gU-snd">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <segue destination="IT3-Za-bgk" kind="embed" id="Zfv-6j-mZ7"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbW-Dn-P7h">
+                                <rect key="frame" x="693" y="497" width="536" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Request Photos Permission"/>
+                                <connections>
+                                    <action selector="requestPhotosAuthorizationButtonTapped:" destination="Lb1-Jx-SaI" eventType="primaryActionTriggered" id="CMr-C6-VVp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <navigationItem key="navigationItem" title="Photos" id="R5X-3E-Flq"/>
+                    <connections>
+                        <outlet property="requestPhotosAuthorizationButton" destination="dbW-Dn-P7h" id="9Cv-Da-LOy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZMW-Bj-DUA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2201" y="69"/>
+        </scene>
+        <!--Photos Collection View Controller-->
+        <scene sceneID="Mvu-JY-Aae">
+            <objects>
+                <collectionViewController storyboardIdentifier="PhotosCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IT3-Za-bgk" customClass="PhotosCollectionViewController" customModule="Resolve" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="PhotosCollectionView" dataMode="prototypes" id="29o-tx-qeM" customClass="PhotosCollectionView" customModule="Resolve" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="24" minimumInteritemSpacing="24" id="Mkf-VY-TLz" customClass="PhotosCollectionViewFlowLayout" customModule="Resolve" customModuleProvider="target">
+                            <size key="itemSize" width="258" height="258"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="12" minY="12" maxX="12" maxY="12"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="PhotosCollectionViewCell" reuseIdentifier="photosCollectionViewCell" id="h4x-62-y04" customClass="PhotosCollectionViewCell" customModule="Resolve" customModuleProvider="target">
+                                <rect key="frame" x="12" y="12" width="258" height="258"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Q0A-BQ-Aw4">
+                                    <rect key="frame" x="0.0" y="0.0" width="258" height="258"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="INj-aA-jga">
+                                            <rect key="frame" x="0.0" y="0.0" width="258" height="258"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="imageView" destination="INj-aA-jga" id="j20-oG-h67"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="IT3-Za-bgk" id="ru0-UT-4OO"/>
+                            <outlet property="delegate" destination="IT3-Za-bgk" id="8bA-Gs-k8q"/>
+                        </connections>
+                    </collectionView>
+                    <connections>
+                        <outlet property="tabBarObservedScrollView" destination="29o-tx-qeM" id="W02-Bt-7FM"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R2A-RT-6ws" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4381" y="69"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bdN-TR-p6S">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DIz-tt-Whz" customClass="NavigationController" customModule="Resolve" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t8R-Sj-hy2">
+                        <rect key="frame" x="0.0" y="60" width="1920" height="145"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Lb1-Jx-SaI" kind="relationship" relationship="rootViewController" id="72t-13-YeU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xHH-yB-5d0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="69" y="69"/>
+        </scene>
+    </scenes>
+</document>

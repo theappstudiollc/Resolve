@@ -1,0 +1,14 @@
+{
+    "aps": {
+        "alert": {
+			"body": "at 8/25/19, 3:22:50 PM <- 8/25/19, 3:27:52 PM",
+            "title": "You've arrived"
+        },
+        "category": "resolveVisitCategory",
+		"thread-id": "8/25/19, 3:22:50 PM"
+    },
+    
+    "horizontalAccuracy": "23.85735",
+	"latitude": "40.71455",
+	"longitude": "-74.00712",
+}

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="djN-vz-eeX">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CloudKit (Users)-->
+        <scene sceneID="QYW-Pm-Bxp">
+            <objects>
+                <viewController storyboardIdentifier="ClouKitViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cSd-5n-Np4" customClass="CloudKitViewController" customModule="Resolve" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WPn-tH-PKp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Alias" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uva-jB-gGW">
+                                <rect key="frame" x="16" y="64" width="343" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="userAliasTextDidChange:" destination="cSd-5n-Np4" eventType="editingChanged" id="HkP-Xg-wqw"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKX-eS-9gs">
+                                <rect key="frame" x="194" y="106" width="165" height="30"/>
+                                <state key="normal" title="Update your public alias"/>
+                                <connections>
+                                    <action selector="updateUserAliasTapped:" destination="cSd-5n-Np4" eventType="touchUpInside" id="7Dc-Mg-l3j"/>
+                                </connections>
+                            </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y2w-H0-uig">
+                                <rect key="frame" x="0.0" y="144" width="375" height="523"/>
+                                <connections>
+                                    <segue destination="tBt-3C-WxK" kind="embed" id="l4m-7L-tPo"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="in8-cW-scg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uva-jB-gGW" firstAttribute="leading" secondItem="WPn-tH-PKp" secondAttribute="leadingMargin" id="1Eo-9f-rIr"/>
+                            <constraint firstItem="dKX-eS-9gs" firstAttribute="top" secondItem="uva-jB-gGW" secondAttribute="bottom" constant="8" symbolic="YES" id="78H-CD-HVu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uva-jB-gGW" secondAttribute="trailing" id="ATA-WC-TVi"/>
+                            <constraint firstItem="y2w-H0-uig" firstAttribute="leading" secondItem="WPn-tH-PKp" secondAttribute="leading" id="SL9-zn-pQ2"/>
+                            <constraint firstAttribute="trailing" secondItem="y2w-H0-uig" secondAttribute="trailing" id="VoX-No-oR7"/>
+                            <constraint firstItem="uva-jB-gGW" firstAttribute="top" secondItem="in8-cW-scg" secondAttribute="top" constant="20" id="YP2-Lb-KWO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dKX-eS-9gs" secondAttribute="trailing" id="a2e-Qt-gzy"/>
+                            <constraint firstItem="y2w-H0-uig" firstAttribute="top" secondItem="dKX-eS-9gs" secondAttribute="bottom" constant="8" symbolic="YES" id="tmp-g5-cyu"/>
+                            <constraint firstAttribute="bottom" secondItem="y2w-H0-uig" secondAttribute="bottom" id="tyD-wd-TW6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="CloudKit (Users)" leftItemsSupplementBackButton="YES" id="Vqt-nv-eyP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jxl-5I-9uz">
+                            <connections>
+                                <action selector="lookupFriendTapped:" destination="cSd-5n-Np4" id="8Sp-mg-64d"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="lookupFriendButton" destination="Jxl-5I-9uz" id="StG-VP-jp0"/>
+                        <outlet property="updateUserAliasButton" destination="dKX-eS-9gs" id="lLc-iJ-Bab"/>
+                        <outlet property="userAliasTextField" destination="uva-jB-gGW" id="C5O-zx-n13"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pNr-Bt-2bs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-162.40000000000001" y="-108.39580209895054"/>
+        </scene>
+        <!--Cloud Kit Table View Controller-->
+        <scene sceneID="slw-xq-vVz">
+            <objects>
+                <tableViewController storyboardIdentifier="CloudKitTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tBt-3C-WxK" customClass="CloudKitTableViewController" customModule="Resolve" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="UserTableView" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZJO-eB-CyY" customClass="UserTableView" customModule="Resolve" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="523"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="uku-hC-BYd">
+                            <rect key="frame" x="0.0" y="111.5" width="375" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="user" textLabel="o2r-SE-T9i" detailTextLabel="JZp-WE-MPz" style="IBUITableViewCellStyleSubtitle" id="v6q-KV-36F" customClass="UserTableViewCell" customModule="Resolve" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="55.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v6q-KV-36F" id="hQX-kI-8v5">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o2r-SE-T9i">
+                                            <rect key="frame" x="16" y="10" width="42.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="alias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JZp-WE-MPz">
+                                            <rect key="frame" x="16" y="31.5" width="26" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tBt-3C-WxK" id="0v9-Fg-tez"/>
+                            <outlet property="delegate" destination="tBt-3C-WxK" id="WSj-0L-Agd"/>
+                        </connections>
+                    </tableView>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Fxc-xs-rEU">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refreshControlRefreshing:" destination="tBt-3C-WxK" eventType="valueChanged" id="qor-xd-dom"/>
+                        </connections>
+                    </refreshControl>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="peN-uO-7wR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="623" y="-108"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7Wc-P0-PVI">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="djN-vz-eeX" customClass="NavigationController" customModule="Resolve" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hra-A4-dTB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cSd-5n-Np4" kind="relationship" relationship="rootViewController" id="njZ-Ap-MwI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pSn-wl-fmg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-964" y="-108"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

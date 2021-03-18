@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>AppIcon</string>
+			</array>
+			<key>UIPrerenderedIcon</key>
+			<false/>
+		</dict>
+		<key>CFBundleAlternateIcons</key>
+		<dict>
+			<key>AppIcon-Blue</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>AppIcon-Blue</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>AppIcon-Red</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>AppIcon-Red</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+		</dict>
+	</dict>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>In order to notify you when an opponent is nearby, please provide authorization to use low-power iBeacon technology while $(PRODUCT_NAME) is in the background</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>In order to notify you when an opponent is nearby, please provide authorization to use low-power iBeacon technology while $(PRODUCT_NAME) is in the background</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_$(PROJECT_NAME:rfc1034identifier:lower)._tcp</string>
+		<string>_$(PROJECT_NAME:rfc1034identifier:lower)._udp</string>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>In order to see yourself, please provide authorization to access your camera</string>
+	<key>NSHomeKitUsageDescription</key>
+	<string>In order to tweak your lights, please provide authorization to access your HomeKit data</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>In order to chat with nearby participants, please provide authorization to connect to your local network</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>In order to notify you when an opponent is nearby, please provide authorization to use low-power iBeacon technology even while $(PRODUCT_NAME) is in the background</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>In order to notify you when an opponent is nearby, please provide authorization to use low-power iBeacon technology even while $(PRODUCT_NAME) is in the background</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>In order to notify you when an opponent is nearby, please provide authorization to use low-power iBeacon technology</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>In order to see your photos, please provide authorization to access your photo library</string>
+	<key>NSSiriUsageDescription</key>
+	<string>In order to utilize Siri to execute common tasks, please provide permission to use SiriKit</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>$(RESOLVE_BUNDLE_PREFIX).$(PROJECT_NAME:rfc1034identifier:lower).stateRestoration.alternateIcons</string>
+		<string>$(RESOLVE_BUNDLE_PREFIX).$(PROJECT_NAME:rfc1034identifier:lower).stateRestoration.beacon</string>
+		<string>$(RESOLVE_BUNDLE_PREFIX).$(PROJECT_NAME:rfc1034identifier:lower).stateRestoration.camera</string>
+		<string>$(RESOLVE_BUNDLE_PREFIX).$(PROJECT_NAME:rfc1034identifier:lower).stateRestoration.cloudKit</string>
+		<string>$(RESOLVE_BUNDLE_PREFIX).$(PROJECT_NAME:rfc1034identifier:lower).stateRestoration.conversation</string>
+		<string>$(RESOLVE_BUNDLE_PREFIX).$(PROJECT_NAME:rfc1034identifier:lower).stateRestoration.coreData</string>
+		<string>$(RESOLVE_BUNDLE_PREFIX).$(PROJECT_NAME:rfc1034identifier:lower).stateRestoration.homeKit</string>
+		<string>$(RESOLVE_BUNDLE_PREFIX).$(PROJECT_NAME:rfc1034identifier:lower).stateRestoration.map</string>
+		<string>$(RESOLVE_BUNDLE_PREFIX).$(PROJECT_NAME:rfc1034identifier:lower).stateRestoration.photos</string>
+		<string>$(RESOLVE_BUNDLE_PREFIX).$(PROJECT_NAME:rfc1034identifier:lower).stateRestoration.watchConnectivity</string>
+		<string>CreateSharedEventIntent</string>
+	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UILaunchStoryboardName</key>
+					<string>LaunchScreen</string>
+					<key>UISceneClassName</key>
+					<string>UIWindowScene</string>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>Main</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+		<string>remote-notification</string>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UIRequiresFullScreen</key>
+	<false/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+</dict>
+</plist>

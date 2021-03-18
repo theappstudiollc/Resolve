@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s3n-2f-Ons">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="4To-9O-uGw">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="s3n-2f-Ons" customClass="NavigationController" customModule="Resolve" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="khp-Us-rfU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="pkj-or-7xk" kind="relationship" relationship="rootViewController" id="m2e-4u-LOn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VnE-dc-MUA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-299" y="176"/>
+        </scene>
+        <!--Beacons-->
+        <scene sceneID="VlE-bC-YYn">
+            <objects>
+                <viewController storyboardIdentifier="BeaconViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pkj-or-7xk" customClass="BeaconViewController" customModule="Resolve" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WSO-6T-EhY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="U54-0d-KnB">
+                                <rect key="frame" x="121" y="56" width="133" height="25.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listen:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kw-P1-pqz">
+                                        <rect key="frame" x="0.0" y="0.0" width="51" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3T-Cn-CP0">
+                                        <rect key="frame" x="59" y="-4.5" width="34" height="30"/>
+                                        <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="startListeningButtonTapped:" destination="pkj-or-7xk" eventType="touchUpInside" id="lJD-g1-KWH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t21-2Z-kHY">
+                                        <rect key="frame" x="101" y="-4.5" width="32" height="30"/>
+                                        <state key="normal" title="Stop"/>
+                                        <connections>
+                                            <action selector="stopListeningButtonTapped:" destination="pkj-or-7xk" eventType="touchUpInside" id="qzN-Om-t3U"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DSY-VV-Fg5">
+                                <rect key="frame" x="108" y="93.5" width="159.5" height="25.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advertise:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRE-Pz-qUL">
+                                        <rect key="frame" x="0.0" y="0.0" width="77.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shY-nV-nX2">
+                                        <rect key="frame" x="85.5" y="-4.5" width="34" height="30"/>
+                                        <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="startAdvertisingButtonTapped:" destination="pkj-or-7xk" eventType="touchUpInside" id="2zu-sI-TiF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3R4-Uw-FvE">
+                                        <rect key="frame" x="127.5" y="-4.5" width="32" height="30"/>
+                                        <state key="normal" title="Stop"/>
+                                        <connections>
+                                            <action selector="stopAdvertisingButtonTapped:" destination="pkj-or-7xk" eventType="touchUpInside" id="9wy-p4-bPd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JoM-6R-El0">
+                                <rect key="frame" x="0.0" y="127" width="375" height="540"/>
+                                <connections>
+                                    <segue destination="mEC-QA-Vhj" kind="embed" id="Kos-4a-3fK"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="JoM-6R-El0" firstAttribute="trailing" secondItem="WSO-6T-EhY" secondAttribute="trailing" id="20g-tk-cu9"/>
+                            <constraint firstItem="JoM-6R-El0" firstAttribute="bottom" secondItem="WSO-6T-EhY" secondAttribute="bottom" id="OkQ-5m-9sl"/>
+                            <constraint firstItem="DSY-VV-Fg5" firstAttribute="top" secondItem="U54-0d-KnB" secondAttribute="bottom" constant="12" id="QDC-3I-Wcs"/>
+                            <constraint firstItem="JoM-6R-El0" firstAttribute="leading" secondItem="WSO-6T-EhY" secondAttribute="leading" id="SkC-ne-BsC"/>
+                            <constraint firstItem="JoM-6R-El0" firstAttribute="top" secondItem="DSY-VV-Fg5" secondAttribute="bottom" constant="8" symbolic="YES" id="e7i-Wq-uTh"/>
+                            <constraint firstItem="U54-0d-KnB" firstAttribute="top" secondItem="ANz-1U-Ruf" secondAttribute="top" constant="12" id="kxB-r7-bSB"/>
+                            <constraint firstItem="U54-0d-KnB" firstAttribute="centerX" secondItem="ANz-1U-Ruf" secondAttribute="centerX" id="o99-Sw-Aoz"/>
+                            <constraint firstItem="DSY-VV-Fg5" firstAttribute="centerX" secondItem="ANz-1U-Ruf" secondAttribute="centerX" id="vSg-iN-27C"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ANz-1U-Ruf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Beacons" id="G5N-dX-NvC"/>
+                    <connections>
+                        <outlet property="startAdvertisingButton" destination="shY-nV-nX2" id="8Yn-rs-8ZX"/>
+                        <outlet property="startListeningButton" destination="b3T-Cn-CP0" id="7CP-WN-3Yz"/>
+                        <outlet property="stopAdvertisingButton" destination="3R4-Uw-FvE" id="yuF-3u-nrF"/>
+                        <outlet property="stopListeningButton" destination="t21-2Z-kHY" id="gN1-5I-nce"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wq4-js-JJm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="453.60000000000002" y="175.86206896551727"/>
+        </scene>
+        <!--Beacons Table View Controller-->
+        <scene sceneID="SGV-N9-QgH">
+            <objects>
+                <tableViewController storyboardIdentifier="BeaconsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mEC-QA-Vhj" customClass="BeaconsTableViewController" customModule="Resolve" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BeaconsTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="12Z-qE-G2v" customClass="BeaconsTableView" customModule="Resolve" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="540"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BeaconTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="beacon" textLabel="GQg-81-wnX" detailTextLabel="Xlb-A2-24L" style="IBUITableViewCellStyleSubtitle" id="tXp-vt-sCN" customClass="BeaconTableViewCell" customModule="Resolve" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="55.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tXp-vt-sCN" id="AhT-PO-enf">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GQg-81-wnX">
+                                            <rect key="frame" x="16" y="10" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xlb-A2-24L">
+                                            <rect key="frame" x="16" y="31.5" width="33" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="mEC-QA-Vhj" id="Lyj-Zn-jl0"/>
+                            <outlet property="delegate" destination="mEC-QA-Vhj" id="kyN-uH-eRN"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wHo-7C-w6y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1207" y="175"/>
+        </scene>
+    </scenes>
+</document>

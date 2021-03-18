@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CoreResolve",
+        "repositoryURL": "https://github.com/theappstudiollc/CoreResolve.git",
+        "state": {
+          "branch": "main",
+          "revision": "a5c6af4ab17243a57b44ae14aa33eb086c605d86",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

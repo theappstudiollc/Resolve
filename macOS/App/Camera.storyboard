@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gjd-2M-x8g">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CameraML View Controller-->
+        <scene sceneID="no5-Ki-4fT">
+            <objects>
+                <viewController storyboardIdentifier="CameraMLViewController" showSeguePresentationStyle="single" id="Gjd-2M-x8g" customClass="CameraMLViewController" customModule="Resolve" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="IuB-Wu-Zzt">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9YK-9v-YYE">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <segue destination="Nl8-Fj-UJS" kind="embed" id="Q5X-qt-TZS"/>
+                                </connections>
+                            </containerView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X0O-Q6-IJF">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="UWJ-ag-lKa"/>
+                            </imageView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lqs-3v-iyi">
+                                <rect key="frame" x="120" y="133" width="210" height="32"/>
+                                <buttonCell key="cell" type="push" title="Request Camera Permission" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qq8-bE-AGo">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="requestCameraAuthorizationButtonTapped:" target="Gjd-2M-x8g" id="PZ2-Qh-by3"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="u5D-qT-3Dh">
+                                <rect key="frame" x="171" y="13" width="108" height="32"/>
+                                <buttonCell key="cell" type="push" title="Take Photo" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cqs-Oh-cue">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="photoButtonTapped:" target="Gjd-2M-x8g" id="a07-ZB-tSb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="u5D-qT-3Dh" firstAttribute="centerX" secondItem="IuB-Wu-Zzt" secondAttribute="centerX" id="9st-Ty-41R"/>
+                            <constraint firstItem="Lqs-3v-iyi" firstAttribute="centerY" secondItem="IuB-Wu-Zzt" secondAttribute="centerY" id="cK4-A3-y0w"/>
+                            <constraint firstItem="Lqs-3v-iyi" firstAttribute="centerX" secondItem="IuB-Wu-Zzt" secondAttribute="centerX" id="m5v-Ap-Drs"/>
+                            <constraint firstAttribute="bottom" secondItem="u5D-qT-3Dh" secondAttribute="bottom" constant="20" id="ttp-3Z-wb6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoButton" destination="u5D-qT-3Dh" id="vct-e3-pa5"/>
+                        <outlet property="requestCameraAuthorizationButton" destination="Lqs-3v-iyi" id="tHO-79-i7n"/>
+                        <outlet property="selectedImageView" destination="X0O-Q6-IJF" id="JQw-qj-KfI"/>
+                    </connections>
+                </viewController>
+                <customObject id="101-0w-AFX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="757" y="542"/>
+        </scene>
+        <!--Camera Capture View Controller-->
+        <scene sceneID="PT4-ou-4TP">
+            <objects>
+                <viewController showSeguePresentationStyle="single" id="Nl8-Fj-UJS" customClass="CameraCaptureViewController" customModule="Resolve" customModuleProvider="target" sceneMemberID="viewController">
+                    <customView key="view" id="5hG-GY-QrK" customClass="CameraCaptureView" customModule="Resolve" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </customView>
+                    <connections>
+                        <outlet property="cameraView" destination="5hG-GY-QrK" id="lro-d2-9Qd"/>
+                    </connections>
+                </viewController>
+                <customObject id="TYC-xq-cdp" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1302" y="542"/>
+        </scene>
+    </scenes>
+</document>

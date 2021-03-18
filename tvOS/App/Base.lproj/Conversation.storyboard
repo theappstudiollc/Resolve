@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="16096" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3cu-Y2-hHu">
+    <device id="appleTV" appearance="light"/>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="nxG-Kg-wuW">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3cu-Y2-hHu" customClass="NavigationController" customModule="Resolve" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" restorationIdentifier="NavigationBar" insetsLayoutMarginsFromSafeArea="NO" id="Oil-tY-kTj">
+                        <rect key="frame" x="0.0" y="60" width="1920" height="145"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9Eb-Ax-aGQ" kind="relationship" relationship="rootViewController" id="ab8-rr-l93"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fZN-fe-pXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-906" y="736"/>
+        </scene>
+        <!--Conversation-->
+        <scene sceneID="daP-Sr-0Ek">
+            <objects>
+                <viewController storyboardIdentifier="ConversationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9Eb-Ax-aGQ" customClass="UIKitConversationViewController" customModule="Resolve" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sbH-zf-CGu"/>
+                        <viewControllerLayoutGuide type="bottom" id="B1b-SM-0On"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zP5-gh-326">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="textField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Say something" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="bmj-HZ-aLn">
+                                <rect key="frame" x="106" y="213" width="1481" height="92.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="inputTextDidChange:" destination="9Eb-Ax-aGQ" eventType="editingChanged" id="BnB-6s-A54"/>
+                                    <outlet property="delegate" destination="9Eb-Ax-aGQ" id="Xkl-x8-rpr"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFG-Mj-ybd">
+                                <rect key="frame" x="1647" y="216.5" width="167" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendButtonClicked:" destination="9Eb-Ax-aGQ" eventType="primaryActionTriggered" id="MQx-Y7-cBr"/>
+                                </connections>
+                            </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5np-KP-HMF">
+                                <rect key="frame" x="0.0" y="337.5" width="1920" height="742.5"/>
+                                <connections>
+                                    <segue destination="gKH-WB-rBn" kind="embed" id="iTl-hw-zyw"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="bmj-HZ-aLn" firstAttribute="top" secondItem="sbH-zf-CGu" secondAttribute="bottom" constant="8" symbolic="YES" id="C9c-Im-bZr"/>
+                            <constraint firstItem="jFG-Mj-ybd" firstAttribute="centerY" secondItem="bmj-HZ-aLn" secondAttribute="centerY" id="GM8-Lf-3bQ"/>
+                            <constraint firstAttribute="bottom" secondItem="5np-KP-HMF" secondAttribute="bottom" id="IMr-KB-VHa"/>
+                            <constraint firstItem="jFG-Mj-ybd" firstAttribute="leading" secondItem="bmj-HZ-aLn" secondAttribute="trailing" constant="60" symbolic="YES" id="Qgq-qk-b9a"/>
+                            <constraint firstItem="5np-KP-HMF" firstAttribute="top" secondItem="bmj-HZ-aLn" secondAttribute="bottom" constant="32" id="Yl2-KU-Y5e"/>
+                            <constraint firstAttribute="trailing" secondItem="5np-KP-HMF" secondAttribute="trailing" id="at2-eg-1pE"/>
+                            <constraint firstItem="bmj-HZ-aLn" firstAttribute="leading" secondItem="zP5-gh-326" secondAttribute="leadingMargin" id="hpU-KG-rnq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jFG-Mj-ybd" secondAttribute="trailing" id="vQJ-lZ-ZSt"/>
+                            <constraint firstItem="5np-KP-HMF" firstAttribute="leading" secondItem="zP5-gh-326" secondAttribute="leading" id="yWF-HA-Mlx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Conversation" leftItemsSupplementBackButton="YES" id="DMP-Le-1uZ"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="sendButton" destination="jFG-Mj-ybd" id="UGK-3d-sll"/>
+                        <outlet property="textField" destination="bmj-HZ-aLn" id="5yG-40-1rM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jGJ-ir-Ym6" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1225" y="736"/>
+        </scene>
+        <!--Conversation Table View Controller-->
+        <scene sceneID="k4K-Pb-ucO">
+            <objects>
+                <tableViewController storyboardIdentifier="ConversationTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gKH-WB-rBn" customClass="ConversationTableViewController" customModule="Resolve" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ConversationTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="66" sectionFooterHeight="66" id="Kt4-QP-UsW" customClass="ConversationTableView" customModule="Resolve" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="742.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="ConversationTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="peer" textLabel="YhB-5Q-N5o" style="IBUITableViewCellStyleDefault" id="gTf-jZ-9aX" customClass="ConversationTableViewCell" customModule="Resolve" customModuleProvider="target">
+                                <rect key="frame" x="106" y="66" width="1708" height="66"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gTf-jZ-9aX" id="DFT-27-fxU">
+                                    <rect key="frame" x="0.0" y="0.0" width="1708" height="66"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="peer.name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YhB-5Q-N5o">
+                                            <rect key="frame" x="20" y="0.0" width="1668" height="66"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gKH-WB-rBn" id="uGO-S5-7zg"/>
+                            <outlet property="delegate" destination="gKH-WB-rBn" id="Chy-x8-mRV"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tabBarObservedScrollView" destination="Kt4-QP-UsW" id="hBU-2K-36D"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IEY-XE-6cB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1225" y="1913"/>
+        </scene>
+    </scenes>
+</document>

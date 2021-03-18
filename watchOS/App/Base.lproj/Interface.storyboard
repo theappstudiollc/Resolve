@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="17701" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch40"/>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="17500"/>
+    </dependencies>
+    <scenes>
+        <!--CoreData-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="CoreData" title="CoreData" alwaysBounce="YES" id="AgC-eL-Hgc" customClass="CoreDataInterfaceController" customModule="Resolve_watchOS_Extension">
+                    <items>
+                        <group width="1" alignment="left" id="8mm-Zh-jr3">
+                            <items>
+                                <label width="0.59999999999999998" alignment="left" text="Add Shared Event" numberOfLines="2" id="Fym-hE-J9n">
+                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                </label>
+                                <button width="0.40000000000000002" alignment="right" title="Tap" id="A2z-mg-42t">
+                                    <connections>
+                                        <action selector="tapButtonTapped" destination="AgC-eL-Hgc" id="lKn-78-gTv"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <label alignment="left" text="label.taps" id="xLl-8i-Uc0"/>
+                        <table alignment="center" id="K9o-Hw-mZ9" customClass="SharedEventTableView" customModule="Resolve_watchOS_Extension">
+                            <items>
+                                <tableRow identifier="sharedEventCell" id="SQE-Wl-zMc" customClass="SharedEventTableViewCell" customModule="Resolve" customModuleProvider="target">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="xva-hG-kO5">
+                                        <items>
+                                            <label alignment="left" text="created.by" id="7Pr-EI-b8u">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </label>
+                                            <timer alignment="left" verticalAlignment="bottom" enabled="YES" format="short" id="771-xB-xDd">
+                                                <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                                <calendarUnit key="units" day="YES" hour="YES" minute="YES" weekOfMonth="YES"/>
+                                            </timer>
+                                        </items>
+                                        <edgeInsets key="margins" left="4" right="4" top="3" bottom="5"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="createdAtTimer" destination="771-xB-xDd" id="4r9-qY-Uht"/>
+                                        <outlet property="createdByLabel" destination="7Pr-EI-b8u" id="SxH-5H-iBY"/>
+                                        <segue destination="9Ky-IO-8Pe" kind="push" identifier="showSharedEvent" id="ea1-ao-BV0"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="K9o-Hw-mZ9" id="uoR-6m-xS5"/>
+                        <outlet property="tapsButton" destination="A2z-mg-42t" id="F1K-80-DiK"/>
+                        <outlet property="tapsLabel" destination="xLl-8i-Uc0" id="a1b-Pb-6Bd"/>
+                        <segue destination="Ajd-9I-ecH" kind="relationship" relationship="nextPage" id="3Ca-aR-zHq"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="50"/>
+        </scene>
+        <!--Connectivity-->
+        <scene sceneID="ZG3-PH-3hQ">
+            <objects>
+                <controller identifier="Connectivity" title="Connectivity" hidesWhenLoading="NO" id="Ajd-9I-ecH" customClass="WatchConnectivityInterfaceController" customModule="Resolve_watchOS_Extension">
+                    <items>
+                        <group width="1" alignment="left" id="bkH-5C-akf">
+                            <items>
+                                <label alignment="left" verticalAlignment="bottom" text="State:" id="EJI-j1-Nm2">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                </label>
+                                <label alignment="right" verticalAlignment="bottom" text="state" id="HCn-nK-V9J">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="CCi-FD-4WQ">
+                            <items>
+                                <label alignment="left" verticalAlignment="bottom" text="Message:" id="QNJ-rV-edb">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                </label>
+                                <label alignment="right" verticalAlignment="bottom" text="count" id="kVt-9Q-Gv7">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="dhY-yU-n7P">
+                            <items>
+                                <label alignment="left" verticalAlignment="bottom" text="Context:" id="K7U-Dz-zJe">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                </label>
+                                <label alignment="right" verticalAlignment="bottom" text="count" id="KjQ-bC-EH5">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                </label>
+                            </items>
+                        </group>
+                        <button width="1" widthAdjustment="-2" alignment="center" title="Increment Message" id="WME-20-2Uo">
+                            <connections>
+                                <action selector="messageButtonTapped" destination="Ajd-9I-ecH" id="Yry-Ma-5XR"/>
+                            </connections>
+                        </button>
+                        <button width="1" widthAdjustment="-2" alignment="center" title="Increment Context" id="70b-UQ-qZU">
+                            <connections>
+                                <action selector="applicationContextButtonTapped" destination="Ajd-9I-ecH" id="OQM-jK-Xoo"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="applicationContextButton" destination="70b-UQ-qZU" id="3D5-YY-aPq"/>
+                        <outlet property="applicationContextLabel" destination="KjQ-bC-EH5" id="sEm-vi-NIr"/>
+                        <outlet property="messageButton" destination="WME-20-2Uo" id="e9a-QB-hov"/>
+                        <outlet property="messageLabel" destination="kVt-9Q-Gv7" id="sYf-m3-S5E"/>
+                        <outlet property="stateLabel" destination="HCn-nK-V9J" id="bWh-rd-rko"/>
+                        <segue destination="IjU-IE-I2x" kind="relationship" relationship="nextPage" id="Upu-bJ-8mQ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="524" y="50"/>
+        </scene>
+        <!--Now Playing-->
+        <scene sceneID="jcZ-xV-LPJ">
+            <objects>
+                <controller identifier="NowPlaying" title="Now Playing" hidesWhenLoading="NO" id="WZQ-X4-gpk" customClass="NowPlayingInterfaceController" customModule="Resolve_watchOS_Extension">
+                    <items>
+                        <nowPlayingView alignment="left" id="d5N-2P-gAY"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1081" y="50"/>
+        </scene>
+        <!--Complication-->
+        <scene sceneID="KwN-Ew-gQX">
+            <objects>
+                <controller identifier="Complication" title="Complication" hidesWhenLoading="NO" id="IjU-IE-I2x" customClass="ComplicationInterfaceController" customModule="Resolve_watchOS_Extension">
+                    <items>
+                        <button width="1" widthAdjustment="-2" alignment="center" verticalAlignment="bottom" title="Reload Descriptors" enabled="NO" id="fMb-Q8-Wfl">
+                            <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                            <connections>
+                                <action selector="reloadDescriptorsButtonTapped" destination="IjU-IE-I2x" id="2BM-St-vyF"/>
+                            </connections>
+                        </button>
+                        <label alignment="left" text="status" numberOfLines="0" id="BEV-H7-0rS">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <button width="1" widthAdjustment="-2" alignment="center" title="Reload" id="k1U-PE-VP2">
+                            <connections>
+                                <action selector="reloadComplicationsButtonTapped" destination="IjU-IE-I2x" id="beB-9B-ic3"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="reloadComplicationsButton" destination="k1U-PE-VP2" id="uFP-TA-gnG"/>
+                        <outlet property="reloadDesciptorsButton" destination="fMb-Q8-Wfl" id="Igf-bo-9bw"/>
+                        <outlet property="statusLabel" destination="BEV-H7-0rS" id="qDj-wx-OLd"/>
+                        <segue destination="WZQ-X4-gpk" kind="relationship" relationship="nextPage" id="pPP-Rb-aXz"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="803" y="50"/>
+        </scene>
+        <!--Shared Event-->
+        <scene sceneID="3Mu-Mz-ojj">
+            <objects>
+                <controller identifier="SharedEventInterfaceController" title="Shared Event" hidesWhenLoading="NO" id="9Ky-IO-8Pe" customClass="SharedEventInterfaceController" customModule="Resolve_watchOS_Extension">
+                    <items>
+                        <label alignment="left" text="created.by" id="pmh-Dg-Zvm">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <label alignment="left" text="created.at" id="wq0-Yh-WcZ">
+                            <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                        </label>
+                        <label alignment="left" text="udid" numberOfLines="0" id="06z-Rd-JHB">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <button width="1" alignment="left" title="Delete" id="6mO-vT-8xd">
+                            <connections>
+                                <action selector="deleteButtonTapped" destination="9Ky-IO-8Pe" id="JBt-aR-CCN"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="createdAtLabel" destination="wq0-Yh-WcZ" id="8Ub-PN-Tl0"/>
+                        <outlet property="createdByLabel" destination="pmh-Dg-Zvm" id="rCJ-fn-xfg"/>
+                        <outlet property="deleteButton" destination="6mO-vT-8xd" id="7pZ-3i-80A"/>
+                        <outlet property="uniqueIDLabel" destination="06z-Rd-JHB" id="gnA-cB-wvs"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="362"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="label.title" id="IdU-wH-bcW">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <label alignment="left" text="label.alert" id="chq-I7-JH6"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="resolveVisitCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="chq-I7-JH6" id="MMG-Mx-cOf"/>
+                        <outlet property="notificationTitleLabel" destination="IdU-wH-bcW" id="EWW-Vg-iaY"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Visit Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="VisitNotificationController" customModule="Resolve_watchOS_Extension">
+                    <items>
+                        <label alignment="left" text="label.title" numberOfLines="0" id="9hQ-R7-5xX">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <map width="1" height="100" alignment="center" id="BDr-v7-Vyl"/>
+                        <label alignment="left" text="label.alert" numberOfLines="0" id="KAf-Vw-x3h">
+                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="alertLabel" destination="KAf-Vw-x3h" id="9iH-Ul-kS1"/>
+                        <outlet property="mapView" destination="BDr-v7-Vyl" id="JxG-C1-WOK"/>
+                        <outlet property="titleLabel" destination="9hQ-R7-5xX" id="9Ew-AG-JQ9"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="524" y="643"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

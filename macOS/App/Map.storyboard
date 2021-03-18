@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="uwd-p8-9CD">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="a2S-ye-yoY">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" showSeguePresentationStyle="single" id="uwd-p8-9CD" customClass="MapViewController" customModule="Resolve" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="uZB-2L-Wkk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView autoresizesSubviews="NO" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" allowsMagnification="YES" maxMagnification="73728" minMagnification="0.66666597127914395" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOU-IB-KV9" customClass="MapScrollView" customModule="Resolve" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                <clipView key="contentView" autoresizesSubviews="NO" drawsBackground="NO" copiesOnScroll="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0K-Es-5F1">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view autoresizesSubviews="NO" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2iL-hf-owp" customClass="MapView" customModule="Resolve" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="1024"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        </view>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="iRT-wQ-kHu">
+                                    <rect key="frame" x="0.0" y="284" width="600" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="uv3-oD-Vj1">
+                                    <rect key="frame" x="584" y="0.0" width="16" height="300"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="YOU-IB-KV9" firstAttribute="top" secondItem="uZB-2L-Wkk" secondAttribute="top" id="Byf-c8-yzk"/>
+                            <constraint firstAttribute="trailing" secondItem="YOU-IB-KV9" secondAttribute="trailing" id="Wjv-j0-Xrm"/>
+                            <constraint firstAttribute="bottom" secondItem="YOU-IB-KV9" secondAttribute="bottom" id="Ygo-LL-XS4"/>
+                            <constraint firstItem="YOU-IB-KV9" firstAttribute="leading" secondItem="uZB-2L-Wkk" secondAttribute="leading" id="hR0-UL-O5R"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapScrollView" destination="YOU-IB-KV9" id="C7L-8D-tLc"/>
+                        <outlet property="mapView" destination="2iL-hf-owp" id="294-ac-oaD"/>
+                    </connections>
+                </viewController>
+                <customObject id="glZ-Ox-M7B" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-34" y="65"/>
+        </scene>
+    </scenes>
+</document>

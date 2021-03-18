@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <collectionViewItem storyboardIdentifier="PhotosCollectionViewCell" id="ocO-hG-fnM" customClass="PhotosCollectionViewCell" customModule="Resolve" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="ViF-gI-QmJ" id="7rS-LD-wto"/>
+                <outlet property="view" destination="FE7-Cs-44w" id="UeP-ii-WEw"/>
+            </connections>
+            <point key="canvasLocation" x="508.5" y="-129.5"/>
+        </collectionViewItem>
+        <view id="FE7-Cs-44w">
+            <rect key="frame" x="0.0" y="0.0" width="123" height="123"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ViF-gI-QmJ">
+                    <rect key="frame" x="0.0" y="0.0" width="123" height="123"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="SJT-Ek-ozP"/>
+                </imageView>
+            </subviews>
+            <point key="canvasLocation" x="-188" y="-223"/>
+        </view>
+    </objects>
+</document>

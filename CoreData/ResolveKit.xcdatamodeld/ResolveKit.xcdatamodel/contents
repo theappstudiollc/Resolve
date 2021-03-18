@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ICloudSyncReference" representedClassName="ICloudSyncReference" parentEntity="SyncReference" syncable="YES" codeGenerationType="class">
+        <attribute name="iCloudDatabaseType" attributeType="String"/>
+        <attribute name="iCloudRecordID" attributeType="String"/>
+        <attribute name="iCloudSystemFieldsData" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="iCloudRecordID"/>
+                <constraint value="iCloudDatabaseType"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="SharedEvent" representedClassName="SharedEvent" parentEntity="UniqueSyncableEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="createdByDevice" attributeType="String"/>
+        <attribute name="createdLocallyAt" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="user" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sharedEvents" inverseEntity="User"/>
+    </entity>
+    <entity name="SyncableEntity" representedClassName="SyncableEntity" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="syncStatus" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="syncReferences" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SyncReference" inverseName="syncableEntity" inverseEntity="SyncReference"/>
+    </entity>
+    <entity name="SyncReference" representedClassName="SyncReference" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="synchronized" attributeType="Boolean" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="syncableEntity" maxCount="1" deletionRule="Nullify" destinationEntity="SyncableEntity" inverseName="syncReferences" inverseEntity="SyncableEntity"/>
+    </entity>
+    <entity name="UniqueSyncableEntity" representedClassName="UniqueSyncableEntity" parentEntity="SyncableEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="uniqueIdentifier" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="uniqueIdentifier"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="User" representedClassName="User" parentEntity="SyncableEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="userAlias" optional="YES" attributeType="String"/>
+        <attribute name="userFirstName" optional="YES" attributeType="String"/>
+        <attribute name="userLastName" optional="YES" attributeType="String"/>
+        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="friends" inverseEntity="User"/>
+        <relationship name="sharedEvents" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SharedEvent" inverseName="user" inverseEntity="SharedEvent"/>
+    </entity>
+    <configuration name="App"/>
+    <configuration name="Shared">
+        <memberEntity name="SharedEvent"/>
+        <memberEntity name="SyncableEntity"/>
+        <memberEntity name="User"/>
+        <memberEntity name="SyncReference"/>
+        <memberEntity name="ICloudSyncReference"/>
+        <memberEntity name="UniqueSyncableEntity"/>
+    </configuration>
+    <elements>
+        <element name="ICloudSyncReference" positionX="636.0390625" positionY="384.6015625" width="134.54296875" height="88"/>
+        <element name="SharedEvent" positionX="338.90234375" positionY="126.2109375" width="128" height="74"/>
+        <element name="SyncableEntity" positionX="462.59375" positionY="278.22265625" width="128" height="75"/>
+        <element name="SyncReference" positionX="637.796875" positionY="278.3984375" width="128" height="75"/>
+        <element name="UniqueSyncableEntity" positionX="288" positionY="287" width="128" height="58"/>
+        <element name="User" positionX="534.70703125" positionY="96.24609375" width="128" height="118"/>
+    </elements>
+</model>

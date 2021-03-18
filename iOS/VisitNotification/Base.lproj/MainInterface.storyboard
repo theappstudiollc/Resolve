@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Notification View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" userLabel="Notification View Controller" customClass="NotificationViewController" customModule="VisitNotification" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7q-K8-bWO">
+                                <rect key="frame" x="0.0" y="44" width="320" height="242"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="s7q-K8-bWO" secondAttribute="height" multiplier="1:1" priority="999" id="1Vs-z6-KJv"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="M4Y-Lb-cyx" id="39q-nv-RJa"/>
+                                </connections>
+                            </mapView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wu2-2E-OiQ">
+                                <rect key="frame" x="0.0" y="267.5" width="320" height="52.5"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="0SG-fA-6Av">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="52.5"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gS8-ts-3Mt">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="YqL-Ft-ygj">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="body.label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNz-AO-fUu">
+                                                        <rect key="frame" x="16" y="16" width="81" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="leadingMargin" secondItem="gNz-AO-fUu" secondAttribute="leading" id="8ef-H1-Gi5"/>
+                                                    <constraint firstAttribute="trailingMargin" secondItem="gNz-AO-fUu" secondAttribute="trailing" id="UcG-uY-tXe"/>
+                                                </constraints>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="prominent"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="gNz-AO-fUu" firstAttribute="top" secondItem="wu2-2E-OiQ" secondAttribute="top" constant="16" id="IcB-YN-wfS"/>
+                                    <constraint firstAttribute="bottom" secondItem="gNz-AO-fUu" secondAttribute="bottom" constant="16" id="kK0-Z2-B8L"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.45882353186607361" green="0.74901962280273438" blue="0.66666668653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2BE-c3-nQJ" firstAttribute="trailing" secondItem="wu2-2E-OiQ" secondAttribute="trailing" id="GCC-gu-aN5"/>
+                            <constraint firstItem="wu2-2E-OiQ" firstAttribute="leading" secondItem="2BE-c3-nQJ" secondAttribute="leading" id="GVs-pZ-LAg"/>
+                            <constraint firstAttribute="bottom" secondItem="wu2-2E-OiQ" secondAttribute="bottom" id="GvD-bQ-P8G"/>
+                            <constraint firstItem="s7q-K8-bWO" firstAttribute="top" secondItem="2BE-c3-nQJ" secondAttribute="top" id="Hzl-iE-RR1"/>
+                            <constraint firstItem="2BE-c3-nQJ" firstAttribute="bottom" secondItem="s7q-K8-bWO" secondAttribute="bottom" id="Psn-1f-NTR"/>
+                            <constraint firstAttribute="trailing" secondItem="s7q-K8-bWO" secondAttribute="trailing" id="iYE-cR-0Dz"/>
+                            <constraint firstItem="s7q-K8-bWO" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="igY-xH-waK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2BE-c3-nQJ"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="320"/>
+                    <connections>
+                        <outlet property="bodyLabel" destination="gNz-AO-fUu" id="ygZ-Ou-sbn"/>
+                        <outlet property="map" destination="s7q-K8-bWO" id="ei1-BL-rbB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-95.652173913043484" y="71.651785714285708"/>
+        </scene>
+    </scenes>
+</document>
