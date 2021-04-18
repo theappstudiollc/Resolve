@@ -28,7 +28,7 @@ open class CustomRestorable: NSObject, UIObjectRestoration, UIStateRestoring {
 		print("\(self) deinit")
 	}
 	
-	required override public init() {
+	required public override init() {
 		super.init()
 		UIApplication.registerObject(forStateRestoration: self, restorationIdentifier: "\(self)")
 	}

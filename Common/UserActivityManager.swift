@@ -22,7 +22,7 @@ import ResolveKit
 
 public final class UserActivityManager: CoreUserActivityManager<CustomActivityType> {
 
-	override public func userActivity(for activityType: CustomActivityType) -> NSUserActivity {
+	public override func userActivity(for activityType: CustomActivityType) -> NSUserActivity {
 		let result = super.userActivity(for: activityType)
 		applyCommonProperties(for: activityType, to: result)
 		#if os(iOS) // TODO: Find a nice way to optionally introduce this to various platforms without having to use #if
@@ -32,7 +32,7 @@ public final class UserActivityManager: CoreUserActivityManager<CustomActivityTy
 		return result
 	}
 
-	override public init(with bundle: Bundle = .main) {
+	public override init(with bundle: Bundle = .main) {
 		super.init(with: bundle)
 		assert(identifiers.count == CustomActivityType.allCases.count, "Misconfigured NSUserActivity entries in the app's Info Dictionary")
 		for (identifier, activityType) in zip(identifiers, CustomActivityType.allCases) {

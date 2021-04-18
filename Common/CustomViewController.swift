@@ -24,7 +24,7 @@ open class CustomViewController: CoreViewController {
 	
 	// MARK: - UIViewController overrides
 	
-	override open func decodeRestorableState(with coder: NSCoder) {
+	open override func decodeRestorableState(with coder: NSCoder) {
 		super.decodeRestorableState(with: coder)
 		modalPresentationStyle = UIModalPresentationStyle(rawValue: coder.decodeInteger(forKey: #keyPath(modalPresentationStyle)))!
 		#if os(iOS)
@@ -33,7 +33,7 @@ open class CustomViewController: CoreViewController {
 		transitioningDelegate = coder.decodeObject(forKey: #keyPath(transitioningDelegate)) as? UIViewControllerTransitioningDelegate
 	}
 	
-	override open func encodeRestorableState(with coder: NSCoder) {
+	open override func encodeRestorableState(with coder: NSCoder) {
 		super.encodeRestorableState(with: coder)
 		for childViewController in children {
 			if let restorationIdentifier = childViewController.restorationIdentifier {
@@ -49,7 +49,7 @@ open class CustomViewController: CoreViewController {
 		}
 	}
 	
-	override open var transitioningDelegate: UIViewControllerTransitioningDelegate? {
+	open override var transitioningDelegate: UIViewControllerTransitioningDelegate? {
 		didSet {
 			strongTransitioningDelegate = transitioningDelegate
 		}

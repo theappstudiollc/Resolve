@@ -39,7 +39,7 @@ public final class ResolveKitCoreDataConfigurationProvider: BasicSQLiteCoreDataS
 	}
 	
 	/// The array of configurations by name in our CoreData model, including the extension configuration
-	override public var configurations: [String]? {
+	public override var configurations: [String]? {
 		let retVal = [sharedConfiguration]
 		guard let baseConfigurations = super.configurations, baseConfigurations.count > 0 else {
 			return retVal
@@ -51,7 +51,7 @@ public final class ResolveKitCoreDataConfigurationProvider: BasicSQLiteCoreDataS
 	///
 	/// - Parameter configuration: The configuration as named in the `configurations` array
 	/// - Returns: A dictionary of NSPersistentStore options
-	override public func persistentStoreOptions(forConfiguration configuration: String?) -> [AnyHashable : Any]? {
+	public override func persistentStoreOptions(forConfiguration configuration: String?) -> [AnyHashable : Any]? {
 		guard configuration == sharedConfiguration else {
 			return super.persistentStoreOptions(forConfiguration: configuration)
 		}
@@ -63,7 +63,7 @@ public final class ResolveKitCoreDataConfigurationProvider: BasicSQLiteCoreDataS
 	///
 	/// - Parameter configuration: The configuration as named in the `configurations` array
 	/// - Returns: The CoreDataManagerPersistentStoreType representing the persistent store type
-	override public func persistentStoreType(forConfiguration configuration: String?) throws -> CoreDataStackPersistentStoreType {
+	public override func persistentStoreType(forConfiguration configuration: String?) throws -> CoreDataStackPersistentStoreType {
 		if let configuration = configuration, configuration == sharedConfiguration {
 			#if os(iOS) || os(watchOS)
 			let sharedDataStoreUrl = try fileStoreService.directoryUrl(for: .appGroupApplicationData)

@@ -306,9 +306,6 @@
 		646746812562040A007EA369 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 646746802562040A007EA369 /* CloudKit.framework */; };
 		6468F6641E31934000F1BCC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6468F6631E31934000F1BCC0 /* AppDelegate.swift */; };
 		646AA53923D1FE4500D477B1 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 646AA53723D1FD0800D477B1 /* Map.storyboard */; };
-		646ADCF62587FD5300DD69B9 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 64399094255C9BF800593AFE /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
-		646ADD2C2587FD5E00DD69B9 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 64399094255C9BF800593AFE /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
-		646ADD3A2587FECA00DD69B9 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 647612082581B52500C844D7 /* Intents.framework */; };
 		646FDA7123F19B3F008D27D1 /* UserActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE4F1623EF87C100FC3F97 /* UserActivityManager.swift */; };
 		646FDA7223F19B41008D27D1 /* UserActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE4F1623EF87C100FC3F97 /* UserActivityManager.swift */; };
 		646FDA7423F59A28008D27D1 /* UserActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646FDA7323F59A28008D27D1 /* UserActivityService.swift */; };
@@ -328,12 +325,6 @@
 		64710E7D23FAED0C00E234FA /* CameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64710E7C23FAED0C00E234FA /* CameraButton.swift */; };
 		6474191924204165000A2E75 /* BeaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6474191824204165000A2E75 /* BeaconViewController.swift */; };
 		6474191B24204172000A2E75 /* Beacon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6474191A24204172000A2E75 /* Beacon.storyboard */; };
-		6476116C2581B05300C844D7 /* SharedEventIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649E17B2256042FD0085588F /* SharedEventIntentHandler.swift */; };
-		647611852581B06900C844D7 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 64399094255C9BF800593AFE /* Intents.intentdefinition */; };
-		647611A92581B20200C844D7 /* Intent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 647611A22581B20200C844D7 /* Intent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		647611BB2581B26900C844D7 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64399059255C91A700593AFE /* IntentHandler.swift */; };
-		647612072581B51200C844D7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6462AF5D255E18B200B695C4 /* CloudKit.framework */; };
-		647612092581B52600C844D7 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 647612082581B52500C844D7 /* Intents.framework */; };
 		647B57B8245786D800E59C30 /* CoreDataTableViewController-macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647B57B7245786D800E59C30 /* CoreDataTableViewController-macOS.swift */; };
 		647CAD4425696E9E000C0F3D /* CloudKitGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CAD4325696E9E000C0F3D /* CloudKitGroupOperation.swift */; };
 		647CAD4525696E9E000C0F3D /* CloudKitGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CAD4325696E9E000C0F3D /* CloudKitGroupOperation.swift */; };
@@ -349,8 +340,6 @@
 		6483E7922086D54A00AA08BE /* VisitNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6483E7912086D54A00AA08BE /* VisitNotificationController.swift */; };
 		6483E7942086D54B00AA08BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6483E7932086D54B00AA08BE /* Assets.xcassets */; };
 		6483E7992086D54B00AA08BE /* Resolve.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6483E77C2086D54800AA08BE /* Resolve.app */; platformFilter = ios; };
-		6485E3B225BE55B300490654 /* Intents.intentdefinition in Resources */ = {isa = PBXBuildFile; fileRef = 64399094255C9BF800593AFE /* Intents.intentdefinition */; };
-		6485E44D25BE5B0700490654 /* ResolveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6462AED7255E166300B695C4 /* ResolveKit.framework */; };
 		6485E48725BE5E4D00490654 /* WatchSessionError.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6485E48625BE5E4D00490654 /* WatchSessionError.strings */; };
 		6485E48825BE5E4D00490654 /* WatchSessionError.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6485E48625BE5E4D00490654 /* WatchSessionError.strings */; };
 		648685F2207EEC4600707745 /* ResolveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 648685EB207EEC2700707745 /* ResolveKit.framework */; };
@@ -514,7 +503,6 @@
 		64D59F27208960F80030BA74 /* ResolveDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C3614F1E4A4887002B478F /* ResolveDelegate.swift */; };
 		64D5E0C724282BCD00C5DE87 /* RangedBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D5E0C624282BCD00C5DE87 /* RangedBeacon.swift */; };
 		64D7CB9925922E000067BCFD /* ExtensionServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D7CB9825922E000067BCFD /* ExtensionServices.swift */; };
-		64D7CB9A25922E000067BCFD /* ExtensionServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D7CB9825922E000067BCFD /* ExtensionServices.swift */; };
 		64D9577623E7732B00873B1D /* CloudKitTableViewController-iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9577523E7732B00873B1D /* CloudKitTableViewController-iOS.swift */; };
 		64DAB9F3208AB58C00CC0CFE /* Extensions-SpriteKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B311B7203B5ED600B75F31 /* Extensions-SpriteKit.swift */; };
 		64DC53BE1E4A6BB500408CCC /* ConversationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DC53BD1E4A6BB500408CCC /* ConversationExtensions.swift */; };
@@ -671,6 +659,13 @@
 		64F4CCAC25EDB6AB003E263C /* ResolveKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F4CCAA25EDB6AA003E263C /* ResolveKit.swift */; };
 		64F4CCAD25EDB6AB003E263C /* ResolveKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F4CCAA25EDB6AA003E263C /* ResolveKit.swift */; };
 		64F4CCAE25EDB6AB003E263C /* ResolveKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F4CCAA25EDB6AA003E263C /* ResolveKit.swift */; };
+		64F744DA262CC430002ED718 /* FloatingHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F744D5262CC430002ED718 /* FloatingHeaderLabel.swift */; };
+		64F744DB262CC430002ED718 /* FloatingHeaderControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F744D6262CC430002ED718 /* FloatingHeaderControl.swift */; };
+		64F744DC262CC430002ED718 /* FloatingHeaderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F744D7262CC430002ED718 /* FloatingHeaderTextView.swift */; };
+		64F744DD262CC430002ED718 /* KeyboardLayoutPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F744D8262CC430002ED718 /* KeyboardLayoutPlugin.swift */; };
+		64F744DE262CC430002ED718 /* FloatingHeaderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F744D9262CC430002ED718 /* FloatingHeaderTextField.swift */; };
+		64F74501262CC637002ED718 /* LayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F74500262CC637002ED718 /* LayoutViewController.swift */; };
+		64F74516262CC640002ED718 /* Layout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64F744F4262CC607002ED718 /* Layout.storyboard */; };
 		64FA20D5255CB4EE0055C365 /* UserActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE4F1623EF87C100FC3F97 /* UserActivityManager.swift */; };
 		64FA20DB255CB4FF0055C365 /* UserActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646FDA7323F59A28008D27D1 /* UserActivityService.swift */; };
 		64FA20E1255CB5360055C365 /* UserActivityManager-iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6439902F25597FD300593AFE /* UserActivityManager-iOS.swift */; };
@@ -715,13 +710,6 @@
 			remoteGlobalIDString = 6462AB34255E11E100B695C4;
 			remoteInfo = ResolveKit;
 		};
-		647611A72581B20200C844D7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 64D520951D28858900C75B32 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 647611A12581B20200C844D7;
-			remoteInfo = Intent;
-		};
 		6483E78A2086D54A00AA08BE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 64D520951D28858900C75B32 /* Project object */;
@@ -735,13 +723,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6483E77B2086D54800AA08BE;
 			remoteInfo = "Resolve-watchOS";
-		};
-		6485E44F25BE5B0700490654 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 64D520951D28858900C75B32 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6462AED6255E166300B695C4;
-			remoteInfo = "ResolveKit-watchOS";
 		};
 		649E13B1255ED13E0085588F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -791,7 +772,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				647611A92581B20200C844D7 /* Intent.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1010,7 +990,6 @@
 		64710E7C23FAED0C00E234FA /* CameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraButton.swift; sourceTree = "<group>"; };
 		6474191824204165000A2E75 /* BeaconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconViewController.swift; sourceTree = "<group>"; };
 		6474191A24204172000A2E75 /* Beacon.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Beacon.storyboard; sourceTree = "<group>"; };
-		647611A22581B20200C844D7 /* Intent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Intent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		647611A62581B20200C844D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		647611E32581B42100C844D7 /* Intent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Intent.entitlements; sourceTree = "<group>"; };
 		647611FF2581B4F500C844D7 /* CoreResolve.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreResolve.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1188,6 +1167,13 @@
 		64F292CD2411358D00BDCB4C /* Extensions-HomeKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions-HomeKit.swift"; sourceTree = "<group>"; };
 		64F292D12411388D00BDCB4C /* Debugging-iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Debugging-iOS.swift"; sourceTree = "<group>"; };
 		64F4CCAA25EDB6AA003E263C /* ResolveKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResolveKit.swift; sourceTree = "<group>"; };
+		64F744D5262CC430002ED718 /* FloatingHeaderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingHeaderLabel.swift; sourceTree = "<group>"; };
+		64F744D6262CC430002ED718 /* FloatingHeaderControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingHeaderControl.swift; sourceTree = "<group>"; };
+		64F744D7262CC430002ED718 /* FloatingHeaderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingHeaderTextView.swift; sourceTree = "<group>"; };
+		64F744D8262CC430002ED718 /* KeyboardLayoutPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutPlugin.swift; sourceTree = "<group>"; };
+		64F744D9262CC430002ED718 /* FloatingHeaderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingHeaderTextField.swift; sourceTree = "<group>"; };
+		64F744F4262CC607002ED718 /* Layout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Layout.storyboard; sourceTree = "<group>"; };
+		64F74500262CC637002ED718 /* LayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutViewController.swift; sourceTree = "<group>"; };
 		64FA20C8255CB3BC0055C365 /* CoreResolve.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreResolve.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64FBAD0223D645B7004668E1 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		64FBAD0323D645B8004668E1 /* MapTileAPIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTileAPIRequest.swift; sourceTree = "<group>"; };
@@ -1283,21 +1269,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6476119F2581B20200C844D7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				647612072581B51200C844D7 /* CloudKit.framework in Frameworks */,
-				647612092581B52600C844D7 /* Intents.framework in Frameworks */,
-				6485E44D25BE5B0700490654 /* ResolveKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6483E7852086D54A00AA08BE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				646ADD3A2587FECA00DD69B9 /* Intents.framework in Frameworks */,
 				649E13AF255ED13E0085588F /* ResolveKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1566,6 +1541,7 @@
 				642F955C1E75BD930024CC4A /* Conversation */,
 				6473E56E2218689200062E5F /* CoreData */,
 				648269521FC7CFF6001A1C8D /* HomeKit */,
+				64F744F3262CC5F1002ED718 /* Layout */,
 				642F955F1E75BF880024CC4A /* Main */,
 				64CA911A1E538D4000E80494 /* Map */,
 				64EC7B8B1E6E11C4008DE059 /* Photos */,
@@ -2086,6 +2062,11 @@
 			children = (
 				64ABD16323EB016100054D42 /* CoreAPIRequestTask-Extensions.swift */,
 				64E96B2B255E279A00759501 /* Extensions-UIKit.swift */,
+				64F744D6262CC430002ED718 /* FloatingHeaderControl.swift */,
+				64F744D5262CC430002ED718 /* FloatingHeaderLabel.swift */,
+				64F744D9262CC430002ED718 /* FloatingHeaderTextField.swift */,
+				64F744D7262CC430002ED718 /* FloatingHeaderTextView.swift */,
+				64F744D8262CC430002ED718 /* KeyboardLayoutPlugin.swift */,
 				642126E020E7F55D00856E2C /* MorphingLabel.swift */,
 				64B3119A20387ED600B75F31 /* UserInputManager.swift */,
 			);
@@ -2301,7 +2282,6 @@
 				6462AB35255E11E100B695C4 /* ResolveKit.framework */,
 				6462AB3D255E11E200B695C4 /* ResolveKitTests.xctest */,
 				6462AED7255E166300B695C4 /* ResolveKit.framework */,
-				647611A22581B20200C844D7 /* Intent.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2446,6 +2426,15 @@
 				64F292CD2411358D00BDCB4C /* Extensions-HomeKit.swift */,
 			);
 			path = HomeKit;
+			sourceTree = "<group>";
+		};
+		64F744F3262CC5F1002ED718 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				64F744F4262CC607002ED718 /* Layout.storyboard */,
+				64F74500262CC637002ED718 /* LayoutViewController.swift */,
+			);
+			name = Layout;
 			sourceTree = "<group>";
 		};
 		64FBAD0123D64567004668E1 /* Map */ = {
@@ -2672,24 +2661,6 @@
 			productReference = 6462AED7255E166300B695C4 /* ResolveKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		647611A12581B20200C844D7 /* Intent-watchOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 647611AA2581B20200C844D7 /* Build configuration list for PBXNativeTarget "Intent-watchOS" */;
-			buildPhases = (
-				6476119E2581B20200C844D7 /* Sources */,
-				6476119F2581B20200C844D7 /* Frameworks */,
-				647611A02581B20200C844D7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6485E45025BE5B0700490654 /* PBXTargetDependency */,
-			);
-			name = "Intent-watchOS";
-			productName = Intent;
-			productReference = 647611A22581B20200C844D7 /* Intent.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		6483E77B2086D54800AA08BE /* Resolve-watchOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6483E7A02086D54B00AA08BE /* Build configuration list for PBXNativeTarget "Resolve-watchOS" */;
@@ -2722,7 +2693,6 @@
 			);
 			dependencies = (
 				649E13B2255ED13E0085588F /* PBXTargetDependency */,
-				647611A82581B20200C844D7 /* PBXTargetDependency */,
 			);
 			name = "Resolve-watchOS Extension";
 			productName = "Resolve-watchOS Extension";
@@ -2836,9 +2806,6 @@
 					6462AED6255E166300B695C4 = {
 						CreatedOnToolsVersion = 12.2;
 					};
-					647611A12581B20200C844D7 = {
-						CreatedOnToolsVersion = 12.2;
-					};
 					6483E77B2086D54800AA08BE = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 1220;
@@ -2929,7 +2896,6 @@
 				644076E71D356B9E000AD646 /* Resolve-tvOS */,
 				6483E77B2086D54800AA08BE /* Resolve-watchOS */,
 				6483E7872086D54A00AA08BE /* Resolve-watchOS Extension */,
-				647611A12581B20200C844D7 /* Intent-watchOS */,
 			);
 		};
 /* End PBXProject section */
@@ -3023,18 +2989,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		647611A02581B20200C844D7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6483E77A2086D54800AA08BE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6485E3B225BE55B300490654 /* Intents.intentdefinition in Resources */,
 				6483E7822086D54A00AA08BE /* Assets.xcassets in Resources */,
 				6483E7802086D54800AA08BE /* Interface.storyboard in Resources */,
 			);
@@ -3086,6 +3044,7 @@
 				64E06FA62602368400528217 /* AppIcon-Blue~ipad.png in Resources */,
 				64E06FA72602368400528217 /* AppIcon-Blue~ipad@2x.png in Resources */,
 				643D25812219F1600090FA68 /* CoreData.storyboard in Resources */,
+				64F74516262CC640002ED718 /* Layout.storyboard in Resources */,
 				649481B725D0A82E00DC45D2 /* AppIcon-Red~ipad@2x.png in Resources */,
 				647006F623BAE9ED002F40C3 /* Camera.storyboard in Resources */,
 				64E06FA82602368400528217 /* AppIcon-Blue@3x.png in Resources */,
@@ -3211,6 +3170,7 @@
 				6412F6DC255E1AD800038346 /* CloudKitOperation.swift in Sources */,
 				64E96CEB255E293000759501 /* ControlBinding.swift in Sources */,
 				6412F628255E1A3800038346 /* CloudKitService.swift in Sources */,
+				64F744DE262CC430002ED718 /* FloatingHeaderTextField.swift in Sources */,
 				6412F640255E1A3800038346 /* CloudKit-Extensions.swift in Sources */,
 				6412F6FC255E1AD800038346 /* UpdateUserInfosCloudKitOperation.swift in Sources */,
 				6412F6C4255E1AD800038346 /* PrepareFetchSharedEventsCloudKitOperation.swift in Sources */,
@@ -3228,6 +3188,7 @@
 				64E96A83255E25F700759501 /* ResolveKitCoreDataConfigurationProvider.swift in Sources */,
 				6412F6E4255E1AD800038346 /* CloudKitDataOperation.swift in Sources */,
 				64BBBA8E26000DCE002A84C8 /* LookupFriendsCloudKitOperations.swift in Sources */,
+				64F744DB262CC430002ED718 /* FloatingHeaderControl.swift in Sources */,
 				64E96A97255E25F700759501 /* ResolveKitDataError.swift in Sources */,
 				6412F681255E1A8B00038346 /* SetupCloudKitOperations.swift in Sources */,
 				64674426256053BC007EA369 /* ResolveServices.swift in Sources */,
@@ -3247,7 +3208,9 @@
 				6412F689255E1A8B00038346 /* CloudKitManagerConfigurationProviding.swift in Sources */,
 				64E96CA6255E28C100759501 /* FileStoreManagerUrlProvider.swift in Sources */,
 				64900359257EF01B007F2626 /* FetchCurrentUserIDCloudKitOperation.swift in Sources */,
+				64F744DC262CC430002ED718 /* FloatingHeaderTextView.swift in Sources */,
 				6412F6F4255E1AD800038346 /* CollectEntityInfoCloudKitDataOperation.swift in Sources */,
+				64F744DA262CC430002ED718 /* FloatingHeaderLabel.swift in Sources */,
 				6431D05125A1050400ED5365 /* CoreDataSettingsManager.swift in Sources */,
 				6412F691255E1A8B00038346 /* CloudKitManager.swift in Sources */,
 				64E96CC2255E28C100759501 /* AppUserManager.swift in Sources */,
@@ -3262,6 +3225,7 @@
 				6401877B25ABB9CB00567B22 /* DataManager.swift in Sources */,
 				64E96CF7255E293000759501 /* ResolveTableView.swift in Sources */,
 				6412F624255E1A3800038346 /* SyncableEntity-CloudKit.swift in Sources */,
+				64F744DD262CC430002ED718 /* KeyboardLayoutPlugin.swift in Sources */,
 				6462AA75255E0A0000B695C4 /* AppGroupProviding.swift in Sources */,
 				64E96CE5255E293000759501 /* ShimExtensions.swift in Sources */,
 				64E96CBE255E28C100759501 /* ResolveBinding.swift in Sources */,
@@ -3490,7 +3454,6 @@
 				6412F67C255E1A8B00038346 /* SyncUserCloudKitOperations.swift in Sources */,
 				6412F6DB255E1AD800038346 /* CleanupCloudKitOperation.swift in Sources */,
 				64E96CB1255E28C100759501 /* AppInfoService.swift in Sources */,
-				647611852581B06900C844D7 /* Intents.intentdefinition in Sources */,
 				647CAD4725696E9E000C0F3D /* CloudKitGroupOperation.swift in Sources */,
 				64AB08412581B8CE007899DC /* AppGroupFileStoreManagerUrlProvider.swift in Sources */,
 				6412F6FB255E1AD800038346 /* CloudKitSyncOperation.swift in Sources */,
@@ -3542,7 +3505,6 @@
 				6412F61F255E1A3800038346 /* ICloudSyncReference-CloudKit.swift in Sources */,
 				64E96A86255E25F700759501 /* ResolveKitCoreDataConfigurationProvider.swift in Sources */,
 				64BBBA9126000DCE002A84C8 /* LookupFriendsCloudKitOperations.swift in Sources */,
-				6476116C2581B05300C844D7 /* SharedEventIntentHandler.swift in Sources */,
 				6412F6CB255E1AD800038346 /* AccountStatusCloudKitOperation.swift in Sources */,
 				64E96A9E255E25F700759501 /* SharedEvent-Extensions.swift in Sources */,
 				64E96CC5255E28C100759501 /* AppUserManager.swift in Sources */,
@@ -3558,21 +3520,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6476119E2581B20200C844D7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				647611BB2581B26900C844D7 /* IntentHandler.swift in Sources */,
-				64D7CB9A25922E000067BCFD /* ExtensionServices.swift in Sources */,
-				646ADCF62587FD5300DD69B9 /* Intents.intentdefinition in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6483E7842086D54A00AA08BE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				646ADD2C2587FD5E00DD69B9 /* Intents.intentdefinition in Sources */,
 				641BF84325BDEA5A001FEFF1 /* UserInputService.swift in Sources */,
 				6467451B2561C836007EA369 /* ApplicationServices.swift in Sources */,
 				6448745A25982681004421AF /* SharedEventTableViewCell.swift in Sources */,
@@ -3748,6 +3699,7 @@
 				64C58538239440ED00A2717A /* CloudSyncingTableViewController.swift in Sources */,
 				6431D0FB25A1181800ED5365 /* WatchSessionSettingsManager.swift in Sources */,
 				646745002561C7F6007EA369 /* ApplicationServices.swift in Sources */,
+				64F74501262CC637002ED718 /* LayoutViewController.swift in Sources */,
 				64164166207A85F000827D4F /* CustomViewController.swift in Sources */,
 				6481A96B1DE2410A00B1EE1C /* SettingsTableViewController-iOS.swift in Sources */,
 				64B311B8203B5ED600B75F31 /* Extensions-SpriteKit.swift in Sources */,
@@ -3800,11 +3752,6 @@
 			target = 6462AB34255E11E100B695C4 /* ResolveKit-tvOS */;
 			targetProxy = 6462AB3F255E11E200B695C4 /* PBXContainerItemProxy */;
 		};
-		647611A82581B20200C844D7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 647611A12581B20200C844D7 /* Intent-watchOS */;
-			targetProxy = 647611A72581B20200C844D7 /* PBXContainerItemProxy */;
-		};
 		6483E78B2086D54A00AA08BE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6483E7872086D54A00AA08BE /* Resolve-watchOS Extension */;
@@ -3815,11 +3762,6 @@
 			platformFilter = ios;
 			target = 6483E77B2086D54800AA08BE /* Resolve-watchOS */;
 			targetProxy = 6483E7972086D54B00AA08BE /* PBXContainerItemProxy */;
-		};
-		6485E45025BE5B0700490654 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6462AED6255E166300B695C4 /* ResolveKit-watchOS */;
-			targetProxy = 6485E44F25BE5B0700490654 /* PBXContainerItemProxy */;
 		};
 		649E13B2255ED13E0085588F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -4282,47 +4224,6 @@
 			};
 			name = Release;
 		};
-		647611AB2581B20200C844D7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "watchOS/$(PRODUCT_NAME)/$(PRODUCT_NAME).entitlements";
-				INFOPLIST_FILE = "watchOS/$(PRODUCT_NAME)/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).watchkitapp.watchkitextension.$(PRODUCT_NAME:rfc1034identifier:lower)";
-				PRODUCT_NAME = Intent;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
-			};
-			name = Debug;
-		};
-		647611AC2581B20200C844D7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "watchOS/$(PRODUCT_NAME)/$(PRODUCT_NAME).entitlements";
-				INFOPLIST_FILE = "watchOS/$(PRODUCT_NAME)/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).watchkitapp.watchkitextension.$(PRODUCT_NAME:rfc1034identifier:lower)";
-				PRODUCT_NAME = Intent;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
-			};
-			name = Release;
-		};
 		6483E79A2086D54B00AA08BE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -4768,15 +4669,6 @@
 			buildConfigurations = (
 				6462AEDD255E166300B695C4 /* Debug */,
 				6462AEDE255E166300B695C4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		647611AA2581B20200C844D7 /* Build configuration list for PBXNativeTarget "Intent-watchOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				647611AB2581B20200C844D7 /* Debug */,
-				647611AC2581B20200C844D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

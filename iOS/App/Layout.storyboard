@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dEL-ib-VmT">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="CGq-Vm-KhP">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" hidesBarsOnTap="YES" id="dEL-ib-VmT" customClass="NavigationController" customModule="Resolve" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" restorationIdentifier="NavigationBar" id="vhO-u5-WRQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JBB-gQ-sQn" kind="relationship" relationship="rootViewController" id="Xv9-J2-lGd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F5o-gy-I0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1580" y="795"/>
+        </scene>
+        <!--Layout-->
+        <scene sceneID="zDz-6a-FPN">
+            <objects>
+                <viewController storyboardIdentifier="LayoutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JBB-gQ-sQn" customClass="LayoutViewController" customModule="Resolve" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yfv-gy-jaa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" alwaysBounceVertical="YES" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="rMi-Ui-Man">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="BSt-WV-aZ5">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4EL-u2-sG2">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                                <subviews>
+                                                    <view verifyAmbiguity="off" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BXd-42-EPQ" customClass="FloatingHeaderLabel" customModule="ResolveKit">
+                                                        <rect key="frame" x="16" y="12" width="343" height="38"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.050000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Recipient"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                                <color key="value" systemColor="placeholderTextColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="BXd-42-EPQ" firstAttribute="top" secondItem="4EL-u2-sG2" secondAttribute="top" constant="12" id="E0B-dM-96E"/>
+                                                    <constraint firstAttribute="bottom" secondItem="BXd-42-EPQ" secondAttribute="bottom" constant="12" id="Slg-f3-Cad"/>
+                                                    <constraint firstAttribute="trailingMargin" secondItem="BXd-42-EPQ" secondAttribute="trailing" id="ZZY-WD-otj"/>
+                                                    <constraint firstItem="BXd-42-EPQ" firstAttribute="leading" secondItem="4EL-u2-sG2" secondAttribute="leadingMargin" id="sG3-hy-0aw"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Nv-lR-i2E">
+                                                <rect key="frame" x="0.0" y="51" width="375" height="188.5"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J9T-hp-yJF" customClass="FloatingHeaderTextField" customModule="ResolveKit">
+                                                        <rect key="frame" x="16" y="12" width="343" height="39.5"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.050000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Subject"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                                <color key="value" systemColor="placeholderTextColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="J9T-hp-yJF" firstAttribute="top" secondItem="5Nv-lR-i2E" secondAttribute="top" constant="12" id="7Uo-2k-rLq"/>
+                                                    <constraint firstAttribute="trailingMargin" secondItem="J9T-hp-yJF" secondAttribute="trailing" id="BtI-8x-Ul7"/>
+                                                    <constraint firstItem="J9T-hp-yJF" firstAttribute="leading" secondItem="5Nv-lR-i2E" secondAttribute="leadingMargin" id="Lyh-YN-SMl"/>
+                                                    <constraint firstAttribute="bottom" secondItem="J9T-hp-yJF" secondAttribute="bottom" constant="12" id="xRU-QH-wTs"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oOF-em-ayV">
+                                                <rect key="frame" x="0.0" y="240.5" width="375" height="382.5"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jyy-Fi-0Ff" customClass="FloatingHeaderTextView" customModule="ResolveKit">
+                                                        <rect key="frame" x="16" y="12" width="343" height="471.5"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.050000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Message"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                                <color key="value" systemColor="placeholderTextColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="jyy-Fi-0Ff" firstAttribute="leading" secondItem="oOF-em-ayV" secondAttribute="leadingMargin" id="dgQ-a2-7hK"/>
+                                                    <constraint firstAttribute="trailingMargin" secondItem="jyy-Fi-0Ff" secondAttribute="trailing" id="eHO-i4-IBk"/>
+                                                    <constraint firstItem="jyy-Fi-0Ff" firstAttribute="top" secondItem="oOF-em-ayV" secondAttribute="top" constant="12" id="eJc-S6-29f"/>
+                                                    <constraint firstAttribute="bottom" secondItem="jyy-Fi-0Ff" secondAttribute="bottom" constant="12" id="ynV-JK-DN4"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="BSt-WV-aZ5" secondAttribute="trailing" id="5N8-tM-4V8"/>
+                                    <constraint firstItem="BSt-WV-aZ5" firstAttribute="width" secondItem="rMi-Ui-Man" secondAttribute="width" id="9xj-Vw-MBr"/>
+                                    <constraint firstItem="BSt-WV-aZ5" firstAttribute="bottom" secondItem="rMi-Ui-Man" secondAttribute="bottom" id="Rh2-Nw-6jk"/>
+                                    <constraint firstItem="BSt-WV-aZ5" firstAttribute="leading" secondItem="rMi-Ui-Man" secondAttribute="leading" id="W9h-Z5-KL5"/>
+                                    <constraint firstItem="BSt-WV-aZ5" firstAttribute="top" secondItem="rMi-Ui-Man" secondAttribute="top" id="tAS-kt-dgM"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dsy-Jv-wHc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="BSt-WV-aZ5" firstAttribute="height" secondItem="dsy-Jv-wHc" secondAttribute="height" priority="750" placeholder="YES" identifier="Replace by KeyboardLayoutPlugin" id="7VD-q3-5z5"/>
+                            <constraint firstAttribute="bottom" secondItem="rMi-Ui-Man" secondAttribute="bottom" id="88p-qR-NtK"/>
+                            <constraint firstItem="rMi-Ui-Man" firstAttribute="leading" secondItem="Yfv-gy-jaa" secondAttribute="leading" id="BXP-wl-9tG"/>
+                            <constraint firstItem="rMi-Ui-Man" firstAttribute="top" secondItem="Yfv-gy-jaa" secondAttribute="top" id="MES-9f-Ry1"/>
+                            <constraint firstAttribute="trailing" secondItem="rMi-Ui-Man" secondAttribute="trailing" id="diz-lc-DWd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Layout" leftItemsSupplementBackButton="YES" id="z68-US-SQH"/>
+                    <connections>
+                        <outlet property="recipientLabel" destination="BXd-42-EPQ" id="9gD-Ly-cj5"/>
+                        <outlet property="scrollView" destination="rMi-Ui-Man" id="GyG-lO-Wrx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Dd-IB-2nn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-791.20000000000005" y="794.75262368815595"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="placeholderTextColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

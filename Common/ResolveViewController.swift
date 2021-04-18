@@ -42,29 +42,29 @@ open class ResolveViewController: CoreViewController {
 	/// Common version of `viewWillDisappear` matching UIKit. `animated` will always be false on macOS
 	open func viewWillDisappear(_ animated: Bool) { }
 	
-	override open func viewDidAppear() {
+	open override func viewDidAppear() {
 		super.viewDidAppear()
 		viewDidAppear(false)
 	}
 	
-	override open func viewDidDisappear() {
+	open override func viewDidDisappear() {
 		super.viewDidDisappear()
 		viewDidDisappear(false)
 	}
 	
-	override open func viewWillAppear() {
+	open override func viewWillAppear() {
 		super.viewWillAppear()
 		viewWillAppear(false)
 	}
 	
-	override open func viewWillDisappear() {
+	open override func viewWillDisappear() {
 		super.viewWillDisappear()
 		viewWillDisappear(false)
 	}
 
 	#elseif os(watchOS)
 
-	override open func awake(withContext context: Any?) {
+	open override func awake(withContext context: Any?) {
 		super.awake(withContext: context)
 		if let shouldBecomeCurrent = context as? Bool, shouldBecomeCurrent {
 			becomeCurrentPage()

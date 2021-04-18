@@ -32,7 +32,7 @@ import ResolveKit
 		clipsToBounds = true
 	}
 
-	override public func layoutSubviews() {
+	public override func layoutSubviews() {
 		super.layoutSubviews()
 		layer.cornerRadius = .minimum(bounds.width, bounds.height) / 2
 	}

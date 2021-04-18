@@ -85,7 +85,15 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ppB-Ho-jmS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3964" y="-960"/>
+            <point key="canvasLocation" x="3962" y="-937"/>
+        </scene>
+        <!--Layout-->
+        <scene sceneID="Z8Q-fW-D9D">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Layout" id="LrI-XZ-qaD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Fq-bi-J8Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3903" y="-1071"/>
         </scene>
         <!--Photos-->
         <scene sceneID="zc6-cd-nss">
@@ -93,7 +101,7 @@
                 <viewControllerPlaceholder storyboardName="Photos" id="PPM-mO-47k" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="swq-M6-f6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3906" y="-1004"/>
+            <point key="canvasLocation" x="3905" y="-981"/>
         </scene>
         <!--HomeKit-->
         <scene sceneID="Uni-hS-3xO">
@@ -101,7 +109,7 @@
                 <viewControllerPlaceholder storyboardName="HomeKit" id="nsQ-GT-Z1N" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1t8-lC-gII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3914" y="-1094"/>
+            <point key="canvasLocation" x="3913" y="-1116"/>
         </scene>
         <!--AlternateIcons-->
         <scene sceneID="BMN-eQ-hPD">
@@ -109,7 +117,7 @@
                 <viewControllerPlaceholder storyboardName="AlternateIcons" id="naQ-vN-o1S" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pef-Fm-Hcu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3944" y="-1409"/>
+            <point key="canvasLocation" x="3942" y="-1432"/>
         </scene>
         <!--Beacon-->
         <scene sceneID="mj6-7a-b69">
@@ -117,7 +125,7 @@
                 <viewControllerPlaceholder storyboardName="Beacon" id="oYe-2z-3xp" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctV-NR-ZdJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3908" y="-1364"/>
+            <point key="canvasLocation" x="3906" y="-1386"/>
         </scene>
         <!--CameraNavigationController-->
         <scene sceneID="XA3-Yw-DZ3">
@@ -127,7 +135,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L7b-c1-n1R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4010" y="-1319"/>
+            <point key="canvasLocation" x="4009" y="-1341"/>
         </scene>
         <!--Camera-->
         <scene sceneID="bZd-8P-Qyw">
@@ -135,7 +143,7 @@
                 <viewControllerPlaceholder storyboardName="Camera" id="be6-ri-H1r" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQ9-92-E4e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3910" y="-1275"/>
+            <point key="canvasLocation" x="3910" y="-1297"/>
         </scene>
         <!--CloudKit-->
         <scene sceneID="BP7-7N-Bp1">
@@ -143,7 +151,7 @@
                 <viewControllerPlaceholder storyboardName="CloudKit" id="Hns-fh-rem" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHN-S5-1Ln" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3914" y="-1229"/>
+            <point key="canvasLocation" x="3913" y="-1251"/>
         </scene>
         <!--Conversation-->
         <scene sceneID="dfg-dO-bVw">
@@ -151,7 +159,7 @@
                 <viewControllerPlaceholder storyboardName="Conversation" id="jYt-Pg-Z6p" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIw-ls-hUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3936" y="-1184"/>
+            <point key="canvasLocation" x="3936" y="-1206"/>
         </scene>
         <!--LaunchScreen-->
         <scene sceneID="IAR-N7-fyf">
@@ -200,7 +208,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cT7-ch-dp4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3893" y="-1048"/>
+            <point key="canvasLocation" x="3893" y="-1025"/>
         </scene>
         <!--Resolve-->
         <scene sceneID="zNU-wI-qtI">
@@ -211,7 +219,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <view key="tableFooterView" opaque="NO" contentMode="scaleToFill" id="ZRy-bU-0tb" customClass="UITableViewHeaderFooterView">
-                            <rect key="frame" x="0.0" y="540" width="375" height="0.0"/>
+                            <rect key="frame" x="0.0" y="584" width="375" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         </view>
                         <sections>
@@ -409,8 +417,31 @@
                                             <segue destination="nsQ-GT-Z1N" kind="showDetail" identifier="showHomeKit" id="Lvq-q9-ZRi"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Map" selectionStyle="default" indentationWidth="10" textLabel="9kp-R9-3xs" style="IBUITableViewCellStyleDefault" id="gaK-Kr-sHU" customClass="SettingsTableViewCell" customModule="Resolve" customModuleProvider="target">
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Layout" selectionStyle="default" indentationWidth="10" textLabel="V8S-7p-LLD" style="IBUITableViewCellStyleDefault" id="4Qt-ZJ-B7u" customClass="SettingsTableViewCell" customModule="Resolve" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="380" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Qt-ZJ-B7u" id="x9B-5W-3gl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Layout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V8S-7p-LLD">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" hint="Zoom into a map of the world" identifier="mapCell">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <connections>
+                                            <segue destination="LrI-XZ-qaD" kind="showDetail" identifier="showLayout" id="XpG-Q5-hgu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Map" selectionStyle="default" indentationWidth="10" textLabel="9kp-R9-3xs" style="IBUITableViewCellStyleDefault" id="gaK-Kr-sHU" customClass="SettingsTableViewCell" customModule="Resolve" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="424" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gaK-Kr-sHU" id="PSK-UX-NXc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -433,7 +464,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Photos" selectionStyle="default" indentationWidth="10" textLabel="nFc-0R-mRY" style="IBUITableViewCellStyleDefault" id="6ex-Qt-X7A" customClass="SettingsTableViewCell" customModule="Resolve" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="424" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="468" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6ex-Qt-X7A" id="sgy-gs-1ho">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -456,7 +487,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="WatchConnectivity" selectionStyle="default" indentationWidth="10" textLabel="PQI-Ln-oGx" style="IBUITableViewCellStyleDefault" id="rhL-kq-6W8" customClass="SettingsTableViewCell" customModule="Resolve" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="468" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="512" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rhL-kq-6W8" id="VSo-c9-rs2">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -498,7 +529,7 @@
                 <viewControllerPlaceholder storyboardName="CoreData" id="c80-As-Nko" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Wo-Cn-ftk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3918" y="-1139"/>
+            <point key="canvasLocation" x="3918" y="-1161"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

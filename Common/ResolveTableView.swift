@@ -25,7 +25,7 @@ import CoreResolve
 /// Custom UITableView subclass that better supports dynamically sized cells (NOTE: a better alternative is to use CoreTableViewDataSource)
 open class ResolveTableView: UITableView, CoreTableViewPreparesViewsForSizing {
 
-	override open func dequeueReusableCell(withIdentifier identifier: String) -> UITableViewCell? {
+	open override func dequeueReusableCell(withIdentifier identifier: String) -> UITableViewCell? {
 		guard let retVal = super.dequeueReusableCell(withIdentifier: identifier) else { return nil }
 		if cellRequiresPreparation {
 			prepareViewForSizing(retVal)
@@ -33,7 +33,7 @@ open class ResolveTableView: UITableView, CoreTableViewPreparesViewsForSizing {
 		return retVal
 	}
 
-	override open func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
+	open override func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
 		let retVal = super.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
 		if cellRequiresPreparation {
 			prepareViewForSizing(retVal)
@@ -41,7 +41,7 @@ open class ResolveTableView: UITableView, CoreTableViewPreparesViewsForSizing {
 		return retVal
 	}
 
-	override open func dequeueReusableHeaderFooterView(withIdentifier identifier: String) -> UITableViewHeaderFooterView? {
+	open override func dequeueReusableHeaderFooterView(withIdentifier identifier: String) -> UITableViewHeaderFooterView? {
 		guard let retVal = super.dequeueReusableHeaderFooterView(withIdentifier: identifier) else { return nil }
 		if sectionFooterRequiresPreparation || sectionHeaderRequiresPreparation {
 			prepareViewForSizing(retVal)

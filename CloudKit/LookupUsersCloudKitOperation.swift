@@ -38,12 +38,12 @@ internal final class LookupUsersCloudKitOperation: CloudKitGroupOperation {
 		super.init(with: workflowContext)
 	}
 
-	override public func cancel() {
+	public override func cancel() {
 		cloudOperation?.cancel()
 		super.cancel()
 	}
 
-	override public func finish(withError error: Error) {
+	public override func finish(withError error: Error) {
 		switch error {
 		case let cloudKitError as CKError where cloudKitError.code == CKError.requestRateLimited:
 			guard let retryAfterDuration = cloudKitError.errorUserInfo[CKErrorRetryAfterKey] as? TimeInterval else {
@@ -58,7 +58,7 @@ internal final class LookupUsersCloudKitOperation: CloudKitGroupOperation {
 		}
 	}
 
-	override public func main() {
+	public override func main() {
 		let emailAddresses: [String] = contacts.flatMap { contact in
 			return contact.emailAddresses.map { String($0.value) }
 		}

@@ -24,12 +24,15 @@ final class ExtensionServices: ResolveServices {
 
 	override func configureResources<Configurator>(with configurator: Configurator) where Configurator: ServiceContextConfiguring {
 		super.configureResources(with: configurator)
-		guard #available(iOS 12.0, watchOS 7.0, *) else { return }
-		configurator.registerService(CreateSharedEventIntentHandling.self) { _ in
+		configurator.registerService(SharedEventIntentHandler.self) { _ in
 			let cloudService = try Self.access(CloudKitService.self)
 			let dataService = try Self.access(DataService.self)
 			let userService = try Self.access(AppUserService.self)
 			return SharedEventIntentHandler(cloudService: cloudService, dataService: dataService, userService: userService)
+		}
+		guard #available(iOS 12.0, watchOS 7.0, *) else { return }
+		configurator.registerService(CreateSharedEventIntentHandling.self) { _ in
+			return try Self.make(SharedEventIntentHandler.self)
 		}
 	}
 }

@@ -34,7 +34,7 @@ internal final class LinkUserCloudKitDataOperation: CloudKitDataOperation {
 		super.init(with: workflowContext, dataService: dataService, loggingService: loggingService)
 	}
 	
-	override public func main() {
+	public override func main() {
 		guard let currentUserRecordID = currentUserRecordID ?? workflowContext.currentUserRecordID else {
 			finish(withError: CloudKitError.internalInconsistency("Could not obtain current user record id"))
 			return

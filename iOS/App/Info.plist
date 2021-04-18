@@ -91,6 +91,7 @@
 		<string>$(RESOLVE_BUNDLE_PREFIX).$(PROJECT_NAME:rfc1034identifier:lower).stateRestoration.conversation</string>
 		<string>$(RESOLVE_BUNDLE_PREFIX).$(PROJECT_NAME:rfc1034identifier:lower).stateRestoration.coreData</string>
 		<string>$(RESOLVE_BUNDLE_PREFIX).$(PROJECT_NAME:rfc1034identifier:lower).stateRestoration.homeKit</string>
+		<string>$(RESOLVE_BUNDLE_PREFIX).$(PROJECT_NAME:rfc1034identifier:lower).stateRestoration.layout</string>
 		<string>$(RESOLVE_BUNDLE_PREFIX).$(PROJECT_NAME:rfc1034identifier:lower).stateRestoration.map</string>
 		<string>$(RESOLVE_BUNDLE_PREFIX).$(PROJECT_NAME:rfc1034identifier:lower).stateRestoration.photos</string>
 		<string>$(RESOLVE_BUNDLE_PREFIX).$(PROJECT_NAME:rfc1034identifier:lower).stateRestoration.watchConnectivity</string>

@@ -25,7 +25,7 @@ public final class CameraCaptureView: View {
 	
 	// MARK: - View overrides
 	
-	override public init(frame: CGRect) {
+	public override init(frame: CGRect) {
 		super.init(frame: frame)
 		setupView()
 	}
@@ -37,7 +37,7 @@ public final class CameraCaptureView: View {
 	
 	#if os(iOS)
 
-	override public class var layerClass: AnyClass {
+	public override class var layerClass: AnyClass {
 		return AVCaptureVideoPreviewLayer.self
 	}
 	

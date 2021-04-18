@@ -58,17 +58,6 @@ final class CoreDataInterfaceController: ResolveViewController {
 					complicationService.updateTapCount(self.tapCount, forceReload: false)
 					self.tapsButton.setEnabled(true)
 				}
-				guard #available(watchOS 5.0, *) else { return }
-				let intent = CreateSharedEventIntent()
-				intent.suggestedInvocationPhrase = "Create a shared event"
-				INInteraction(intent: intent, response: nil).donate { [loggingService] error in
-					switch error {
-					case .some(let error):
-						loggingService.log(.error, "Failure to donate intent: %{public}@", error.localizedDescription)
-					default:
-						loggingService.debug("Intent successfully donated")
-					}
-				}
 			} catch {
 				context.cancelTransaction(transactionContext: transactionContext)
 				loggingService.log(.error, "Failure to add shared event: %{public}@", error.localizedDescription)

@@ -25,7 +25,7 @@ internal final class UserDiscoverabilityPermissionRequestCloudKitOperation: Clou
 	
 	public private(set) var userDiscoverabilityPermissionStatus = CKContainer.Application.PermissionStatus.initialState
 	
-	override public func main() {
+	public override func main() {
 		guard workflowContext.userDiscoverabilityPermissionStatus != .granted else {
 			finish()
 			return

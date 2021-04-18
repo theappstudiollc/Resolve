@@ -85,7 +85,7 @@ extension UIDisplayGamut: CustomDebugStringConvertible {
 
 extension UITraitCollection {
 
-	override open var debugDescription: String {
+	open override var debugDescription: String {
 		/*
 		<UITraitCollection: 0x2826ae580; _UITraitNameUserInterfaceIdiom = Phone, _UITraitNameDisplayScale = 3.000000, _UITraitNameDisplayGamut = P3, _UITraitNameHorizontalSizeClass = Compact, _UITraitNameVerticalSizeClass = Compact, _UITraitNameUserInterfaceStyle = 1, _UITraitNameUserInterfaceLayoutDirection = 0, _UITraitNameForceTouchCapability = 2, _UITraitNamePreferredContentSizeCategory = UICTContentSizeCategoryL>
 		*/

@@ -49,6 +49,6 @@ final class IntentHandler: INExtension, ServiceContext {
 	/// Returns the handler for SiriKit Intents on iOS 11 and below
 	func legacyHandler(for intent: INIntent) -> Any {
 		print("Intent: \(intent)")
-		return self
+		return try! Services.make(SharedEventIntentHandler.self)
 	}
 }

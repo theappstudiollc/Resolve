@@ -48,8 +48,8 @@ final class SharedEventTableViewCell: TableViewCell {
 			return
 		}
 		#if !os(macOS)
-		constrainLayoutProvider(createdAtLabel, to: 1)
-		constrainLayoutProvider(createdByLabel, to: 0)
+		try! constrainLayoutProvider(createdAtLabel, to: 1)
+		try! constrainLayoutProvider(createdByLabel, to: 0)
 		#endif
 		mappedToColumns = true
 	}

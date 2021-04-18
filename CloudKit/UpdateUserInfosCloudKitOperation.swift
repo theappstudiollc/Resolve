@@ -34,7 +34,7 @@ internal final class UpdateUserInfosCloudKitOperation: CloudKitDataOperation {
 		super.init(with: workflowContext, dataService: dataService, loggingService: loggingService)
 	}
 
-	override public func main() {
+	public override func main() {
 		guard let userInfos = userInfos else {
 			finish(withError: CloudKitError.internalInconsistency("user infos dictionary not provided"))
 			return

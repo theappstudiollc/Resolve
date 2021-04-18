@@ -34,6 +34,7 @@ public enum CustomActivityType: Int {
 	case conversation
 	case coreData
 	case homeKit
+	case layout
 	case map
 	case photos
 	case watchConnectivity
@@ -70,8 +71,6 @@ public enum CustomActivityType: Int {
 public enum CustomActivityType: Int {
 	case coreData
 	case watchConnectivity
-	// SiriKit Intents start here
-	case createSharedEventIntent
 }
 
 #endif

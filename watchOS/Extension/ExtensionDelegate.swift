@@ -153,8 +153,6 @@ class ExtensionDelegate: ResolveDelegate, WKExtensionDelegate {
 		case .watchConnectivity:
 			if WatchConnectivityInterfaceController.isVisibleInterfaceController == true { return }
 			WKInterfaceController.reloadRootControllers(withNames: names, contexts: [false, true, false, false])
-		default:
-			break
 		}
 	}
 

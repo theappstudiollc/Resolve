@@ -24,7 +24,7 @@ internal final class UserDiscoverabilityPermissionStatusCloudKitOperation: Cloud
 	
 	public private(set) var userDiscoverabilityPermissionStatus = CKContainer.Application.PermissionStatus.initialState
 	
-	override public func main() {
+	public override func main() {
 		guard workflowContext.userDiscoverabilityPermissionStatus == .initialState else {
 			finish()
 			return

@@ -27,7 +27,7 @@ open class ResolveNavigationController: CoreNavigationController {
 
 	// MARK: - CoreNavigationController overrides
 
-	override open func awakeFromNib() {
+	open override func awakeFromNib() {
 		super.awakeFromNib()
 		if self is NavigationUsesPrepareForSegue {
 			// Simulates the rootViewController segue (in the same place an embed segue would be)
@@ -38,7 +38,7 @@ open class ResolveNavigationController: CoreNavigationController {
 		}
 	}
 
-	override open func show(_ vc: UIViewController, sender: Any?) {
+	open override func show(_ vc: UIViewController, sender: Any?) {
 		// Hook in here instead of pushViewController(_,animated:) because we know who the sender is
 		if self is NavigationUsesPrepareForSegue {
 			let source = (sender as? UIResponder)?.findResponder(as: UIViewController.self) ?? self
@@ -50,7 +50,7 @@ open class ResolveNavigationController: CoreNavigationController {
 
 	#if os(iOS)
 
-	override open func viewWillLayoutSubviews() {
+	open override func viewWillLayoutSubviews() {
 		if !once {
 			// Work around an issue on iOS 11 & 12 where the large title doesn't automatically scroll
 			if #available(iOS 11.0, *), let topViewController = topViewController, topViewController.navigationItem.largeTitleDisplayMode == .automatic {

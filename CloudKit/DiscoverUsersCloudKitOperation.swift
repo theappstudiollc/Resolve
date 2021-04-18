@@ -35,12 +35,12 @@ internal final class DiscoverUsersCloudKitOperation: CloudKitGroupOperation {
 	
 	public private(set) var userInfos = Set<CloudUserInfo>()
 	
-	override public func cancel() {
+	public override func cancel() {
 		cloudOperation?.cancel()
 		super.cancel()
 	}
 	
-	override public func finish(withError error: Error) {
+	public override func finish(withError error: Error) {
 		switch error {
 		case let cloudKitError as CKError where cloudKitError.code == CKError.requestRateLimited:
 			guard let retryAfterDuration = cloudKitError.errorUserInfo[CKErrorRetryAfterKey] as? TimeInterval else {
@@ -56,7 +56,7 @@ internal final class DiscoverUsersCloudKitOperation: CloudKitGroupOperation {
 		}
 	}
 	
-	override public func main() {
+	public override func main() {
 		if let retryAfter = DiscoverUsersCloudKitOperation.retryAfter, retryAfter > Date() {
 			finish(withError: CloudKitError.cloudBusy(retryAfter))
 			return

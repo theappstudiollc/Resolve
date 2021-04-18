@@ -40,7 +40,7 @@ public final class AppGroupFileStoreManagerUrlProvider: FileStoreManagerUrlProvi
 	///
 	/// - Parameter directoryType: The CoreFileStoreDirectoryType for which information is being requested
 	/// - Returns: The URL for the given CoreFileStoreDirectoryType, or nil if unknown
-	override public func directoryUrl(for directoryType: CoreFileStoreDirectoryType) -> URL? {
+	public override func directoryUrl(for directoryType: CoreFileStoreDirectoryType) -> URL? {
 		switch directoryType {
 		case .appGroup:
 			return appGroupProvider.appGroupContainer

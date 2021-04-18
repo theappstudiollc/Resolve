@@ -39,7 +39,7 @@ internal final class CollectEntityInfoCloudKitDataOperation: CloudKitDataOperati
 		name = "\(type(of: self))"
 	}
 	
-	override public func main() {
+	public override func main() {
 		dataService.performAndWait { context in
 			do {
 				let request = try self.fetchEntityRequest(context)

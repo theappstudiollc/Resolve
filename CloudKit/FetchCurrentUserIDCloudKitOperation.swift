@@ -24,7 +24,7 @@ internal final class FetchCurrentUserIDCloudKitOperation: CloudKitOperation {
 
 	public private(set) var currentUserRecordID: CKRecord.ID?
 
-	override public func main() {
+	public override func main() {
 		guard workflowContext.currentUserRecordID == nil else {
 			finish()
 			return
@@ -32,7 +32,7 @@ internal final class FetchCurrentUserIDCloudKitOperation: CloudKitOperation {
 		workflowContext.cloudContainer.fetchUserRecordID(completionHandler: responseHandler)
 	}
 
-	override public var shouldCancelOnContextError: Bool {
+	public override var shouldCancelOnContextError: Bool {
 		// Always run this so that we get CKRecordID's that don't say "__defaultOwner__" for the main user
 		return false
 	}

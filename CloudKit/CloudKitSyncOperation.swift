@@ -86,16 +86,16 @@ internal class CloudKitSyncOperation: CloudKitDataOperation, CloudKitGroupMember
 	
 	// MARK: - CloudKitDataOperation overrides -
 	
-	override open func cancel() {
+	open override func cancel() {
 		currentOperation?.cancel()
 		super.cancel()
 	}
 	
-	override open func main() {
+	open override func main() {
 		continuePipeline(result: .success(()))
 	}
 	
-	override open func finish() {
+	open override func finish() {
 		recordIDsToObjectIDs = _recordIDsToObjectIDs
 		super.finish()
 	}

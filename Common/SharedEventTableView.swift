@@ -86,7 +86,7 @@ final class SharedEventTableView: TableView, SharedEventTableImplements {
 	}
 	
 	private func setupTableView() {
-		configureColumns(to: columnAnchorGuide)
+		NSLayoutConstraint.activate(configureColumns(to: columnAnchorGuide))
 		let columnGuide = columnLayoutProvider.layoutProvider(for: 0)
 		columnRatioConstraint = columnGuide.widthAnchor.constraint(equalToConstant: 0)
 		columnRatioConstraint.priority = .required - 1

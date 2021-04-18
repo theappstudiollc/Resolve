@@ -24,7 +24,7 @@ internal final class AccountStatusCloudKitOperation: CloudKitOperation {
 	
 	public private(set) var accountStatus = CKAccountStatus.couldNotDetermine
 	
-	override public func main() {
+	public override func main() {
 		guard workflowContext.accountStatus != .available else {
 			finish()
 			return

@@ -45,7 +45,7 @@ internal final class PrepareFetchSharedEventsCloudKitOperation: CloudKitDataOper
 	
 	// MARK: - CloudKitDataOperation overrides
 	
-	override public func main() {
+	public override func main() {
 		guard let userObjectIDs = userObjectIDs else { fatalError("\(self) requires `userObjectIDs` to be set") }
 		dataService.performAndWait { context in
 			do {

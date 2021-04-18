@@ -27,7 +27,7 @@ internal final class UpdateSubscriptionCloudKitOperation: CloudKitGroupOperation
 	public var subscribedUsers: Set<CKRecord.ID>?
 	public var userRecordIDs: Set<CKRecord.ID>?
 	
-	override public func main() {
+	public override func main() {
 		guard #available(watchOS 6.0, *), let userRecordIDs = userRecordIDs, userRecordIDs != subscribedUsers else {
 			finish()
 			return

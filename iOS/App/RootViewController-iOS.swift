@@ -64,43 +64,4 @@ extension RootViewController {
 		}
 		return super.supportedInterfaceOrientations
 	}
-	
-	// MARK: - Extension methods
-	
-	func extensionViewDidLoad() {
-		#if !targetEnvironment(macCatalyst) // UIKeyboard doens't make sense on Mac
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-		#endif
-	}
-	
-	// MARK: - Private methods
-	
-	#if !targetEnvironment(macCatalyst)
-	
-	@objc internal func keyboardWillChangeFrame(_ notification: Notification) {
-		guard let userInfo = notification.userInfo,
-			let activeChild = activeChild,
-			let activeView = activeChild.viewIfLoaded,
-			let window = view.window else { return }
-		
-		let keyboardBeginRect = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! CGRect
-		let keyboardEndRect = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
-		guard keyboardBeginRect != keyboardEndRect else { return }
-		
-		let curve = UIView.AnimationCurve(rawValue: userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! Int)!
-		UIView.beginAnimations("keyboardWillChangeFrame", context: nil)
-		UIView.setAnimationBeginsFromCurrentState(true)
-		UIView.setAnimationCurve(curve)
-		UIView.setAnimationDuration(userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval)
-		if #available(iOS 11.0, *) {
-			let rect = window.convert(keyboardEndRect, to: activeView).intersection(activeView.bounds)
-			activeChild.additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: rect.height, right: 0)
-		} else {
-			// Fallback on earlier versions (use a custom UILayoutGuide)
-		}
-		view.layoutIfNeeded()
-		UIView.commitAnimations()
-	}
-	
-	#endif
 }

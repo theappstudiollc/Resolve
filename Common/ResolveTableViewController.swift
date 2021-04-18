@@ -50,28 +50,28 @@ open class ResolveTableViewController: CoreTableViewController, NSTableViewDataS
 
 	// MARK: - CoreTableViewController overrides
 
-    override open func viewDidAppear() {
+    open override func viewDidAppear() {
         super.viewDidAppear()
         viewDidAppear(false)
     }
 
-    override open func viewDidDisappear() {
+    open override func viewDidDisappear() {
         super.viewDidDisappear()
         viewDidDisappear(false)
     }
 
-	override open func viewDidLoad() {
+	open override func viewDidLoad() {
 		super.viewDidLoad()
 		tableView.dataSource = self
 		tableView.delegate = self
 	}
 
-    override open func viewWillAppear() {
+    open override func viewWillAppear() {
         super.viewWillAppear()
         viewWillAppear(false)
     }
 
-    override open func viewWillDisappear() {
+    open override func viewWillDisappear() {
         super.viewWillDisappear()
         viewWillDisappear(false)
     }

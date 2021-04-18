@@ -21,8 +21,7 @@
 import Intents
 import CoreData
 
-@available(iOS 12.0, watchOS 5.0, *)
-public final class SharedEventIntentHandler: NSObject, CreateSharedEventIntentHandling {
+public final class SharedEventIntentHandler: NSObject {
 
 	private let cloudService: CloudKitService
 	private let dataService: DataService
@@ -33,6 +32,10 @@ public final class SharedEventIntentHandler: NSObject, CreateSharedEventIntentHa
 		self.dataService = dataService
 		self.userService = userService
 	}
+}
+
+@available(iOS 12.0, watchOS 5.0, *)
+extension SharedEventIntentHandler: CreateSharedEventIntentHandling {
 
 	public func handle(intent: CreateSharedEventIntent, completion: @escaping (CreateSharedEventIntentResponse) -> Void) {
 		print("Handle Intent: \(intent)")

@@ -60,7 +60,7 @@ open class AsynchronousWorkflowOperation<TWorkflowContext>: CoreAsynchronousOper
 	// MARK: - Public methods -
 
 	/// Complete the operation. All paths, including cancellation, must lead to finish, otherwise the operation will forever consume its operation queue. This class' implementation of `start` already calls `finish` if the operation is cancelled before it begins
-	override open func finish() {
+	open override func finish() {
 		if isCancelled {
 			error = AsynchronousOperationError.cancelled(error: nil)
 		}

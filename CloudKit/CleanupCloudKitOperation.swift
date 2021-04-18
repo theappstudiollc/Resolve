@@ -24,7 +24,7 @@ internal final class CleanupCloudKitOperation: CloudKitOperation {
 	
 	public private(set) var retryAfter: Date?
 	
-	override public func main() {
+	public override func main() {
 		guard let error = workflowContext.error else {
 			finish()
 			return

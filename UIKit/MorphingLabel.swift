@@ -21,21 +21,51 @@
 import CoreResolve
 import UIKit
 
-@IBDesignable public class FloatingValueLabel: UIStackView {
+@IBDesignable public class MorphingLabel: UIView {
 	
-	var font: UIFont! = UIFont.systemFont(ofSize: 18, weight: .regular) {
-		didSet { valueLabel.font = font }
+	public dynamic var font: UIFont! {
+		get { label.font }
+		set {
+			guard label.font != newValue else { return }
+			label.font = newValue
+			invalidateIntrinsicContentSize()
+			setNeedsLayout()
+		}
 	}
-	@IBInspectable public var textColor: UIColor! = UIColor.red {
-		didSet { valueLabel.textColor = textColor }
+	public dynamic var morphedFont: UIFont! {
+		get { morphedLabel.font }
+		set {
+			guard morphedLabel.font != newValue else { return }
+			morphedLabel.font = newValue
+			invalidateIntrinsicContentSize()
+			setNeedsLayout()
+		}
 	}
-	@IBInspectable public var isSelected: Bool = false {
-		didSet { updateSelected(oldValue: oldValue) }
+	@IBInspectable public var morphedTextColor: UIColor! {
+		get { morphedLabel.textColor }
+		set { morphedLabel.textColor = newValue }
 	}
-	@IBInspectable public var placeholder: String? = "Critical" {
-		didSet { updateText() }
+	@IBInspectable public var textColor: UIColor! {
+		get { label.textColor }
+		set { label.textColor = newValue }
 	}
-	@IBInspectable public var text: String? = "YES" {
+	@IBInspectable public var isMorphed: Bool = false {
+		didSet {
+			updateMorphed(oldValue: oldValue)
+			layoutIfNeeded()
+			// Because the size is changing, superviews should adjust as well
+			for view in viewLayoutChain {
+				switch view {
+				case let tableView as UITableView:
+					tableView.beginUpdates()
+					tableView.endUpdates()
+				default:
+					view.layoutIfNeeded()
+				}
+			}
+		}
+	}
+	@IBInspectable public var text: String? {
 		didSet { updateText() }
 	}
 	
@@ -43,154 +73,119 @@ import UIKit
 		super.init(frame: frame)
 		setupControl()
 	}
-	
-	required init(coder: NSCoder) {
+
+	required init?(coder: NSCoder) {
 		super.init(coder: coder)
 		setupControl()
 	}
-	/*
-	override var forFirstBaselineLayout: UIView {
-		return valueLabel
+
+	public override var intrinsicContentSize: CGSize {
+		isMorphed ? morphedLabel.intrinsicContentSize : label.intrinsicContentSize
 	}
-	*/
+
+	public override var forFirstBaselineLayout: UIView {
+		isMorphed ? morphedLabel : label
+	}
+
 	public override var forLastBaselineLayout: UIView {
-		return valueLabel
+		isMorphed ? morphedLabel : label
 	}
 
-	func setupControl() {
-		alignment = .leading
-		axis = .vertical
-		distribution = .fill
+	public override func layoutSubviews() {
+		super.layoutSubviews()
 
-		addArrangedSubview(morphingLabel)
-		valueLabel.backgroundColor = UIColor.magenta.withAlphaComponent(0.1)
-		valueLabel.font = font
-		valueLabel.textAlignment = .natural
-		valueLabel.textColor = textColor
-		valueLabel.text = text
-		valueLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-		valueLabel.setContentHuggingPriority(.required, for: .horizontal)
-		addArrangedSubview(valueLabel)
-		updateSelected(oldValue: isSelected)
-		updateText()
-	}
-	
-	func updateSelected(oldValue: Bool) {
-		if isSelected {
-			isBaselineRelativeArrangement = false
-			spacing = 1
-			valueLabel.alpha = 1
-		} else {
-			isBaselineRelativeArrangement = true
-			spacing = 0
-			valueLabel.alpha = 0
-		}
-		morphingLabel.isSelected = isSelected
-	}
-	
-	func updateText() {
-		morphingLabel.text = placeholder
-		valueLabel.text = text
-	}
+		let hiddenView: UIView = isMorphed ? label : morphedLabel
+		let visibleView: UIView = isMorphed ? morphedLabel : label
 
-	let morphingLabel = MorphingLabel(frame: .zero)
-	let valueLabel = CoreScalableLabel(textStyle: .body)
-}
-
-@IBDesignable final class MorphingLabel: UIStackView {
-	
-	var font: UIFont! = UIFont.systemFont(ofSize: 18, weight: .semibold) {
-		didSet { label.font = font }
-	}
-	var selectedFont: UIFont! = UIFont.systemFont(ofSize: 12, weight: .regular) {
-		didSet { selectedLabel.font = selectedFont }
-	}
-	@IBInspectable var textColor: UIColor! = UIColor.black {
-		didSet { label.textColor = textColor }
-	}
-	@IBInspectable var textSelectedColor: UIColor! = UIColor.gray {
-		didSet { selectedLabel.textColor = textSelectedColor}
-	}
-	@IBInspectable var isSelected: Bool = false {
-		didSet { updateSelected(oldValue: oldValue) }
-	}
-	@IBInspectable var text: String? = "Placeholder" {
-		didSet { updateText() }
-	}
-	
-	override init(frame: CGRect) {
-		super.init(frame: frame)
-		setupControl()
-	}
-	
-	required init(coder: NSCoder) {
-		super.init(coder: coder)
-		setupControl()
-	}
-	/*
-	override var forFirstBaselineLayout: UIView {
-		return label
-	}
-
-	override var forLastBaselineLayout: UIView {
-		return label
-	}
-	*/
-	func setupControl() {
-		alignment = .leading
-		axis = .vertical
-		distribution = .fill
-		isBaselineRelativeArrangement = true
-		spacing = 0
-		label.backgroundColor = UIColor.magenta.withAlphaComponent(0.1)
-		label.font = font
-		label.textAlignment = .natural
-		label.textColor = textColor
-		label.text = text
-		label.setContentCompressionResistancePriority(.required, for: .horizontal)
-		label.setContentHuggingPriority(.required, for: .horizontal)
-		addArrangedSubview(label)
-		selectedLabel.backgroundColor = UIColor.magenta.withAlphaComponent(0.1)
-		selectedLabel.font = selectedFont
-		selectedLabel.textAlignment = .natural
-		selectedLabel.textColor = textSelectedColor
-		selectedLabel.text = text
-		selectedLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-		selectedLabel.setContentHuggingPriority(.required, for: .horizontal)
-		addArrangedSubview(selectedLabel)
-		updateSelected(oldValue: isSelected)
-	}
-	
-	func updateSelected(oldValue: Bool) {
-		var hiddenView: UIView!
-		var visibleView: UIView!
-		if isSelected {
-			hiddenView = label
-			visibleView = selectedLabel
-		} else {
-			hiddenView = selectedLabel
-			visibleView = label
-		}
-		visibleView.alpha = 1
-		visibleView.transform = .identity
-		hiddenView.alpha = 0
 		let fromSize = hiddenView.intrinsicContentSize
 		let toSize = visibleView.intrinsicContentSize
-//		let xTranslate = (toSize.width - fromSize.width) / 4
-//		let yTranslate = (toSize.height - fromSize.height) / -4
-//		hiddenView.transform = CGAffineTransform(scaleX: toSize.width / fromSize.width, y: toSize.height / fromSize.height)
-//			.translatedBy(x: xTranslate, y: yTranslate)
+		guard fromSize != .zero, toSize != .zero else { return }
+
 		let xTranslate = (toSize.width - fromSize.width) / 2
 		let yTranslate = (toSize.height - fromSize.height) / -4
-		hiddenView.transform = CGAffineTransform(translationX: xTranslate, y: yTranslate)
-			.scaledBy(x: toSize.width / fromSize.width, y: toSize.height / fromSize.height)
+		hiddenView.transform = CGAffineTransform(translationX: xTranslate, y: yTranslate).scaledBy(x: toSize.width / fromSize.width, y: toSize.height / fromSize.height)
+		hiddenView.alpha = 0
+
+		visibleView.transform = .identity
+		visibleView.alpha = 1
+	}
+
+	public override class var requiresConstraintBasedLayout: Bool { true }
+
+	func setupControl() {
+
+		label.constrainsMinimumWidth = false
+		label.textAlignment = .natural
+		label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+		label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+		label.translatesAutoresizingMaskIntoConstraints = false
+		addSubview(label)
+
+		morphedLabel.constrainsMinimumWidth = false
+		morphedLabel.textAlignment = .natural
+		morphedLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+		morphedLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
+		morphedLabel.translatesAutoresizingMaskIntoConstraints = false
+		addSubview(morphedLabel)
+
+		NSLayoutConstraint.activate(
+			constrainVertically(to: label, with: .defaultHigh).constraints +
+			constrainVertically(to: morphedLabel, with: .defaultHigh).constraints + [
+			leadingAnchor.constraint(equalTo: label.leadingAnchor),
+			leadingAnchor.constraint(equalTo: morphedLabel.leadingAnchor),
+			label.firstBaselineAnchor.constraint(equalTo: morphedLabel.firstBaselineAnchor)
+		])
+
+		updateMorphed(oldValue: isMorphed)
+	}
+	
+	func updateMorphed(oldValue: Bool) {
+		guard oldValue != isMorphed else { return }
+		setNeedsLayout()
+		invalidateIntrinsicContentSize()
 	}
 	
 	func updateText() {
-		label.text = text
-		selectedLabel.text = text
+		if label.text != text {
+			label.text = text
+			if !isMorphed {
+				invalidateIntrinsicContentSize()
+			}
+		}
+		if morphedLabel.text != text {
+			morphedLabel.text = text
+			if isMorphed {
+				invalidateIntrinsicContentSize()
+			}
+		}
 	}
 	
 	let label = CoreScalableLabel(textStyle: .body)
-	let selectedLabel = CoreScalableLabel(textStyle: .body)
+	let morphedLabel = CoreScalableLabel(textStyle: .body)
+}
+
+@available(iOS 10.0, tvOS 10.0, *)
+extension MorphingLabel: UIContentSizeCategoryAdjusting {
+	public var adjustsFontForContentSizeCategory: Bool {
+		get { label.adjustsFontForContentSizeCategory && morphedLabel.adjustsFontForContentSizeCategory }
+		set {
+			label.adjustsFontForContentSizeCategory = newValue
+			morphedLabel.adjustsFontForContentSizeCategory = newValue
+		}
+	}
+}
+
+internal extension UIView {
+
+	var viewLayoutChain: [UIView] {
+		var result = [UIView]()
+		var view = self
+		// Keep going until we encounter a UIScrollView, then stop
+		while let parent = view.superview {
+			result.append(parent)
+			if parent is UIScrollView { break }
+			view = parent
+		}
+		return result
+	}
 }

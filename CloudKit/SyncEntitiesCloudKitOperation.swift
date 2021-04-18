@@ -34,7 +34,7 @@ internal class SyncEntitiesCloudKitOperation: CloudKitSyncOperation {
 	
 	// MARK: - CloudKitSyncOperation overrides
 
-	override open func deleteRecord(with recordID: CKRecord.ID, using context: NSManagedObjectContext) {
+	open override func deleteRecord(with recordID: CKRecord.ID, using context: NSManagedObjectContext) {
 		guard let cloudEntity = entityForRecordID(recordID, using: context) else {
 			fatalError("Should have a record of this")
 		}
@@ -55,13 +55,13 @@ internal class SyncEntitiesCloudKitOperation: CloudKitSyncOperation {
 		}
 	}
 
-	override open func fetchRecordsOperation(for recordsToFetch: [CKRecord.ID]) -> CKFetchRecordsOperation {
+	open override func fetchRecordsOperation(for recordsToFetch: [CKRecord.ID]) -> CKFetchRecordsOperation {
 		let result = super.fetchRecordsOperation(for: recordsToFetch)
 		result.desiredKeys = desiredKeys
 		return result
 	}
 
-	override open func handleUnknownItem(_ error: Error, for recordID: CKRecord.ID, from modifyOperation: Bool, in context: NSManagedObjectContext) throws {
+	open override func handleUnknownItem(_ error: Error, for recordID: CKRecord.ID, from modifyOperation: Bool, in context: NSManagedObjectContext) throws {
 		// TODO: Does `modifyOperation` matter here?
 		guard let cloudEntity = entityForRecordID(recordID, using: context) else {
 			// We don't know it either
@@ -83,12 +83,12 @@ internal class SyncEntitiesCloudKitOperation: CloudKitSyncOperation {
 		}
 	}
 
-	override open func main() {
+	open override func main() {
 		assert(workflowContext.linkedUserObjectID != nil, "\(self) is expecting a linkedUserObjectID")
 		super.main()
 	}
 	
-	override open func mergeServerRecord(_ serverRecord: CKRecord, from modifyOperation: Bool, using context: NSManagedObjectContext) throws -> Bool {
+	open override func mergeServerRecord(_ serverRecord: CKRecord, from modifyOperation: Bool, using context: NSManagedObjectContext) throws -> Bool {
 		
 		let recordID = serverRecord.recordID
 		var entity: SyncableEntity!
@@ -157,20 +157,20 @@ internal class SyncEntitiesCloudKitOperation: CloudKitSyncOperation {
 		return true // A subsequent save is necessary
 	}
 	
-	override open func modifyOperation(with recordsToSave: [CKRecord], recordIDsToDelete: [CKRecord.ID]) -> CKModifyRecordsOperation {
+	open override func modifyOperation(with recordsToSave: [CKRecord], recordIDsToDelete: [CKRecord.ID]) -> CKModifyRecordsOperation {
 		let operation = super.modifyOperation(with: recordsToSave, recordIDsToDelete: recordIDsToDelete)
 		// TODO: Find out why it was determined this is ideal and comment here
 		operation.savePolicy = .changedKeys
 		return operation
 	}
 
-	override open func nextQueryOperation() -> CKQueryOperation? {
+	open override func nextQueryOperation() -> CKQueryOperation? {
 		guard let operation = super.nextQueryOperation() else { return nil }
 		operation.desiredKeys = desiredKeys
 		return operation
 	}
 	
-	override open func sortResults(_ results: [CKRecord]) -> [CKRecord] {
+	open override func sortResults(_ results: [CKRecord]) -> [CKRecord] {
 		// User records always come first
 		return results.sorted {
 			$0.recordType == CKRecord.SystemType.userRecord && $1.recordType != CKRecord.SystemType.userRecord

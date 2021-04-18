@@ -32,6 +32,7 @@ extension SettingsTableViewController {
 		case .conversation: return .showConversation
 		case .coreData, .createSharedEventIntent: return .showCoreData
 		case .homeKit: return .showHomeKit
+		case .layout: return .showLayout
 		case .map: return .showMap
 		case .photos: return .showPhotos
 		case .watchConnectivity: return .showWatchConnectivity
@@ -90,6 +91,7 @@ extension SettingsTableViewController: SettingsTableCell {
 		case conversation
 		case coreData
 		case homeKit
+		case layout
 		case map
 		case photos
 		case watchConnectivity
@@ -107,6 +109,7 @@ extension SettingsTableViewController: CoreSegueHandling {
 		case showConversation
 		case showCoreData
 		case showHomeKit
+		case showLayout
 		case showMap
 		case showPhotos
 		case showWatchConnectivity

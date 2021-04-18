@@ -29,17 +29,17 @@ public final class CameraCaptureViewController: ResolveViewController {
 	
 	// MARK: - ResolveViewController overrides
 	
-	override public func viewDidAppear(_ animated: Bool) {
+	public override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		readyForCameraPreview = true
 	}
 	
-	override public func viewDidLoad() {
+	public override func viewDidLoad() {
 		super.viewDidLoad()
 		viewStateUpdated()
 	}
 	
-	override public func viewWillDisappear(_ animated: Bool) {
+	public override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		readyForCameraPreview = false
 	}
