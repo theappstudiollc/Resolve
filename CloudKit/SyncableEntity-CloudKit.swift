@@ -115,7 +115,9 @@ extension CloudKitEntity where Self: SyncableEntity {
         let recordValue = record[key] as T?
         let localValue = primitiveValue(forKey: key) as! T?
         if localValue != recordValue {
+			willChangeValue(forKey: key)
             setPrimitiveValue(recordValue, forKey: key)
+			didChangeValue(forKey: key)
         }
     }
     

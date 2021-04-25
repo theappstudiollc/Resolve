@@ -52,7 +52,6 @@ internal struct QueryNotificationCloudKitOperations {
 				// It is still possible the device that created the record may receive a notification about the CKRecord creation
 				// TODO: If lookup determines that we already have the record, do we _really_ need to fetch? What if lookup determines we've since updated or even deleted?
 				lookupSharedEventOperation.linkWorkflow(to: fetchSharedEventOperation, cancelOnError: true) { lookup, fetch in
-					// TODO: If we leave without finishing (maybe there's an iCloud login hangup) we can get a nil here
 					context.logger.log(.default, "    - %ld [recordIDs:ObjectIDs] and %ld [recordIDs:NSManagedObject]", lookup.recordIDsToObjectIDs!.count, lookup.recordIDsToRecords!.count)
 					fetch.addRecordIDsToObjectIDs(from: lookup.recordIDsToObjectIDs!)
 					fetch.addRecordsToFetch(from: Set(arrayLiteral: recordID))
@@ -60,7 +59,6 @@ internal struct QueryNotificationCloudKitOperations {
 				deleteSharedEventOperation = nil
 			case .recordUpdated: // We should look up the record and sync as normal
 				lookupSharedEventOperation.linkWorkflow(to: fetchSharedEventOperation, cancelOnError: true) { lookup, fetch in
-					// TODO: If we leave without finishing (maybe there's an iCloud login hangup) we can get a nil here
 					context.logger.log(.default, "    - %ld [recordIDs:ObjectIDs] and %ld [recordIDs:NSManagedObject]", lookup.recordIDsToObjectIDs!.count, lookup.recordIDsToRecords!.count)
 					fetch.addRecordIDsToObjectIDs(from: lookup.recordIDsToObjectIDs!)
 					fetch.addRecordsToDelete(from: lookup.recordIDsToDelete!)
@@ -72,7 +70,6 @@ internal struct QueryNotificationCloudKitOperations {
 				// The recordID in this notification may have a zone that breaks the hashing for recordIDsToObjectIDs
 				deleteSharedEventOperation = DeleteRecordDataOperation(with: context, dataService: configuration.dataService, loggingService: context.logger, in: queryNotification.cloudDatabase)
 				lookupSharedEventOperation.linkWorkflow(to: deleteSharedEventOperation!, cancelOnError: true) { lookup, fetch in
-					// TODO: If we leave without finishing (maybe there's an iCloud login hangup) we can get a nil here
 					context.logger.log(.default, "    - %ld [recordIDs:ObjectIDs] and %ld [recordIDs:NSManagedObject]", lookup.recordIDsToObjectIDs!.count, lookup.recordIDsToRecords!.count)
 					fetch.recordsToDelete = lookup.recordIDsToObjectIDs
 				}

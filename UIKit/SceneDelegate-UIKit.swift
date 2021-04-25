@@ -26,6 +26,8 @@ import ResolveKit
 @available(iOS 13.0, tvOS 13.0, *)
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+	@Service var loggingService: CoreLoggingService
+
 	// MARK: - UIWindowSceneDelegate properties and methods
 
 	var window: UIWindow?
@@ -38,7 +40,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		switch userActivityService.userActivityType(with: userActivity.activityType) {
 		case .appSpecific:
 			guard let rootViewController = Application.rootViewController(for: scene) else { return }
-			print("Continue User Activity: \(userActivity.activityType)")
+			loggingService.debug("Continuing user activity: %{public}@", userActivity.activityType)
 			rootViewController.restoreUserActivityState(userActivity)
 		case .browsingWeb, .queryContinuation, .searchableItem:
 			return
@@ -50,9 +52,16 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	func sceneDidBecomeActive(_ scene: UIScene) {
 		defer {
 			lastActivationState = scene.activationState
+			// Update the app delegate's lastActivationState as well
+			if lastActivationState == .foregroundActive, let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+				appDelegate.lastApplicationState = .active
+			}
 		}
 		if let notificationService = try? Services.access(NotificationService.self) {
 			notificationService.registerUserNotifications()
+			#if os(iOS)
+			notificationService.clearBeaconNotifications()
+			#endif
 		}
 		guard [.background, .unattached].contains(lastActivationState), let userService = try? Services.access(AppUserService.self) else { return }
 		userService.establishUser { success in
@@ -67,8 +76,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		}
 		#if os(iOS)
 		if INPreferences.siriAuthorizationStatus() == .notDetermined {
-			INPreferences.requestSiriAuthorization { status in
-				print("Siri authorization status = \(status.rawValue)")
+			INPreferences.requestSiriAuthorization { [loggingService] status in
+				loggingService.debug("Siri authorization status = %{public}@", "\(status.rawValue)")
 			}
 		}
 		#endif

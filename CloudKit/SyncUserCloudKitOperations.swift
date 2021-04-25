@@ -63,7 +63,6 @@ internal struct SyncUserCloudKitOperations {
     }
 	
 	private func linkUnsyncedToSync(_ unsynced: CollectEntityInfoCloudKitDataOperation, _ toSync: SyncEntitiesCloudKitOperation) {
-		// TODO: If we leave without finishing (maybe there's an iCloud login hangup) we can get a nil here
 		cloudKitContext.logger.log(.default, "    - %ld [recordIDs:ObjectIDs] and %ld [recordIDs:NSManagedObject]", unsynced.recordIDsToObjectIDs!.count, unsynced.recordIDsToRecords!.count)
 		toSync.addRecordIDsToObjectIDs(from: unsynced.recordIDsToObjectIDs!)
 		toSync.addRecordsToFetch(from: unsynced.recordIDsToFetch!)

@@ -36,7 +36,9 @@ internal class SyncEntitiesCloudKitOperation: CloudKitSyncOperation {
 
 	open override func deleteRecord(with recordID: CKRecord.ID, using context: NSManagedObjectContext) {
 		guard let cloudEntity = entityForRecordID(recordID, using: context) else {
-			fatalError("Should have a record of this")
+			// This is ok during recovery
+			loggingService.log(.info, "Record for %{public}@ not found -- ignoring delete request", recordID)
+			return
 		}
 		// First remove the sync reference for this iCloudDatabaseType
 		if let syncReference = cloudEntity.iCloudReference(for: iCloudDatabaseType) {
@@ -92,7 +94,7 @@ internal class SyncEntitiesCloudKitOperation: CloudKitSyncOperation {
 		
 		let recordID = serverRecord.recordID
 		var entity: SyncableEntity!
-		if let objectID = _recordIDsToObjectIDs[recordID], let existingEntity = try context.existingObject(with: objectID) as? SyncableEntity {
+		if let existingEntity = entityForRecordID(recordID, using: context) {
 			entity = existingEntity
 		} else if modifyOperation {
 			// Do a lookup because this operation was not provided with sufficient info, which is slower, but at least we get something
@@ -109,9 +111,19 @@ internal class SyncEntitiesCloudKitOperation: CloudKitSyncOperation {
 				throw CloudKitError.internalInconsistency("Could not find iCloudReference in modify operation")
 			}
 			// This is a fetch, so create the iCloudReference
-			let iCloudReference = entity.createICloudReference(for: iCloudDatabaseType, with: serverRecord)
 			try entity.apply(cloudKitRecord: serverRecord, for: iCloudDatabaseType)
-			iCloudReference.synchronized = true
+			do {
+				try entity.validateForInsert() // Ensure CoreData rules are maintained before continuing
+				entity.createICloudReference(for: iCloudDatabaseType, with: serverRecord).synchronized = true
+			} catch { // TODO: Maybe we can try to recover by fixing CloudKit
+				if serverRecord.creatorIsCurrentUser {
+					loggingService.log(.error, "Unable to add new record: %{public}@ (marking for deletion)", error.localizedDescription)
+					recordsToDelete.insert(serverRecord.recordID)
+				} else {
+					loggingService.log(.error, "Unable to add new record: %{public}@", error.localizedDescription)
+				}
+				context.delete(entity)
+			}
 			return false // A subsequent save is not necessary
 		}
         if entity.cloudSyncStatus.contains(.markedForDeletion) {
@@ -144,14 +156,29 @@ internal class SyncEntitiesCloudKitOperation: CloudKitSyncOperation {
 					entity.willChangeValue(for: \.syncStatus)
 					entity.didChangeValue(for: \.syncStatus)
 				}
-				try entity.apply(cloudKitRecord: serverRecord, for: iCloudDatabaseType)
-				iCloudReference.cloudRecord = serverRecord
+				context.undoManager?.beginUndoGrouping()
+				do {
+					try entity.apply(cloudKitRecord: serverRecord, for: iCloudDatabaseType)
+					try entity.validateForUpdate() // Ensure CoreData rules are maintained before continuing
+					iCloudReference.cloudRecord = serverRecord
+					context.undoManager?.endUndoGrouping()
+				} catch {
+					guard let undoManager = context.undoManager else { throw error }
+					undoManager.endUndoGrouping()
+					loggingService.log(.error, "Unable to update record (rolling back): %{public}@", error.localizedDescription)
+					undoManager.undoNestedGroup()
+					if serverRecord.creatorIsCurrentUser { // This one is "ours", fix the record on the server
+						try entity.update(cloudKitRecord: serverRecord, for: iCloudDatabaseType)
+						iCloudReference.cloudRecord = serverRecord
+						return true
+					}
+				}
             }
 			iCloudReference.synchronized = true
 			return false // A subsequent save is not necessary
 		}
-		// The local record has the latest data, we need to push to server (this should never happen, actually)
-		// TODO: Consider a way to re-use the work done by 'let localRecord = iCloudReference.cloudRecord'
+		guard serverRecord.creatorIsCurrentUser else { return false }
+		// The local record has the latest data, we need to push to server
 		try entity.update(cloudKitRecord: serverRecord, for: iCloudDatabaseType)
 		iCloudReference.cloudRecord = serverRecord
 		return true // A subsequent save is necessary
@@ -180,7 +207,7 @@ internal class SyncEntitiesCloudKitOperation: CloudKitSyncOperation {
 	// MARK: - Private methods
 
 	private func entityForRecordID(_ recordID: CKRecord.ID, using context: NSManagedObjectContext) -> SyncableEntity? {
-		guard let objectID = _recordIDsToObjectIDs[recordID], let cloudEntity = try? context.existingObject(with: objectID) as? SyncableEntity else {
+		guard let objectID = _recordIDsToObjectIDs.robustLookup(recordID: recordID), let cloudEntity = try? context.existingObject(with: objectID) as? SyncableEntity else {
 			return nil
 		}
 		return cloudEntity

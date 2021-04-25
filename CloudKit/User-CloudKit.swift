@@ -48,11 +48,11 @@ extension User: PublicCloudKitEntity, PrivateCloudKitEntity {
 	public override func apply(cloudKitRecord: CKRecord, for databaseType: CloudKitDatabaseType) throws {
 		switch databaseType {
 		case .public:
-			userAlias = cloudKitRecord[#keyPath(User.userAlias)]
+			applyValue(from: cloudKitRecord, for: #keyPath(User.userAlias), as: String.self)
 		case .private:
 			assert(cloudKitRecord.creatorIsCurrentUser)
-			userFirstName = cloudKitRecord[#keyPath(User.userFirstName)]
-			userLastName = cloudKitRecord[#keyPath(User.userLastName)]
+			applyValue(from: cloudKitRecord, for: #keyPath(User.userFirstName), as: String.self)
+			applyValue(from: cloudKitRecord, for: #keyPath(User.userLastName), as: String.self)
 			// If we see CKReferences for friends, add the relationship here (but we need a context)
 			guard let context = managedObjectContext else {
 				throw CloudKitError.internalInconsistency("Cannot apply CKRecord to \(self) without a managedObjectContext")
@@ -84,12 +84,12 @@ extension User: PublicCloudKitEntity, PrivateCloudKitEntity {
 	public override func update(cloudKitRecord: CKRecord, for databaseType: CloudKitDatabaseType) throws {
 		switch databaseType {
 		case .public:
-			cloudKitRecord[#keyPath(User.userAlias)] = userAlias
+			applyValue(to: cloudKitRecord, for: #keyPath(User.userAlias), as: String.self)
 		case .private:
 			// TODO: Consider a "Friends" CKRecord that we link to, which can contain first name and last name, etc.
 			// This will make it possible to create new records in the private database that represents user, without being a "user" record
-			cloudKitRecord[#keyPath(User.userFirstName)] = userFirstName
-			cloudKitRecord[#keyPath(User.userLastName)] = userLastName
+			applyValue(to: cloudKitRecord, for: #keyPath(User.userFirstName), as: String.self)
+			applyValue(to: cloudKitRecord, for: #keyPath(User.userLastName), as: String.self)
 			guard let friends = friends as? Set<User> else { return }
 			let friendReferences = friends.compactMap { user -> CKRecord.Reference? in
 				guard let friendRecordID = user.cloudRecordID else { return nil }

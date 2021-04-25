@@ -228,7 +228,7 @@ class UIKitAppDelegate: ResolveDelegate, UIApplicationDelegate {
 		}
 	}
 
-	public private(set) var lastApplicationState: UIApplication.State = .background
+	public internal(set) var lastApplicationState: UIApplication.State = .background
 }
 
 extension UIApplication {

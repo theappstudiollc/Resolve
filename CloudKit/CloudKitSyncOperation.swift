@@ -163,7 +163,7 @@ internal class CloudKitSyncOperation: CloudKitDataOperation, CloudKitGroupMember
 						if try mergeServerRecord($0, from: modifyOperation, using: context) {
 							recordsToSave[$0.recordID] = $0
 						} else {
-							recordsToSave.removeValue(forKey: $0.recordID)
+							recordsToSave.robustRemove(recordID: $0.recordID)
 						}
 						recordsToFetch.remove($0.recordID)
 					}
@@ -190,7 +190,7 @@ internal class CloudKitSyncOperation: CloudKitDataOperation, CloudKitGroupMember
 						if try mergeServerRecord(serverRecord, from: modifyOperation, using: context) {
 							recordsToSave[serverRecord.recordID] = serverRecord
 						} else {
-							recordsToSave.removeValue(forKey: serverRecord.recordID)
+							recordsToSave.robustRemove(recordID: serverRecord.recordID)
 						}
 					case .partialFailure:
 						guard let partialErrors = cloudKitError.errorUserInfo[CKPartialErrorsByItemIDKey] as? [CKRecord.ID : Error] else {
@@ -212,7 +212,7 @@ internal class CloudKitSyncOperation: CloudKitDataOperation, CloudKitGroupMember
 									if try mergeServerRecord(serverRecord, from: modifyOperation, using: context) {
 										recordsToSave[serverRecord.recordID] = serverRecord
 									} else {
-										recordsToSave.removeValue(forKey: serverRecord.recordID)
+										recordsToSave.robustRemove(recordID: serverRecord.recordID)
 									}
 									recordsToFetch.remove(serverRecord.recordID)
 								default:
@@ -250,10 +250,10 @@ internal class CloudKitSyncOperation: CloudKitDataOperation, CloudKitGroupMember
 	
 	private func removeAllReferences(for recordIdentifier: CKRecord.ID) {
 		syncQueue.sync(flags: .barrier) {
-			_recordIDsToObjectIDs.removeValue(forKey: recordIdentifier)
+			_recordIDsToObjectIDs.robustRemove(recordID: recordIdentifier)
 			recordsToFetch.remove(recordIdentifier)
 			recordsToDelete.remove(recordIdentifier)
-			recordsToSave.removeValue(forKey: recordIdentifier)
+			recordsToSave.robustRemove(recordID: recordIdentifier)
 		}
 	}
 
@@ -368,5 +368,36 @@ internal class CloudKitSyncOperation: CloudKitDataOperation, CloudKitGroupMember
 	
 	open func sortResults(_ results: [CKRecord]) -> [CKRecord] {
 		return results
+	}
+}
+
+// The hash function is known the fail when there are slight variations in the zoneID :(
+// e.g. zoneID=_defaultZone:__defaultOwner__ vs zoneID=_defaultZone:_defaultOwner
+internal extension Dictionary where Key == CKRecord.ID {
+
+	func robustLookup(recordID: Key) -> Value? {
+		if let result = self[recordID] {
+			return result
+		}
+		let indexable = recordID.indexableRepresentation
+		if let pair = first(where: { key, value in
+			return key.indexableRepresentation == indexable
+		}), let result = self[pair.key] {
+			return result // Unfortunate workaround
+		}
+		return nil
+	}
+
+	@discardableResult mutating func robustRemove(recordID: Key) -> Value? {
+		if let result = removeValue(forKey: recordID) {
+			return result
+		}
+		let indexable = recordID.indexableRepresentation
+		if let pair = first(where: { key, value in
+			return key.indexableRepresentation == indexable
+		}), let removed = removeValue(forKey: pair.key) {
+			return removed // Unfortunate workaround
+		}
+		return nil
 	}
 }

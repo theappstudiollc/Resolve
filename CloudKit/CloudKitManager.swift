@@ -314,7 +314,7 @@ public final class CloudKitManager: CoreWorkflowOperationManager<CloudKitContext
 		// Optional watchdog
 		DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(120)) { [loggingService = configuration.loggingService] in
 			guard !completed else { return }
-			loggingService.log(.error, "❌ Cleanup operation not started: %{public}@\n%{public}@", cleanupOperation, cleanupOperation.dependencies.map({ $0.isFinished ? " - \($0)" : " - \($0) (not finished)"}).joined(separator: "\n"))
+			loggingService.log(.error, "❌ Cleanup operation not started: %{public}@\n%{public}@", cleanupOperation, cleanupOperation.dependencies.map({ $0.isFinished ? " - \($0)" : " - \($0) (not finished)" }).joined(separator: "\n"))
 		}
 		return cleanupOperation
 	}
@@ -378,7 +378,7 @@ extension CoreAsynchronousOperationLinking where Self: CloudKitOperation {
 					logger.debug(" :: WorkflowContext cancelling %{public}@ because: %{public}@", operationName, error.localizedDescription)
 				}
 				operation.cancel()
-			} else if !operation.isCancelled {
+			} else if !source.isCancelled, !operation.isCancelled {
 				if let closure = closure {
 					logger.debug(" :: %{public}@ -> %{public}@ with closure", sourceName, operationName)
 					closure(source, operation)
