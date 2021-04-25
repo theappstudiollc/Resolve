@@ -22,7 +22,7 @@ import Photos
 import ResolveKit
 
 @available(macOS 10.13, *)
-protocol PhotosCollectionViewDelegate: class {
+protocol PhotosCollectionViewDelegate: AnyObject {
 	
 	func photosCollectionViewController(_ viewController: PhotosCollectionViewController, didScroll to: CGFloat)
 	

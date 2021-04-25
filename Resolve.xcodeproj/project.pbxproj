@@ -2765,7 +2765,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1220;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "The App Studio LLC";
 				TargetAttributes = {
 					64399056255C91A700593AFE = {

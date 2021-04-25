@@ -22,7 +22,7 @@ import CoreBluetooth
 import CoreLocation
 import ResolveKit
 /*
-protocol BeaconManagerDelegate: class {
+protocol BeaconManagerDelegate: AnyObject {
 	func beaconManager(_ beaconManager: BeaconManager, didIdentifyBeaconRegion beaconRegion: CoreBeaconIdentityConstraint)
 	func beaconManager(_ beaconManager: BeaconManager, didLoseBeaconRegion beaconRegion: CoreBeaconIdentityConstraint)
 	func beaconManager(_ beaconManager: BeaconManager, didRangeBeacons beacons: [CLBeacon], inBeaconRegion beaconRegion: CoreBeaconIdentityConstraint)

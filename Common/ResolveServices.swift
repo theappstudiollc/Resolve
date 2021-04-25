@@ -21,7 +21,7 @@
 import CoreResolve
 
 /// Tags a class as able to serve as a Resolve Service Context
-public protocol ServiceContext: class { }
+public protocol ServiceContext: AnyObject { }
 
 /// Represents a `ResourceConfiguring` entity that configures services with a `ServiceContext`
 public protocol ServiceContextConfiguring: ResourceConfiguring where Context == ServiceContext { }

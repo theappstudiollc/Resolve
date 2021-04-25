@@ -37,7 +37,7 @@ extension Notification.Name: ExpressibleByStringLiteral {
 #endif
 
 /// Provides settings for an app and its extensions that share an App Group
-public protocol WatchSessionSettingsService: class {
+public protocol WatchSessionSettingsService: AnyObject {
 
 	#if os(watchOS)
 

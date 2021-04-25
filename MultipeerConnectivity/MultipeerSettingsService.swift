@@ -22,7 +22,7 @@
 
 import MultipeerConnectivity
 
-public protocol MultipeerSettingsService: class {
+public protocol MultipeerSettingsService: AnyObject {
 
 	var bonjourServiceType: String { get }
 	var discoveryIdentifier: UUID { get }

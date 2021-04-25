@@ -24,7 +24,7 @@ import UIKit
 #elseif os(macOS)
 import AppKit
 
-protocol MapScrollViewDelegate: class {
+protocol MapScrollViewDelegate: AnyObject {
 
 	func mapScrollViewDidScroll(_ mapScrollView: MapScrollView)
 }

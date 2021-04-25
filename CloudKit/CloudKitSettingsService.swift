@@ -20,7 +20,7 @@
 
 import CloudKit
 
-public protocol CloudKitSettingsService: class {
+public protocol CloudKitSettingsService: AnyObject {
 	
 	var fetchDatabaseChangeToken: CKServerChangeToken? { get set }
 	

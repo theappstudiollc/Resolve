@@ -18,7 +18,7 @@
 //  limitations under the License.
 //
 
-public protocol CoreDataSettingsService: class {
+public protocol CoreDataSettingsService: AnyObject {
 	
 	var appUserPersistentReference: URL? { get set }
 }

@@ -20,7 +20,7 @@
 
 import MultipeerConnectivity
 
-public protocol MultipeerConversationManagerDelegate: class {
+public protocol MultipeerConversationManagerDelegate: AnyObject {
 	
 	func conversationManager(_ manager: MultipeerConversationManager, received message: String, from peerID: MCPeerID)
 	
