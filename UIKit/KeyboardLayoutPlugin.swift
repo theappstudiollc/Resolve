@@ -49,8 +49,12 @@ public class KeyboardLayoutPlugin {
 		}
 		NSLayoutConstraint.activate(constraints)
 
+		#if !targetEnvironment(macCatalyst)
 		keyboardFrameObserver = notificationCenter.addObserver(forName: UIResponder.keyboardWillChangeFrameNotification, object: nil, queue: nil, using: keyboardWillChangeFrame(_:))
+		#endif
 	}
+
+#if !targetEnvironment(macCatalyst)
 
 	private func keyboardWillChangeFrame(_ notification: Notification) {
 		guard let userInfo = notification.userInfo, let owningView = layoutGuide.owningView, let window = owningView.window else { return }
@@ -76,6 +80,8 @@ public class KeyboardLayoutPlugin {
 		UIView.commitAnimations()
 	}
 
+#endif
+
 	private func update(_ view: UIView, keyboardRect: CGRect, safeAreaInsets: UIEdgeInsets) {
 		guard let window = view.window else { return }
 		let rect = window.convert(keyboardRect, to: view).intersection(view.bounds)
@@ -86,7 +92,13 @@ public class KeyboardLayoutPlugin {
 				inset.bottom = additionalBottom
 				scrollView.contentInset = inset
 			}
-			if scrollView.scrollIndicatorInsets.bottom != additionalBottom {
+			if #available(iOS 11.1, macCatalyst 13.0, *) {
+				if scrollView.verticalScrollIndicatorInsets.bottom != additionalBottom {
+					var indicatorInsets = scrollView.verticalScrollIndicatorInsets
+					indicatorInsets.bottom = additionalBottom
+					scrollView.verticalScrollIndicatorInsets = indicatorInsets
+				}
+			} else if scrollView.scrollIndicatorInsets.bottom != additionalBottom {
 				var indicatorInsets = scrollView.scrollIndicatorInsets
 				indicatorInsets.bottom = additionalBottom
 				scrollView.scrollIndicatorInsets = indicatorInsets

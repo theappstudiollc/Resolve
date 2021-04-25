@@ -21,6 +21,7 @@
 import AVFoundation
 import ResolveKit
 
+@available(macCatalyst 14.0, *)
 class CameraViewController: ResolveViewController {
 	
 	@Service var fileService: CoreFileStoreService
@@ -130,7 +131,7 @@ class CameraViewController: ResolveViewController {
 	// MARK: - Private properties and methods
 	
 	private var _cameraAuthorizationStatus: Int = 0
-	@available(iOS 7.0, macOS 10.14, *)
+	@available(macOS 10.14, macCatalyst 14.0, *)
 	private var cameraAuthorizationStatus: AVAuthorizationStatus {
 		get { return AVAuthorizationStatus(rawValue: _cameraAuthorizationStatus)! }
 		set {
@@ -232,7 +233,7 @@ class CameraViewController: ResolveViewController {
 	internal var syncQueue = DispatchQueue(label: "\(CameraViewController.self).syncQueue", attributes: .concurrent)
 
 	private func updateAuthorizationStatus() {
-		guard #available(iOS 7.0, macOS 10.14, *) else { return }
+		guard #available(macOS 10.14, *) else { return }
 		cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
 	}
 }

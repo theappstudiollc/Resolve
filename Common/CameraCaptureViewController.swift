@@ -21,10 +21,11 @@
 import AVFoundation
 import ResolveKit
 
+@available(macCatalyst 14.0, *)
 public final class CameraCaptureViewController: ResolveViewController {
 	
 	// MARK: - Interface Builder properties and methods
-	
+
 	@IBOutlet private var cameraView: CameraCaptureView!
 	
 	// MARK: - ResolveViewController overrides
@@ -71,7 +72,7 @@ public final class CameraCaptureViewController: ResolveViewController {
 		}
 		captureCompletion = completion
 		let settings = AVCapturePhotoSettings()
-		#if os(iOS) && !targetEnvironment(macCatalyst)
+		#if os(iOS)
 		let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first!
 		settings.previewPhotoFormat = [
 			kCVPixelBufferPixelFormatTypeKey as String: previewPixelType,
@@ -200,9 +201,10 @@ public final class CameraCaptureViewController: ResolveViewController {
 	}
 }
 
+@available(macCatalyst 14.0, *)
 extension CameraCaptureViewController: AVCapturePhotoCaptureDelegate {
 	
-	@available(iOS 11.0, macOS 10.15, *)
+	@available(iOS 11.0, macOS 10.15, macCatalyst 14.0, *)
 	public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
 		if let data = photo.fileDataRepresentation() {
 			callCaptureCompletion(withImageData: data)
@@ -223,6 +225,7 @@ extension CameraCaptureViewController: AVCapturePhotoCaptureDelegate {
 	#endif
 }
 
+@available(macCatalyst 14.0, *)
 extension CameraCaptureViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 	
 	public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {

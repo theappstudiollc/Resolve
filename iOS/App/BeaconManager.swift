@@ -73,13 +73,11 @@ class BeaconManager: BeaconAdvertiser {
 		locationProvider.locationDelegate = self
 		locationProvider.requestAlwaysAuthorization()
 
-		#if !targetEnvironment(macCatalyst)
 		let region = self.beaconRegionForNotificationTrigger()
 		listeningState = locationProvider.monitoredRegions
 			.compactMap({ $0 as? CLBeaconRegion })
 			.contains(where: { $0.identifier == region.identifier })
 			? .listening : .notListening
-		#endif
 	}
 	
 	func beaconRegionForNotificationTrigger() -> CLBeaconRegion {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dEL-ib-VmT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dEL-ib-VmT">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,17 +33,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" alwaysBounceVertical="YES" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="rMi-Ui-Man">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="rMi-Ui-Man">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="BSt-WV-aZ5">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4EL-u2-sG2">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4EL-u2-sG2">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
                                                 <subviews>
-                                                    <view verifyAmbiguity="off" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BXd-42-EPQ" customClass="FloatingHeaderLabel" customModule="ResolveKit">
-                                                        <rect key="frame" x="16" y="12" width="343" height="38"/>
+                                                    <view verifyAmbiguity="off" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="BXd-42-EPQ" customClass="FloatingHeaderLabel" customModule="ResolveKit">
+                                                        <rect key="frame" x="16" y="12" width="343" height="34.5"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.050000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Recipient"/>
@@ -61,11 +61,11 @@
                                                     <constraint firstItem="BXd-42-EPQ" firstAttribute="leading" secondItem="4EL-u2-sG2" secondAttribute="leadingMargin" id="sG3-hy-0aw"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Nv-lR-i2E">
-                                                <rect key="frame" x="0.0" y="51" width="375" height="188.5"/>
+                                            <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Nv-lR-i2E">
+                                                <rect key="frame" x="0.0" y="59.5" width="375" height="180"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J9T-hp-yJF" customClass="FloatingHeaderTextField" customModule="ResolveKit">
-                                                        <rect key="frame" x="16" y="12" width="343" height="39.5"/>
+                                                    <view contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="J9T-hp-yJF" customClass="FloatingHeaderTextField" customModule="ResolveKit">
+                                                        <rect key="frame" x="16" y="12" width="343" height="156"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.050000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Subject"/>
@@ -83,11 +83,11 @@
                                                     <constraint firstAttribute="bottom" secondItem="J9T-hp-yJF" secondAttribute="bottom" constant="12" id="xRU-QH-wTs"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oOF-em-ayV">
+                                            <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oOF-em-ayV">
                                                 <rect key="frame" x="0.0" y="240.5" width="375" height="382.5"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jyy-Fi-0Ff" customClass="FloatingHeaderTextView" customModule="ResolveKit">
-                                                        <rect key="frame" x="16" y="12" width="343" height="471.5"/>
+                                                    <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="jyy-Fi-0Ff" customClass="FloatingHeaderTextView" customModule="ResolveKit">
+                                                        <rect key="frame" x="16" y="12" width="343" height="358.5"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.050000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Message"/>
@@ -138,6 +138,17 @@
             <point key="canvasLocation" x="-791.20000000000005" y="794.75262368815595"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="BXd-42-EPQ">
+            <size key="intrinsicContentSize" width="60.5" height="34.5"/>
+        </designable>
+        <designable name="J9T-hp-yJF">
+            <size key="intrinsicContentSize" width="49.5" height="39.5"/>
+        </designable>
+        <designable name="jyy-Fi-0Ff">
+            <size key="intrinsicContentSize" width="58" height="46"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="placeholderTextColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>

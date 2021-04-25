@@ -23,7 +23,7 @@ import CoreML
 import ResolveKit
 import Vision
 
-@available(iOS 11.0, macOS 10.13, *)
+@available(iOS 11.0, macOS 10.13, macCatalyst 14.0, *)
 final class CameraMLViewController: CameraViewController {
 
 	// MARK: - CameraViewController overrides

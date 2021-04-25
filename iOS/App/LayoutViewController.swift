@@ -91,5 +91,5 @@ extension LayoutViewController: UIPickerViewDelegate {
 
 fileprivate extension UIScrollView {
 
-	var contentView: UIView? { subviews.first }
+	var contentView: UIView? { subviews.first(where: { $0 is UIStackView }) }
 }

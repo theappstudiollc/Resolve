@@ -58,8 +58,7 @@ extension SettingsTableViewController {
 		case .camera:
 			if #available(iOS 11.0, *) { return true }
 		case .cameraML:
-			guard #available(iOS 11.0, *) else { return true }
-			return isCatalyst
+			guard #available(iOS 11.0, macCatalyst 14.0, *) else { return true }
 		case .homeKit:
 			guard #available(macCatalyst 14.0, *) else { return true }
 		case .watchConnectivity:

@@ -21,6 +21,7 @@
 import AVFoundation
 import ResolveKit
 
+@available(macCatalyst 14.0, *)
 public final class CameraCaptureView: View {
 	
 	// MARK: - View overrides
@@ -66,6 +67,7 @@ public final class CameraCaptureView: View {
 
 #if os(iOS)
 
+@available(macCatalyst 14.0, *)
 extension CameraCaptureView {
 
 	func setVideoOrientation(_ videoOrientation: UIInterfaceOrientation) {

@@ -20,6 +20,8 @@
 
 import ResolveKit
 
+#if !targetEnvironment(macCatalyst)
+
 extension CameraViewController {
 
 	override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -30,3 +32,5 @@ extension CameraViewController {
 		return .lightContent
 	}
 }
+
+#endif
