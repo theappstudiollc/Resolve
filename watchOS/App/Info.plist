@@ -24,7 +24,6 @@
 	<array>
 		<string>$(RESOLVE_BUNDLE_PREFIX).$(PRODUCT_NAME:rfc1034identifier:lower).stateRestoration.coreData</string>
 		<string>$(RESOLVE_BUNDLE_PREFIX).$(PRODUCT_NAME:rfc1034identifier:lower).stateRestoration.watchConnectivity</string>
-		<string>CreateSharedEventIntent</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
