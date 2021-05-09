@@ -52,6 +52,7 @@ public final class CameraCaptureViewController: ResolveViewController {
 	
 	public func capturePhoto(completion: @escaping CameraCaptureCompletion) {
 		assert(captureCompletion == nil, "We cannot have a captureCompletion handler already set")
+		#if !targetEnvironment(macCatalyst)
 		guard #available(iOS 10.0, macOS 10.15, *) else {
 			guard let stillImageOutput = captureOutput as? AVCaptureStillImageOutput, let videoConnection = stillImageOutput.connection(with: .video) else {
 				completion(nil)
@@ -66,6 +67,7 @@ public final class CameraCaptureViewController: ResolveViewController {
 			}
 			return
 		}
+		#endif
 		guard let photoOutput = captureOutput as? AVCapturePhotoOutput else {
 			completion(nil)
 			return
@@ -184,19 +186,23 @@ public final class CameraCaptureViewController: ResolveViewController {
 	
 	private func captureDevice(for position: AVCaptureDevice.Position) -> AVCaptureDevice? {
 		// TODO: What to do in the simulator or with a device with no camera?
+		#if !targetEnvironment(macCatalyst)
 		guard #available(iOS 10.0, macOS 10.15, *) else {
 			let devices = AVCaptureDevice.devices(for: .video)
 			return devices.first(where: { $0.position == position }) ?? AVCaptureDevice.default(for: .video)
 		}
+		#endif
 		return AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: position)
 	}
 	
 	private func createCaptureOutput() -> AVCaptureOutput {
+		#if !targetEnvironment(macCatalyst)
 		guard #available(iOS 10.0, macOS 10.15, *) else {
 			let stillImageOutput = AVCaptureStillImageOutput()
 			stillImageOutput.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
 			return stillImageOutput
 		}
+		#endif
 		return AVCapturePhotoOutput()
 	}
 }

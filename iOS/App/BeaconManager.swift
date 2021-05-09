@@ -21,13 +21,7 @@
 import CoreBluetooth
 import CoreLocation
 import ResolveKit
-/*
-protocol BeaconManagerDelegate: AnyObject {
-	func beaconManager(_ beaconManager: BeaconManager, didIdentifyBeaconRegion beaconRegion: CoreBeaconIdentityConstraint)
-	func beaconManager(_ beaconManager: BeaconManager, didLoseBeaconRegion beaconRegion: CoreBeaconIdentityConstraint)
-	func beaconManager(_ beaconManager: BeaconManager, didRangeBeacons beacons: [CLBeacon], inBeaconRegion beaconRegion: CoreBeaconIdentityConstraint)
-}
-*/
+
 class BeaconManager: BeaconAdvertiser {
 
 	private var authorizationStatus = CLAuthorizationStatus.notDetermined
@@ -60,9 +54,7 @@ class BeaconManager: BeaconAdvertiser {
 			didChangeValue(for: \.listeningState)
 		}
 	}
-	/*
-	weak var delegate: BeaconManagerDelegate?
-	*/
+
 	required init(withCoreLocationProviding coreLocationProviding: CoreLocationProviding = CLLocationManager(), notificationCenter: NotificationCenter = .default, loggingService: CoreLoggingService, notificationService: NotificationService) {
 		self.locationProvider = coreLocationProviding
 		self.loggingService = loggingService
@@ -73,26 +65,31 @@ class BeaconManager: BeaconAdvertiser {
 		locationProvider.locationDelegate = self
 		locationProvider.requestAlwaysAuthorization()
 
-		let region = self.beaconRegionForNotificationTrigger()
+		let region = self.beaconConstraintForNotificationTrigger()
 		listeningState = locationProvider.monitoredRegions
 			.compactMap({ $0 as? CLBeaconRegion })
-			.contains(where: { $0.identifier == region.identifier })
+			.contains(where: { $0.identifier == region.regionIdentifier })
 			? .listening : .notListening
 	}
 	
-	func beaconRegionForNotificationTrigger() -> CLBeaconRegion {
-		return CLBeaconRegion(proximityUUID: beacon.uuid, identifier: "\(beacon.uuid).nil.nil")
+	func beaconConstraintForNotificationTrigger() -> CoreBeaconIdentityConstraint {
+		return CoreBeaconIdentityConstraint(uuid: beacon.uuid, major: nil, minor: nil)
 	}
 	
 	func startListening() {
+		#if targetEnvironment(macCatalyst)
+		let constraint = beaconConstraintForNotificationTrigger()
+		locationProvider.startRangingBeacons(with: constraint)
+		listeningState = .listening
+		#else
 		guard type(of: locationProvider).isMonitoringAvailable(for: CLBeaconRegion.self) else {
 			return // TODO: Log and or report some error to the delegate
 		}
-		let region = beaconRegionForNotificationTrigger()
+		let constraint = beaconConstraintForNotificationTrigger()
 		// If any monitored beacon regions already have the same identifier and proximityUUID, then don't re-monitor
 		guard !locationProvider.monitoredRegions
 			.compactMap({ $0 as? CLBeaconRegion })
-			.contains(where: { $0.identifier == region.identifier }) else {
+			.contains(where: { $0.identifier == constraint.regionIdentifier }) else {
 				return // No need to startListening
 		}
 		listeningState = .inTransition
@@ -100,27 +97,33 @@ class BeaconManager: BeaconAdvertiser {
 //		let stopRegion = CLBeaconRegion(proximityUUID: UUID(), identifier: kBeaconIdentifier)
 //		locationManager.stopMonitoring(for: stopRegion)
 		// Now start monitoring a region using the desired uuid
-		region.notifyEntryStateOnDisplay = true
-		locationProvider.startMonitoring(for: region)
+		let beaconRegion = constraint.region
+		beaconRegion.notifyEntryStateOnDisplay = true
+		locationProvider.startMonitoring(for: beaconRegion)
+		#endif
 	}
 
 	func stopListening() {
-		let region = beaconRegionForNotificationTrigger()
+		let constraint = beaconConstraintForNotificationTrigger()
 		// if region monitoring is enabled, update the region being monitored
 		var stoppedRegion = false
 		for region in locationProvider.monitoredRegions
 			.compactMap({ $0 as? CLBeaconRegion })
-			.filter({ $0.identifier == region.identifier }) {
+			.filter({ $0.identifier == constraint.regionIdentifier }) {
 				loggingService.debug("Unmonitoring region: %{public}@", "\(region.identifier)")
 				listeningState = .inTransition
 				locationProvider.stopMonitoring(for: region)
 				stoppedRegion = true
 		}
+		#if targetEnvironment(macCatalyst)
+		locationProvider.stopRangingBeacons(with: constraint)
+		#else
 		if !stoppedRegion {
-			loggingService.debug("Unmonitoring region: %{public}@", "\(region.identifier)")
+			loggingService.debug("Unmonitoring region: %{public}@", "\(constraint.regionIdentifier)")
 			listeningState = .inTransition
-			locationProvider.stopMonitoring(for: region)
+			locationProvider.stopMonitoring(for: constraint.region)
 		}
+		#endif
 		identifiedBeacon = nil
 		listeningState = .notListening
 	}
@@ -188,6 +191,9 @@ extension BeaconManager: CoreLocationBeaconProvidingDelegate {
 	
 	func locationProvider(_ provider: CoreLocationProviding, rangingBeaconsDidFailFor constraint: CoreBeaconIdentityConstraint, withError error: CLError) {
 		loggingService.log(.error, "Loction provider ranging beacons failed: %{public}@", "\(error.localizedDescription)")
+		#if targetEnvironment(macCatalyst)
+		listeningState = .notListening
+		#endif
 	}
 }
 
