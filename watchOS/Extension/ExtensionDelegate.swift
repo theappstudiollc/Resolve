@@ -44,7 +44,16 @@ class ExtensionDelegate: ResolveDelegate, WKExtensionDelegate {
 			// If it has been at least 14 days since the last .fullSync, perform one. Otherwise perform .default
 			let diff = Calendar.current.dateComponents([.day], from: cloudKitService.lastFullSync, to: Date())
 			let syncOptions: CloudKitServiceSyncOptions = diff.day == nil || diff.day! > 14 ? .fullSync : .default
-			cloudKitService.synchronize(syncOptions: syncOptions, qualityOfService: .userInitiated, nil)
+			cloudKitService.synchronize(syncOptions: syncOptions, qualityOfService: .userInitiated) { result in
+				guard case .success = result, let complicationService = try? Services.access(ComplicationService.self) else { return }
+				let dataService = try! Services.access(DataService.self)
+				do {
+					let tapCount = try dataService.getTapCount()
+					complicationService.updateTapCount(tapCount, forceReload: false)
+				} catch {
+					loggingService.log(.error, "Error getting tap count", error.localizedDescription)
+				}
+			}
 		}
 		if #available(watchOS 6.0, *), INPreferences.siriAuthorizationStatus() == .notDetermined {
 			INPreferences.requestSiriAuthorization { [loggingService] status in
@@ -77,13 +86,21 @@ class ExtensionDelegate: ResolveDelegate, WKExtensionDelegate {
 		loggingService.log(.info, "Received Remote Notifications: %{public}@", userInfo)
 
 		if let cloudKitNotification = CKNotification(fromRemoteNotificationDictionary: userInfo), let cloudService = try? Services.access(CloudKitService.self), cloudService.canProcess(notification: cloudKitNotification) {
-			loggingService.log(.info, "Fetching CloudKit changes from Notification")
-			let qualityOfService: QualityOfService = isActive ? .userInitiated : .background // If the app is active this should be immediate
-			cloudService.fetchChanges(notification: cloudKitNotification, qualityOfService: qualityOfService) { [loggingService] result in
+			let complicationService = try? Services.access(ComplicationService.self)
+			let qualityOfService: QualityOfService
+			switch (isActive, complicationService?.activeComplications?.count) {
+			// If the app is active this should be immediate
+			case (true, _): qualityOfService = .userInitiated
+			// If there's an active complication we should have higher priority
+			case (false, .some(let count)) where count > 0: qualityOfService = .utility
+			// Otherwise use .default (.background can be too slow)
+			default: qualityOfService = .default
+			}
+			loggingService.log(.info, "Fetching CloudKit changes from Notification with qualityOfService: %{public}@", qualityOfService.debugDescription)
+			cloudService.fetchChanges(notification: cloudKitNotification, qualityOfService: qualityOfService) { [complicationService, loggingService] result in
 				switch result {
 				case .success:
 					loggingService.log(.info, "Success fetching CloudKit changes from Notification")
-					let complicationService = try? Services.access(ComplicationService.self)
 					let dataService = try! Services.access(DataService.self)
 					let tapCount = try? dataService.getTapCount()
 					complicationService?.updateTapCount(tapCount ?? 0, forceReload: false)
@@ -143,17 +160,9 @@ class ExtensionDelegate: ResolveDelegate, WKExtensionDelegate {
 	func handle(_ userActivity: NSUserActivity) {
 		loggingService.log(.info, "ExtensionDelegate handle userActivity: %{public}@", userActivity.activityType)
 
-		guard let userActivityService = try? Services.access(UserActivityService.self), let activity = userActivityService.activityType(with: userActivity.activityType) else { return }
+		guard let userActivityService = try? Services.access(UserActivityService.self), let activity = userActivityService.activityType(with: userActivity.activityType), let mainInterfaceController = WKExtension.shared().rootInterfaceController as? MainInterfaceController else { return }
 
-		let names = ["CoreData", "Connectivity", "Complication", "NowPlaying"]
-		switch activity {
-		case .coreData:
-			if CoreDataInterfaceController.isVisibleInterfaceController == true { return }
-			WKInterfaceController.reloadRootControllers(withNames: names, contexts: [true, false, false, false])
-		case .watchConnectivity:
-			if WatchConnectivityInterfaceController.isVisibleInterfaceController == true { return }
-			WKInterfaceController.reloadRootControllers(withNames: names, contexts: [false, true, false, false])
-		}
+		mainInterfaceController.restoreControllerFor(userActivity: activity, with: userActivity.userInfo)
 	}
 
 	func handleUserActivity(_ userInfo: [AnyHashable : Any]?) {
@@ -170,10 +179,16 @@ class ExtensionDelegate: ResolveDelegate, WKExtensionDelegate {
 	}
 }
 
-fileprivate extension WKInterfaceController {
+extension QualityOfService: CustomDebugStringConvertible {
 
-	class var isVisibleInterfaceController: Bool? {
-		guard #available(watchOS 4.0, *) else { return nil }
-		return WKExtension.shared().visibleInterfaceController is Self
+	public var debugDescription: String {
+		switch self {
+		case .background: return "background"
+		case .default: return "default"
+		case .userInitiated: return "userInitiated"
+		case .userInteractive: return "userInteractive"
+		case .utility: return "utility"
+		@unknown default: return "unknown<\(self.rawValue)>"
+		}
 	}
 }

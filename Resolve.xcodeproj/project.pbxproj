@@ -237,6 +237,11 @@
 		643D25B1221B17730090FA68 /* CoreData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 643D25B0221B17730090FA68 /* CoreData.storyboard */; };
 		644076F51D356B9E000AD646 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644076F31D356B9E000AD646 /* Main.storyboard */; };
 		644076F71D356B9E000AD646 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 644076F61D356B9E000AD646 /* Assets.xcassets */; };
+		644112A32647164A00DF92CD /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644112A22647164A00DF92CD /* MainInterfaceController.swift */; };
+		644112A62647199D00DF92CD /* CoreData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644112A42647199D00DF92CD /* CoreData.storyboard */; };
+		644112A926471A2F00DF92CD /* WatchConnectivity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644112A726471A2F00DF92CD /* WatchConnectivity.storyboard */; };
+		644112AC26471A6B00DF92CD /* Complication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644112AA26471A6B00DF92CD /* Complication.storyboard */; };
+		644112AF26471AA500DF92CD /* NowPlaying.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644112AD26471AA500DF92CD /* NowPlaying.storyboard */; };
 		64419CA42120A2210021AAAC /* MultipeerConversationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64419CA32120A2210021AAAC /* MultipeerConversationManager.swift */; };
 		64419CA52120A2210021AAAC /* MultipeerConversationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64419CA32120A2210021AAAC /* MultipeerConversationManager.swift */; };
 		64419CA62120A2210021AAAC /* MultipeerConversationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64419CA32120A2210021AAAC /* MultipeerConversationManager.swift */; };
@@ -332,7 +337,7 @@
 		647CAD4725696E9E000C0F3D /* CloudKitGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CAD4325696E9E000C0F3D /* CloudKitGroupOperation.swift */; };
 		647CAD612576F72C000C0F3D /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CAD602576F72C000C0F3D /* ComplicationController.swift */; };
 		6481A96B1DE2410A00B1EE1C /* SettingsTableViewController-iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6481A96A1DE2410A00B1EE1C /* SettingsTableViewController-iOS.swift */; };
-		6483E7802086D54800AA08BE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6483E77E2086D54800AA08BE /* Interface.storyboard */; };
+		6483E7802086D54800AA08BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6483E77E2086D54800AA08BE /* Main.storyboard */; };
 		6483E7822086D54A00AA08BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6483E7812086D54A00AA08BE /* Assets.xcassets */; };
 		6483E7892086D54A00AA08BE /* Resolve.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6483E7882086D54A00AA08BE /* Resolve.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6483E78E2086D54A00AA08BE /* CoreDataInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6483E78D2086D54A00AA08BE /* CoreDataInterfaceController.swift */; };
@@ -933,6 +938,11 @@
 		644076F41D356B9E000AD646 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		644076F61D356B9E000AD646 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		644076F81D356B9E000AD646 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		644112A22647164A00DF92CD /* MainInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceController.swift; sourceTree = "<group>"; };
+		644112A52647199D00DF92CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CoreData.storyboard; sourceTree = "<group>"; };
+		644112A826471A2F00DF92CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/WatchConnectivity.storyboard; sourceTree = "<group>"; };
+		644112AB26471A6B00DF92CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Complication.storyboard; sourceTree = "<group>"; };
+		644112AE26471AA500DF92CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NowPlaying.storyboard; sourceTree = "<group>"; };
 		64419CA32120A2210021AAAC /* MultipeerConversationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerConversationManager.swift; sourceTree = "<group>"; };
 		64419CA72120A23B0021AAAC /* ConversationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationService.swift; sourceTree = "<group>"; };
 		64419CAC212100220021AAAC /* MultipeerConversationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerConversationManagerDelegate.swift; sourceTree = "<group>"; };
@@ -1000,7 +1010,7 @@
 		6481A96A1DE2410A00B1EE1C /* SettingsTableViewController-iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SettingsTableViewController-iOS.swift"; sourceTree = "<group>"; };
 		648269551FC7D037001A1C8D /* HomeKit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeKit.storyboard; sourceTree = "<group>"; };
 		6483E77C2086D54800AA08BE /* Resolve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Resolve.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6483E77F2086D54800AA08BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		6483E77F2086D54800AA08BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6483E7812086D54A00AA08BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6483E7832086D54A00AA08BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6483E7882086D54A00AA08BE /* Resolve.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Resolve.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1864,9 +1874,13 @@
 		6483E7A32086DACB00AA08BE /* App */ = {
 			isa = PBXGroup;
 			children = (
-				6483E77E2086D54800AA08BE /* Interface.storyboard */,
 				6483E7812086D54A00AA08BE /* Assets.xcassets */,
+				644112AA26471A6B00DF92CD /* Complication.storyboard */,
+				644112A42647199D00DF92CD /* CoreData.storyboard */,
 				6483E7832086D54A00AA08BE /* Info.plist */,
+				6483E77E2086D54800AA08BE /* Main.storyboard */,
+				644112AD26471AA500DF92CD /* NowPlaying.storyboard */,
+				644112A726471A2F00DF92CD /* WatchConnectivity.storyboard */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -2184,6 +2198,7 @@
 			children = (
 				6401871425AB888C00567B22 /* ComplicationInterfaceController.swift */,
 				6483E78D2086D54A00AA08BE /* CoreDataInterfaceController.swift */,
+				644112A22647164A00DF92CD /* MainInterfaceController.swift */,
 				64CD09942597B8E400F631DB /* NowPlayingInterfaceController.swift */,
 				644875042599638C004421AF /* SharedEventInterfaceController.swift */,
 				6483E7912086D54A00AA08BE /* VisitNotificationController.swift */,
@@ -2994,7 +3009,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6483E7822086D54A00AA08BE /* Assets.xcassets in Resources */,
-				6483E7802086D54800AA08BE /* Interface.storyboard in Resources */,
+				644112AC26471A6B00DF92CD /* Complication.storyboard in Resources */,
+				644112A926471A2F00DF92CD /* WatchConnectivity.storyboard in Resources */,
+				6483E7802086D54800AA08BE /* Main.storyboard in Resources */,
+				644112AF26471AA500DF92CD /* NowPlaying.storyboard in Resources */,
+				644112A62647199D00DF92CD /* CoreData.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3524,6 +3543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				644112A32647164A00DF92CD /* MainInterfaceController.swift in Sources */,
 				641BF84325BDEA5A001FEFF1 /* UserInputService.swift in Sources */,
 				6467451B2561C836007EA369 /* ApplicationServices.swift in Sources */,
 				6448745A25982681004421AF /* SharedEventTableViewCell.swift in Sources */,
@@ -3827,12 +3847,44 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		6483E77E2086D54800AA08BE /* Interface.storyboard */ = {
+		644112A42647199D00DF92CD /* CoreData.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				644112A52647199D00DF92CD /* Base */,
+			);
+			name = CoreData.storyboard;
+			sourceTree = "<group>";
+		};
+		644112A726471A2F00DF92CD /* WatchConnectivity.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				644112A826471A2F00DF92CD /* Base */,
+			);
+			name = WatchConnectivity.storyboard;
+			sourceTree = "<group>";
+		};
+		644112AA26471A6B00DF92CD /* Complication.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				644112AB26471A6B00DF92CD /* Base */,
+			);
+			name = Complication.storyboard;
+			sourceTree = "<group>";
+		};
+		644112AD26471AA500DF92CD /* NowPlaying.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				644112AE26471AA500DF92CD /* Base */,
+			);
+			name = NowPlaying.storyboard;
+			sourceTree = "<group>";
+		};
+		6483E77E2086D54800AA08BE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				6483E77F2086D54800AA08BE /* Base */,
 			);
-			name = Interface.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		64AC6DCF2313357100497D3C /* MainInterface.storyboard */ = {

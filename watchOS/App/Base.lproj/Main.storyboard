@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="18122" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1mn-a1-Fs9" pageOrientation="vertical">
+    <device id="watch40"/>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="18022"/>
+    </dependencies>
+    <scenes>
+        <!--Resolve-->
+        <scene sceneID="UEt-zB-XJ6">
+            <objects>
+                <controller identifier="Main" title="Resolve" alwaysBounce="YES" id="1mn-a1-Fs9" customClass="MainInterfaceController" customModule="Resolve_watchOS_Extension">
+                    <items>
+                        <table alignment="left" id="9LC-bk-uQr">
+                            <items>
+                                <tableRow identifier="complicationCell" id="Xw0-bD-fLD">
+                                    <group key="rootItem" width="1" alignment="left" id="ab0-Pp-odH">
+                                        <items>
+                                            <label alignment="left" verticalAlignment="center" text="Complication" id="Qe8-qd-ODT"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <segue destination="tpI-X3-ipE" kind="push" identifier="showComplication" id="im5-EI-d51"/>
+                                    </connections>
+                                </tableRow>
+                                <tableRow identifier="coreDataCell" id="gkI-Ir-MBf">
+                                    <group key="rootItem" width="1" alignment="left" id="g3T-5K-Oqu">
+                                        <items>
+                                            <label alignment="left" verticalAlignment="center" text="CoreData" id="udC-Rx-fJR"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <segue destination="Cey-nW-xda" kind="push" identifier="showCoreData" id="Jnd-eb-eih"/>
+                                    </connections>
+                                </tableRow>
+                                <tableRow identifier="nowPlayingCell" id="8dE-x4-SjM">
+                                    <group key="rootItem" width="1" alignment="left" id="TwH-hj-FWb">
+                                        <items>
+                                            <label alignment="left" verticalAlignment="center" text="Now Playing" id="CHb-oD-D2U"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <segue destination="ODG-ec-is7" kind="push" id="TNw-zP-Wcd"/>
+                                    </connections>
+                                </tableRow>
+                                <tableRow identifier="watchConnectivityCell" id="7n5-3z-rwN">
+                                    <group key="rootItem" width="1" alignment="left" id="tKG-Nm-LM2">
+                                        <items>
+                                            <label alignment="left" verticalAlignment="center" text="Watch Connectivity" id="rCw-d4-dlz"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <segue destination="0C3-Cr-8AO" kind="push" id="niL-Sa-cXq"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="9LC-bk-uQr" id="LsA-vB-fqM"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="248" y="120"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="label.title" id="IdU-wH-bcW">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <label alignment="left" text="label.alert" id="chq-I7-JH6"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="resolveVisitCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="chq-I7-JH6" id="MMG-Mx-cOf"/>
+                        <outlet property="notificationTitleLabel" destination="IdU-wH-bcW" id="EWW-Vg-iaY"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="249" y="431"/>
+        </scene>
+        <!--Visit Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="VisitNotificationController" customModule="Resolve_watchOS_Extension">
+                    <items>
+                        <label alignment="left" text="label.title" numberOfLines="0" id="9hQ-R7-5xX">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <map width="1" height="100" alignment="center" id="BDr-v7-Vyl"/>
+                        <label alignment="left" text="label.alert" numberOfLines="0" id="KAf-Vw-x3h">
+                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="alertLabel" destination="KAf-Vw-x3h" id="9iH-Ul-kS1"/>
+                        <outlet property="mapView" destination="BDr-v7-Vyl" id="JxG-C1-WOK"/>
+                        <outlet property="titleLabel" destination="9hQ-R7-5xX" id="9Ew-AG-JQ9"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="553" y="431"/>
+        </scene>
+        <!--CoreData-->
+        <scene sceneID="OY0-oK-arx">
+            <objects>
+                <controllerPlaceholder identifier="CoreData" referencedIdentifier="CoreData" id="Cey-nW-xda"/>
+            </objects>
+            <point key="canvasLocation" x="502" y="99"/>
+        </scene>
+        <!--WatchConnectivity-->
+        <scene sceneID="zHq-L6-su0">
+            <objects>
+                <controllerPlaceholder identifier="Connectivity" referencedIdentifier="WatchConnectivity" id="0C3-Cr-8AO"/>
+            </objects>
+            <point key="canvasLocation" x="526" y="185"/>
+        </scene>
+        <!--Complication-->
+        <scene sceneID="LTI-Gy-NnT">
+            <objects>
+                <controllerPlaceholder identifier="Complication" referencedIdentifier="Complication" id="tpI-X3-ipE"/>
+            </objects>
+            <point key="canvasLocation" x="512" y="56"/>
+        </scene>
+        <!--NowPlaying-->
+        <scene sceneID="Qdy-w8-a1T">
+            <objects>
+                <controllerPlaceholder identifier="NowPlaying" referencedIdentifier="NowPlaying" id="ODG-ec-is7"/>
+            </objects>
+            <point key="canvasLocation" x="508" y="142"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="18122" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" pageOrientation="vertical">
+    <device id="watch38"/>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="18022"/>
+    </dependencies>
+    <scenes>
+        <!--Connectivity-->
+        <scene sceneID="ZG3-PH-3hQ">
+            <objects>
+                <controller identifier="WatchConnectivity" title="Connectivity" hidesWhenLoading="NO" id="Ajd-9I-ecH" customClass="WatchConnectivityInterfaceController" customModule="Resolve_watchOS_Extension">
+                    <items>
+                        <group width="1" alignment="left" id="bkH-5C-akf">
+                            <items>
+                                <label alignment="left" verticalAlignment="bottom" text="State:" id="EJI-j1-Nm2">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                </label>
+                                <label alignment="right" verticalAlignment="bottom" text="state" id="HCn-nK-V9J">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="CCi-FD-4WQ">
+                            <items>
+                                <label alignment="left" verticalAlignment="bottom" text="Message:" id="QNJ-rV-edb">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                </label>
+                                <label alignment="right" verticalAlignment="bottom" text="count" id="kVt-9Q-Gv7">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="dhY-yU-n7P">
+                            <items>
+                                <label alignment="left" verticalAlignment="bottom" text="Context:" id="K7U-Dz-zJe">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                </label>
+                                <label alignment="right" verticalAlignment="bottom" text="count" id="KjQ-bC-EH5">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                </label>
+                            </items>
+                        </group>
+                        <button width="1" widthAdjustment="-2" alignment="center" title="Increment Message" id="WME-20-2Uo">
+                            <connections>
+                                <action selector="messageButtonTapped" destination="Ajd-9I-ecH" id="Yry-Ma-5XR"/>
+                            </connections>
+                        </button>
+                        <button width="1" widthAdjustment="-2" alignment="center" title="Increment Context" id="70b-UQ-qZU">
+                            <connections>
+                                <action selector="applicationContextButtonTapped" destination="Ajd-9I-ecH" id="OQM-jK-Xoo"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="applicationContextButton" destination="70b-UQ-qZU" id="3D5-YY-aPq"/>
+                        <outlet property="applicationContextLabel" destination="KjQ-bC-EH5" id="sEm-vi-NIr"/>
+                        <outlet property="messageButton" destination="WME-20-2Uo" id="e9a-QB-hov"/>
+                        <outlet property="messageLabel" destination="kVt-9Q-Gv7" id="sYf-m3-S5E"/>
+                        <outlet property="stateLabel" destination="HCn-nK-V9J" id="bWh-rd-rko"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="249" y="120"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

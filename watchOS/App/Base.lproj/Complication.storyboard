@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="18122" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" pageOrientation="vertical">
+    <device id="watch38"/>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="18022"/>
+    </dependencies>
+    <scenes>
+        <!--Complication-->
+        <scene sceneID="KwN-Ew-gQX">
+            <objects>
+                <controller identifier="Complication" title="Complication" hidesWhenLoading="NO" id="IjU-IE-I2x" customClass="ComplicationInterfaceController" customModule="Resolve_watchOS_Extension">
+                    <items>
+                        <button width="1" widthAdjustment="-2" alignment="center" verticalAlignment="bottom" title="Reload Descriptors" enabled="NO" id="fMb-Q8-Wfl">
+                            <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                            <connections>
+                                <action selector="reloadDescriptorsButtonTapped" destination="IjU-IE-I2x" id="2BM-St-vyF"/>
+                            </connections>
+                        </button>
+                        <label alignment="left" text="status" numberOfLines="0" id="BEV-H7-0rS">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <button width="1" widthAdjustment="-2" alignment="center" title="Reload" id="k1U-PE-VP2">
+                            <connections>
+                                <action selector="reloadComplicationsButtonTapped" destination="IjU-IE-I2x" id="beB-9B-ic3"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="reloadComplicationsButton" destination="k1U-PE-VP2" id="uFP-TA-gnG"/>
+                        <outlet property="reloadDesciptorsButton" destination="fMb-Q8-Wfl" id="Igf-bo-9bw"/>
+                        <outlet property="statusLabel" destination="BEV-H7-0rS" id="qDj-wx-OLd"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="250" y="-555"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

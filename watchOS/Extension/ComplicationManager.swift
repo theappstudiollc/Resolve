@@ -32,6 +32,10 @@ final class ComplicationManager: ComplicationService {
 		self.settingsService = settingsService
 	}
 
+	var activeComplications: [CLKComplication]? {
+		return complicationServer.activeComplications
+	}
+
 	var tapCount: Int {
 		return settingsService.lastSharedEventComplicationCount
 	}

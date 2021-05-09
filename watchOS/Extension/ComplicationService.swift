@@ -19,8 +19,11 @@
 //
 
 import Foundation
+import ClockKit
 
 protocol ComplicationService {
+
+	var activeComplications: [CLKComplication]? { get }
 
 	var tapCount: Int { get }
 

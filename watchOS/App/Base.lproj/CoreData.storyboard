@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="18122" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" pageOrientation="vertical">
+    <device id="watch38"/>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="18022"/>
+    </dependencies>
+    <scenes>
+        <!--CoreData-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="CoreData" title="CoreData" hidesWhenLoading="NO" alwaysBounce="YES" id="AgC-eL-Hgc" customClass="CoreDataInterfaceController" customModule="Resolve_watchOS_Extension">
+                    <items>
+                        <group width="1" alignment="left" id="8mm-Zh-jr3">
+                            <items>
+                                <label width="0.59999999999999998" alignment="left" text="Add Shared Event" numberOfLines="2" id="Fym-hE-J9n">
+                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                </label>
+                                <button width="0.40000000000000002" alignment="right" title="Tap" id="A2z-mg-42t">
+                                    <connections>
+                                        <action selector="tapButtonTapped" destination="AgC-eL-Hgc" id="lKn-78-gTv"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <label alignment="left" text="label.taps" id="xLl-8i-Uc0"/>
+                        <table alignment="center" pagingScroll="YES" id="K9o-Hw-mZ9" customClass="SharedEventTableView" customModule="Resolve_watchOS_Extension">
+                            <items>
+                                <tableRow identifier="sharedEventCell" id="SQE-Wl-zMc" customClass="SharedEventTableViewCell" customModule="Resolve" customModuleProvider="target">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="xva-hG-kO5">
+                                        <items>
+                                            <label alignment="left" text="created.by" id="7Pr-EI-b8u">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </label>
+                                            <timer alignment="left" verticalAlignment="bottom" enabled="YES" format="short" id="771-xB-xDd">
+                                                <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                                <calendarUnit key="units" day="YES" hour="YES" minute="YES" weekOfMonth="YES"/>
+                                            </timer>
+                                        </items>
+                                        <edgeInsets key="margins" left="4" right="4" top="3" bottom="5"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="createdAtTimer" destination="771-xB-xDd" id="4r9-qY-Uht"/>
+                                        <outlet property="createdByLabel" destination="7Pr-EI-b8u" id="SxH-5H-iBY"/>
+                                        <segue destination="9Ky-IO-8Pe" kind="push" identifier="showSharedEvent" id="ea1-ao-BV0"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="K9o-Hw-mZ9" id="uoR-6m-xS5"/>
+                        <outlet property="tapsButton" destination="A2z-mg-42t" id="F1K-80-DiK"/>
+                        <outlet property="tapsLabel" destination="xLl-8i-Uc0" id="a1b-Pb-6Bd"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-373" y="432"/>
+        </scene>
+        <!--Shared Event-->
+        <scene sceneID="3Mu-Mz-ojj">
+            <objects>
+                <controller identifier="SharedEventInterfaceController" title="Shared Event" hidesWhenLoading="NO" id="9Ky-IO-8Pe" customClass="SharedEventInterfaceController" customModule="Resolve_watchOS_Extension">
+                    <items>
+                        <label alignment="left" text="created.by" id="pmh-Dg-Zvm">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <label alignment="left" text="created.at" id="wq0-Yh-WcZ">
+                            <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                        </label>
+                        <label alignment="left" text="udid" numberOfLines="0" id="06z-Rd-JHB">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <button width="1" alignment="left" title="Delete" id="6mO-vT-8xd">
+                            <connections>
+                                <action selector="deleteButtonTapped" destination="9Ky-IO-8Pe" id="JBt-aR-CCN"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="createdAtLabel" destination="wq0-Yh-WcZ" id="8Ub-PN-Tl0"/>
+                        <outlet property="createdByLabel" destination="pmh-Dg-Zvm" id="rCJ-fn-xfg"/>
+                        <outlet property="deleteButton" destination="6mO-vT-8xd" id="7pZ-3i-80A"/>
+                        <outlet property="uniqueIDLabel" destination="06z-Rd-JHB" id="gnA-cB-wvs"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-86" y="432"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

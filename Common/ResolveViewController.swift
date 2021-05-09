@@ -62,14 +62,5 @@ open class ResolveViewController: CoreViewController {
 		viewWillDisappear(false)
 	}
 
-	#elseif os(watchOS)
-
-	open override func awake(withContext context: Any?) {
-		super.awake(withContext: context)
-		if let shouldBecomeCurrent = context as? Bool, shouldBecomeCurrent {
-			becomeCurrentPage()
-		}
-	}
-
 	#endif
 }

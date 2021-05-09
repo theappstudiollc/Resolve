@@ -58,7 +58,7 @@ final class ComplicationInterfaceController: ResolveViewController {
 	}
 
 	func updateStatusLabel() {
-		guard let activeComplications = CLKComplicationServer.sharedInstance().activeComplications else {
+		guard let activeComplications = complicationService.activeComplications else {
 			statusLabel.setText("No active complications")
 			return
 		}

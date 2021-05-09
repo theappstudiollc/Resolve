@@ -71,7 +71,7 @@ final class CoreDataInterfaceController: ResolveViewController {
 	@IBOutlet var tapsButton: WKInterfaceButton!
 	@IBOutlet var tapsLabel: WKInterfaceLabel!
 
-	// MARK: - CoreViewController overrides
+	// MARK: - ResolveViewController overrides
 
 	override init() {
 		super.init()
