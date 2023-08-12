@@ -39,8 +39,7 @@ class ExtensionDelegate: ResolveDelegate, WKExtensionDelegate {
 		let userService = try! Services.access(AppUserService.self)
 		userService.establishUser { [loggingService] success in
 			loggingService.log(.info, "Establish User: %{public}@", success ? "success" : "failed")
-			guard success else { return }
-			let cloudKitService = try! Services.access(CloudKitService.self)
+			guard success, let cloudKitService = try? Services.access(CloudKitService.self) else { return }
 			// If it has been at least 14 days since the last .fullSync, perform one. Otherwise perform .default
 			let diff = Calendar.current.dateComponents([.day], from: cloudKitService.lastFullSync, to: Date())
 			let syncOptions: CloudKitServiceSyncOptions = diff.day == nil || diff.day! > 14 ? .fullSync : .default

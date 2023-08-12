@@ -19,6 +19,7 @@
 //
 
 import CloudKit
+import CoreResolve_ObjC // iOS 9 support
 
 internal struct CloudUserInfo: Hashable {
 	let firstName: String
@@ -39,6 +40,7 @@ internal extension CloudUserInfo {
 
 	#if (os(iOS) || os(macOS)) && !targetEnvironment(macCatalyst)
 
+	@available(iOS, deprecated: 10.0)
 	@available(macOS, deprecated: 10.12)
 	init?(discoveredUserInfo: CKDiscoveredUserInfo) {
 		guard let recordID = discoveredUserInfo.userRecordID else { return nil }

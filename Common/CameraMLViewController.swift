@@ -70,17 +70,18 @@ final class CameraMLViewController: CameraViewController {
 
 	private func observedIdentifier(from observations: [VNClassificationObservation]) -> String {
 //		print("Checking observations: \(observations)")
-		if let firstObservation = observations.first, firstObservation.identifier != "bad.behavior" {
+		let goodObservation = observations.first(where: { $0.identifier == "good.behavior" })!
+		let badObservation = observations.first(where: { $0.identifier == "bad.behavior" })!
+		if let firstObservation = observations.first, firstObservation.confidence > 0.85,
+		   firstObservation.identifier != "bad.behavior" {
 			print("Choosing \(firstObservation.identifier) \(firstObservation.confidence)")
 			return firstObservation.identifier
 		}
 		// Lets really be sure whether we want to use "bad.behavior"
-		let badObservation = observations.first(where: { $0.identifier == "bad.behavior" })!
-		if badObservation.confidence > 0.86 {
+		if badObservation.confidence > 0.92 {
 			print("Choosing \(badObservation.identifier) \(badObservation.confidence)")
 			return badObservation.identifier
 		}
-		let goodObservation = observations.first(where: { $0.identifier == "good.behavior" })!
 //		print("Testing: \(badObservation.confidence / goodObservation.confidence) vs \(badObservation.confidence - goodObservation.confidence)")
 //		if badObservation.confidence / goodObservation.confidence > 8 {
 //			print("Choosing(1) \(badObservation.identifier): \(badObservation.confidence / goodObservation.confidence)")
@@ -90,8 +91,8 @@ final class CameraMLViewController: CameraViewController {
 			print("Choosing(2) \(badObservation.identifier): \(badObservation.confidence - goodObservation.confidence)")
 			return badObservation.identifier
 		}
-		print("Choosing(3) \(observations[1])")
-		return observations[1].identifier
+		print("Choosing(3) \(goodObservation)")
+		return goodObservation.identifier
 	}
 
 	private func setupImageClassifier() {
@@ -107,7 +108,7 @@ final class CameraMLViewController: CameraViewController {
 
 			let identifiedBehavior = self.observedIdentifier(from: results)
 			guard self.lastRecognizedIdentifier == identifiedBehavior else {
-				self.captureDate = Date(timeIntervalSinceNow: 1)
+				self.captureDate = Date(timeIntervalSinceNow: 2)
 				self.lastRecognizedIdentifier = identifiedBehavior
 				return
 			}
@@ -120,7 +121,7 @@ final class CameraMLViewController: CameraViewController {
 					self.notifyBadBehavior()
 				}
 			case "good.behavior":
-				self.captureDate = Date(timeIntervalSinceNow: 1)
+				self.captureDate = Date(timeIntervalSinceNow: 2)
 			case "no.behavior":
 				let seconds: Double = 30
 				self.captureDate = Date(timeIntervalSinceNow: seconds - 1)

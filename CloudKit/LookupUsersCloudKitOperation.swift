@@ -23,6 +23,7 @@
 import Foundation
 import CloudKit
 import CoreResolve
+import CoreResolve_ObjC // iOS 9 support
 import Contacts
 
 internal final class LookupUsersCloudKitOperation: CloudKitGroupOperation {
@@ -93,10 +94,15 @@ internal final class LookupUsersCloudKitOperation: CloudKitGroupOperation {
 		}
 		let operation = CKDiscoverUserIdentitiesOperation(userIdentityLookupInfos: lookupInfos(emailAddresses: emailAddresses, userRecordIDs: userRecordIDs))
 		operation.userIdentityDiscoveredBlock = userIdentityResponseHandler
-		operation.discoverUserIdentitiesCompletionBlock = userIdentitiesCompletedResponseHandler
+		if #available(iOS 15.0, macOS 10.12, *) {
+			operation.discoverUserIdentitiesResultBlock = userIdentitiesCompletedResponseHandler
+		} else { // This is both introduced and deprecated in macOS 10.12
+			operation.discoverUserIdentitiesCompletionBlock = userIdentitiesCompletedResponseHandler
+		}
 		return operation
 	}
 
+	@available(iOS, deprecated: 10.0)
 	@available(macOS, deprecated: 10.12)
 	private func discoveredUsersResponseHandler(_ emailsToUserInfos: [String : CKDiscoveredUserInfo]?, _ userRecordIDsToUserInfos: [CKRecord.ID : CKDiscoveredUserInfo]?, _ operationError: Error?) {
 		if let error = error {
@@ -130,12 +136,22 @@ internal final class LookupUsersCloudKitOperation: CloudKitGroupOperation {
 		guard let userInfo = CloudUserInfo(userIdentity: userIdentity) else { return }
 		userInfos.insert(userInfo)
 	}
-
+	
+	private func userIdentitiesCompletedResponseHandler(_ result: Result<Void,Error>)
+	{
+		switch result {
+		case .failure(let error):
+			finish(withError: error)
+		case .success:
+			finish()
+		}
+	}
+	
 	private func userIdentitiesCompletedResponseHandler(_ error: Error?) {
 		if let error = error {
-			finish(withError: error)
+			userIdentitiesCompletedResponseHandler(.failure(error))
 		} else {
-			finish()
+			userIdentitiesCompletedResponseHandler(.success(()))
 		}
 	}
 }

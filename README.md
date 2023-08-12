@@ -2,7 +2,7 @@
 
 A 2nd-generation Xcode project template with design patterns for developing apps on Apple-based platforms using Swift
 
-Minimum os target versions are iOS 9.3, macOS 10.12, and tvOS 10, and watchOS 3.2
+Minimum os target versions are iOS 12, macOS 13, and tvOS 12, and watchOS 4
 
 ## Purpose ##
 

@@ -43,7 +43,7 @@ public final class CloudKitContext: CoreWorkflowContext {
         return cloudKitManager.configuration.loggingService
     }
 
-    public var userDiscoverabilityPermissionStatus: CKContainer.Application.PermissionStatus {
+    public var userDiscoverabilityPermissionStatus: CKContainer.ApplicationPermissionStatus {
         get { return cloudKitManager.userDiscoverabilityPermissionStatus }
      }
     

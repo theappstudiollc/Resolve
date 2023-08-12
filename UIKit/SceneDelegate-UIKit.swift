@@ -67,8 +67,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		userService.establishUser { success in
 			let loggingService = try! Services.access(CoreLoggingService.self)
 			loggingService.log(.info, "Establish User: %{public}@", success ? "success" : "failed")
-			guard success else { return }
-			let cloudKitService = try! Services.access(CloudKitService.self)
+			guard success, let cloudKitService = try? Services.access(CloudKitService.self) else { return }
 			// If it has been at least 14 days since the last .fullSync, perform one. Otherwise perform .default
 			let diff = Calendar.current.dateComponents([.day], from: cloudKitService.lastFullSync, to: Date())
 			let syncOptions: CloudKitServiceSyncOptions = diff.day == nil || diff.day! > 14 ? .fullSync : .default

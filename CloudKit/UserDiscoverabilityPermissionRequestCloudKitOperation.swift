@@ -23,7 +23,7 @@ import CoreResolve
 
 internal final class UserDiscoverabilityPermissionRequestCloudKitOperation: CloudKitOperation {
 	
-	public private(set) var userDiscoverabilityPermissionStatus = CKContainer.Application.PermissionStatus.initialState
+	public private(set) var userDiscoverabilityPermissionStatus = CKContainer.ApplicationPermissionStatus.initialState
 	
 	public override func main() {
 		guard workflowContext.userDiscoverabilityPermissionStatus != .granted else {
@@ -33,7 +33,7 @@ internal final class UserDiscoverabilityPermissionRequestCloudKitOperation: Clou
 		workflowContext.cloudContainer.requestApplicationPermission(.userDiscoverability, completionHandler: responseHandler)
 	}
 	
-	private func responseHandler(_ permissionStatus: CKContainer.Application.PermissionStatus, _ error: Error?) {
+	private func responseHandler(_ permissionStatus: CKContainer.ApplicationPermissionStatus, _ error: Error?) {
 		if let error = error {
 			finish(withError: error)
 		} else if permissionStatus == .couldNotComplete {

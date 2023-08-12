@@ -35,12 +35,14 @@ internal class EnvironmentAppDelegate: UIKitAppDelegate {
 
 	// MARK: - Context overrides
 	
+	@available(iOS, deprecated: 10.0)
 	override func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
 		super.application(application, didReceive: notification)
 		guard let legacyProvider = notificationProvider as? LegacyUserNotificationManager else { return }
 		legacyProvider.handleLocalNotification(notification)
 	}
 	
+	@available(iOS, deprecated: 10.0)
 	func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
 		guard let legacyProvider = notificationProvider as? LegacyUserNotificationManager else { return }
 		legacyProvider.handleRegistrationSuccess(notificationSettings)

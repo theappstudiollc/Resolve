@@ -147,8 +147,7 @@ class UIKitAppDelegate: ResolveDelegate, UIApplicationDelegate {
 		guard lastApplicationState == .background, let userService = try? Services.access(AppUserService.self) else { return }
 		userService.establishUser { [loggingService] success in
 			loggingService.log(.info, "Establish User: %{public}@", success ? "success" : "failed")
-			guard success else { return }
-			let cloudKitService = try! Services.access(CloudKitService.self)
+			guard success, let cloudKitService = try? Services.access(CloudKitService.self) else { return }
 			// If it has been at least 14 days since the last .fullSync, perform one. Otherwise perform .default
 			let diff = Calendar.current.dateComponents([.day], from: cloudKitService.lastFullSync, to: Date())
 			let syncOptions: CloudKitServiceSyncOptions = diff.day == nil || diff.day! > 14 ? .fullSync : .default
@@ -176,6 +175,7 @@ class UIKitAppDelegate: ResolveDelegate, UIApplicationDelegate {
 	
 	#if os(iOS)
 
+	@available(iOS, deprecated: 10.0)
 	@available(macCatalyst, deprecated: 13.0)
 	func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
 		// Declared so that future Xcode versions will correctly update Swift UIApplicationDelegate interfaces

@@ -221,6 +221,7 @@ extension CameraCaptureViewController: AVCapturePhotoCaptureDelegate {
 
 	#if os(iOS) && !targetEnvironment(macCatalyst)
 	@available(iOS 10.0, *)
+	@available(iOS, deprecated: 11.0)
 	public func photoOutput(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
 		if let sampleBuffer = photoSampleBuffer, let previewBuffer = previewPhotoSampleBuffer, let data = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer, previewPhotoSampleBuffer: previewBuffer) {
 			callCaptureCompletion(withImageData: data)

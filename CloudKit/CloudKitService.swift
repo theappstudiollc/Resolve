@@ -32,7 +32,7 @@ public protocol CloudKitService {
 	var accountStatus: CKAccountStatus { get }
 	var currentUserRecordID: CKRecord.ID? { get }
 	var linkedUserObjectID: NSManagedObjectID? { get }
-	var userDiscoverabilityPermissionStatus: CKContainer.Application.PermissionStatus { get }
+	var userDiscoverabilityPermissionStatus: CKContainer.ApplicationPermissionStatus { get }
 
 	/// Returns the date of the last sync utilizing .fullSync (or .distantPast if never performed)
 	var lastFullSync: Date { get }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -224,7 +224,7 @@
 		6439902A25597D8800593AFE /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6439902925597D8800593AFE /* Intents.framework */; };
 		6439903025597FD300593AFE /* UserActivityManager-iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6439902F25597FD300593AFE /* UserActivityManager-iOS.swift */; };
 		6439905A255C91A700593AFE /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64399059255C91A700593AFE /* IntentHandler.swift */; };
-		6439905E255C91A700593AFE /* Intent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 64399057255C91A700593AFE /* Intent.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6439905E255C91A700593AFE /* Intent.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 64399057255C91A700593AFE /* Intent.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		64399095255C9BF800593AFE /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 64399094255C9BF800593AFE /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
 		6439909B255C9C0200593AFE /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 64399094255C9BF800593AFE /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
 		643993AD23C18D1700837672 /* Photos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 643993AB23C18A8400837672 /* Photos.storyboard */; };
@@ -339,7 +339,7 @@
 		6481A96B1DE2410A00B1EE1C /* SettingsTableViewController-iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6481A96A1DE2410A00B1EE1C /* SettingsTableViewController-iOS.swift */; };
 		6483E7802086D54800AA08BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6483E77E2086D54800AA08BE /* Main.storyboard */; };
 		6483E7822086D54A00AA08BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6483E7812086D54A00AA08BE /* Assets.xcassets */; };
-		6483E7892086D54A00AA08BE /* Resolve.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6483E7882086D54A00AA08BE /* Resolve.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6483E7892086D54A00AA08BE /* Resolve.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6483E7882086D54A00AA08BE /* Resolve.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6483E78E2086D54A00AA08BE /* CoreDataInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6483E78D2086D54A00AA08BE /* CoreDataInterfaceController.swift */; };
 		6483E7902086D54A00AA08BE /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6483E78F2086D54A00AA08BE /* ExtensionDelegate.swift */; };
 		6483E7922086D54A00AA08BE /* VisitNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6483E7912086D54A00AA08BE /* VisitNotificationController.swift */; };
@@ -419,7 +419,7 @@
 		64AC6DC92313357100497D3C /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64AC6DC82313357100497D3C /* UserNotifications.framework */; };
 		64AC6DCE2313357100497D3C /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AC6DCD2313357100497D3C /* NotificationViewController.swift */; };
 		64AC6DD12313357100497D3C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64AC6DCF2313357100497D3C /* MainInterface.storyboard */; };
-		64AC6DD52313357100497D3C /* VisitNotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 64AC6DC72313357100497D3C /* VisitNotification.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		64AC6DD52313357100497D3C /* VisitNotification.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 64AC6DC72313357100497D3C /* VisitNotification.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		64ACB4F41E71E99700DDDA36 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A745A61E2ADCBC0086DE43 /* ConversationViewController.swift */; };
 		64ACB5011E722A4500DDDA36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64ACB5001E722A4500DDDA36 /* AppDelegate.swift */; };
 		64AD701A21A624880022F06A /* CameraCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6441E2731E6F1FB000846045 /* CameraCaptureView.swift */; };
@@ -771,25 +771,25 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		647611AD2581B20200C844D7 /* Embed App Extensions */ = {
+		647611AD2581B20200C844D7 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6483E79F2086D54B00AA08BE /* Embed App Extensions */ = {
+		6483E79F2086D54B00AA08BE /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				6483E7892086D54A00AA08BE /* Resolve.appex in Embed App Extensions */,
+				6483E7892086D54A00AA08BE /* Resolve.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6483E7A12086D54B00AA08BE /* Embed Watch Content */ = {
@@ -803,16 +803,16 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		64AC6DD92313357100497D3C /* Embed App Extensions */ = {
+		64AC6DD92313357100497D3C /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				6439905E255C91A700593AFE /* Intent.appex in Embed App Extensions */,
-				64AC6DD52313357100497D3C /* VisitNotification.appex in Embed App Extensions */,
+				6439905E255C91A700593AFE /* Intent.appex in Embed Foundation Extensions */,
+				64AC6DD52313357100497D3C /* VisitNotification.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		64CBEE4D1D2999370007EF2D /* Embed Frameworks */ = {
@@ -2681,7 +2681,7 @@
 			buildConfigurationList = 6483E7A02086D54B00AA08BE /* Build configuration list for PBXNativeTarget "Resolve-watchOS" */;
 			buildPhases = (
 				6483E77A2086D54800AA08BE /* Resources */,
-				6483E79F2086D54B00AA08BE /* Embed App Extensions */,
+				6483E79F2086D54B00AA08BE /* Embed Foundation Extensions */,
 				29485BC07F11F6A328289606 /* Frameworks */,
 			);
 			buildRules = (
@@ -2702,7 +2702,7 @@
 				6483E7852086D54A00AA08BE /* Frameworks */,
 				6483E7862086D54A00AA08BE /* Resources */,
 				64E96D46255E2B5700759501 /* Embed Frameworks */,
-				647611AD2581B20200C844D7 /* Embed App Extensions */,
+				647611AD2581B20200C844D7 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -2757,7 +2757,7 @@
 				64D5209A1D28858900C75B32 /* Frameworks */,
 				64D5209B1D28858900C75B32 /* Resources */,
 				6483E7A12086D54B00AA08BE /* Embed Watch Content */,
-				64AC6DD92313357100497D3C /* Embed App Extensions */,
+				64AC6DD92313357100497D3C /* Embed Foundation Extensions */,
 				64E96D26255E2B3000759501 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -2779,8 +2779,9 @@
 		64D520951D28858900C75B32 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1220;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "The App Studio LLC";
 				TargetAttributes = {
 					64399056255C91A700593AFE = {
@@ -2882,7 +2883,7 @@
 				};
 			};
 			buildConfigurationList = 64D520981D28858900C75B32 /* Build configuration list for PBXProject "Resolve" */;
-			compatibilityVersion = "Xcode 11.4";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -3943,7 +3944,6 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "iOS/$(PRODUCT_NAME)/$(PRODUCT_NAME).entitlements";
 				INFOPLIST_FILE = "iOS/$(PRODUCT_NAME)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3963,7 +3963,6 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "iOS/$(PRODUCT_NAME)/$(PRODUCT_NAME).entitlements";
 				INFOPLIST_FILE = "iOS/$(PRODUCT_NAME)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4013,8 +4012,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = iOS/Kit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4022,6 +4023,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++14";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).$(PRODUCT_NAME:rfc1034identifier:lower)";
 				PRODUCT_NAME = "$(inherited)Kit";
@@ -4034,8 +4037,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = iOS/Kit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4043,6 +4048,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).$(PRODUCT_NAME:rfc1034identifier:lower)";
 				PRODUCT_NAME = "$(inherited)Kit";
 				SDKROOT = iphoneos;
@@ -4085,9 +4092,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = macOS/Kit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4095,6 +4105,8 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++14";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).$(PRODUCT_NAME:rfc1034identifier:lower)";
 				PRODUCT_NAME = "$(inherited)Kit";
@@ -4107,9 +4119,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = macOS/Kit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4117,6 +4132,8 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).$(PRODUCT_NAME:rfc1034identifier:lower)";
 				PRODUCT_NAME = "$(inherited)Kit";
 				SDKROOT = macosx;
@@ -4128,6 +4145,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4145,6 +4163,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4161,8 +4180,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = tvOS/Kit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4170,6 +4191,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++14";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).$(PRODUCT_NAME:rfc1034identifier:lower)";
 				PRODUCT_NAME = "$(inherited)Kit";
@@ -4183,8 +4206,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = tvOS/Kit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4192,6 +4217,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).$(PRODUCT_NAME:rfc1034identifier:lower)";
 				PRODUCT_NAME = "$(inherited)Kit";
 				SDKROOT = appletvos;
@@ -4237,8 +4264,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = watchOS/Kit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4246,6 +4275,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++14";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).$(PRODUCT_NAME:rfc1034identifier:lower)";
 				PRODUCT_NAME = "$(inherited)Kit";
@@ -4259,8 +4290,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = watchOS/Kit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4268,6 +4301,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).$(PRODUCT_NAME:rfc1034identifier:lower)";
 				PRODUCT_NAME = "$(inherited)Kit";
 				SDKROOT = watchos;
@@ -4356,7 +4391,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = "iOS/$(PRODUCT_NAME)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4375,7 +4409,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = "iOS/$(PRODUCT_NAME)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4396,6 +4429,8 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS/App/$(PRODUCT_NAME).entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(CONFIGURATION_BUILD_DIR)",
@@ -4416,6 +4451,8 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS/App/$(PRODUCT_NAME).entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(CONFIGURATION_BUILD_DIR)",
@@ -4473,6 +4510,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 45GCQB624U;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -4501,8 +4539,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				MTL_FAST_MATH = YES;
@@ -4516,9 +4554,9 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VERSIONING_SYSTEM = "apple-generic";
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Debug;
 		};
@@ -4566,6 +4604,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 45GCQB624U;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -4589,8 +4628,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -4602,10 +4641,10 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};

@@ -18,21 +18,20 @@
 //  limitations under the License.
 //
 
-@import Foundation;
-@import CoreData;
-@import CoreResolve_ObjC; // Needed for iOS 9 support
-@import CloudKit;
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import <CloudKit/CloudKit.h>
 
 #if TARGET_OS_IPHONE
-@import UIKit;
+#import <UIKit/UIKit.h>
 #if TARGET_OS_WATCH
-@import WatchKit;
+#import <WatchKit/WatchKit.h>
 #else
-@import MultipeerConnectivity;
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
 #endif
 #elif TARGET_OS_MAC
-@import Cocoa;
-@import MultipeerConnectivity;
+#import <Cocoa/Cocoa.h>
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
 #endif
 
 //! Project version number for ResolveKit.

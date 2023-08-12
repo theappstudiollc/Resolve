@@ -38,7 +38,7 @@ public final class CloudKitManager: CoreWorkflowOperationManager<CloudKitContext
 
 	public private(set) var retryAfterRequest: Date?
 	
-	public private(set) var userDiscoverabilityPermissionStatus: CKContainer.Application.PermissionStatus = .initialState
+	public private(set) var userDiscoverabilityPermissionStatus: CKContainer.ApplicationPermissionStatus = .initialState
 
 	public var lastFullSync: Date {
 		return configuration.settingsService.lastFullSync ?? .distantPast

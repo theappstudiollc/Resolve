@@ -22,7 +22,7 @@ import CloudKit
 
 internal final class UserDiscoverabilityPermissionStatusCloudKitOperation: CloudKitOperation {
 	
-	public private(set) var userDiscoverabilityPermissionStatus = CKContainer.Application.PermissionStatus.initialState
+	public private(set) var userDiscoverabilityPermissionStatus = CKContainer.ApplicationPermissionStatus.initialState
 	
 	public override func main() {
 		guard workflowContext.userDiscoverabilityPermissionStatus == .initialState else {
@@ -32,7 +32,7 @@ internal final class UserDiscoverabilityPermissionStatusCloudKitOperation: Cloud
 		workflowContext.cloudContainer.status(forApplicationPermission: .userDiscoverability, completionHandler: responseHandler)
 	}
 	
-	private func responseHandler(_ permissionStatus: CKContainer.Application.PermissionStatus, _ error: Error?) {
+	private func responseHandler(_ permissionStatus: CKContainer.ApplicationPermissionStatus, _ error: Error?) {
 		if let error = error {
 			finish(withError: error)
 		} else if permissionStatus == .couldNotComplete {

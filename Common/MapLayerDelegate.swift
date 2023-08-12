@@ -46,7 +46,7 @@ class MapLayerDelegate: NSObject, CALayerDelegate {
 	}
 	private let apiRequest = MapTileAPIRequest(baseURL: URL(string: "https://c.tile.openstreetmap.org/")!)
 	private var mapCache = Dictionary<MapTileIdentifierComponents, Image>(minimumCapacity: 1024)
-	private var syncQueue = DispatchQueue(label: "\(type(of: self)).syncQueue", attributes: .concurrent)
+	private var syncQueue = DispatchQueue(label: "\(type(of: MapLayerDelegate.self)).syncQueue", attributes: .concurrent)
 	private var taskCache = Dictionary<MapTileIdentifierComponents, APIRequestTask>(minimumCapacity: 256)
 	
 	private func image(for components: MapTileIdentifierComponents) -> Image? {

@@ -111,7 +111,7 @@ internal class CloudKitSyncOperation: CloudKitDataOperation, CloudKitGroupMember
 	internal var currentOperation: CKOperation?
 	internal var queries = [CKQuery]()
 
-	private var syncQueue = DispatchQueue(label: "\(type(of: self)).syncQueue", attributes: .concurrent)
+	private var syncQueue = DispatchQueue(label: "\(type(of: CloudKitSyncOperation.self)).syncQueue", attributes: .concurrent)
 		
 	private func continuePipeline(result: Result<Void, Error>, cursor: CKQueryOperation.Cursor? = nil) {
 		if case Result.failure(let error) = result {

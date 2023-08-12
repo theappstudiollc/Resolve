@@ -21,6 +21,7 @@
 import CloudKit
 import CoreData
 import CoreResolve
+import CoreResolve_ObjC // iOS 9 support
 
 internal final class UpdateSubscriptionCloudKitOperation: CloudKitGroupOperation {
 	
@@ -62,28 +63,41 @@ internal final class UpdateSubscriptionCloudKitOperation: CloudKitGroupOperation
 			finish()
 		} else {
 			let modifyOperation = CKModifySubscriptionsOperation(subscriptionsToSave: subscriptionsToSave, subscriptionIDsToDelete: nil)
-			modifyOperation.modifySubscriptionsCompletionBlock = modifyOperationHandler
+			if #available(iOS 15.0, macOS 10.12, *) {
+				modifyOperation.modifySubscriptionsResultBlock = modifyOperationCompletionHandler
+			} else { // This is both introduced and deprecated in macOS 10.12
+				modifyOperation.modifySubscriptionsCompletionBlock = modifyOperationHandler
+			}
 			modifyOperation.setOperationQuality(from: self)
 			cloudDatabase.add(modifyOperation)
 		}
 	}
 	
+	private func modifyOperationCompletionHandler(_ result: Result<Void,Error>) {
+		switch result {
+		case .failure(let error):
+			finish(withError: error)
+		case .success:
+			finish()
+		}
+	}
+
 	@available(watchOS 6.0, *)
 	private func modifyOperationHandler(_ modified: [CKSubscription]?, _ deleted: [CKSubscription.ID]?, _ error: Error?) {
 		// TODO: Determine if we need to examine partial errors -- for now it seems like no
 		if let error = error {
-			finish(withError: error)
-			return
+			modifyOperationCompletionHandler(.failure(error))
+		} else {
+			print("CKModifySubscriptionsOperation results")
+			if let modified = modified, modified.contains(where: { $0.subscriptionID == CloudKitContext.sharedEventsSubscriptionID }) {
+				print(" - updated: \(modified)")
+				subscribedUsers = userRecordIDs
+			}
+			if let deleted = deleted, deleted.count > 0 {
+				print(" - deleted: \(deleted)")
+			}
+			modifyOperationCompletionHandler(.success(()))
 		}
-		print("CKModifySubscriptionsOperation results")
-		if let modified = modified, modified.contains(where: { $0.subscriptionID == CloudKitContext.sharedEventsSubscriptionID }) {
-			print(" - updated: \(modified)")
-			subscribedUsers = userRecordIDs
-		}
-		if let deleted = deleted, deleted.count > 0 {
-			print(" - deleted: \(deleted)")
-		}
-		finish()
 	}
 	
 	private var cloudDatabase: CKDatabase {

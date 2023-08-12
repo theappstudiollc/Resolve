@@ -21,6 +21,7 @@
 import Foundation
 import CloudKit
 import CoreResolve
+import CoreResolve_ObjC // iOS 9 support
 #if canImport(Contacts)
 import Contacts
 #endif
@@ -91,10 +92,15 @@ internal final class DiscoverUsersCloudKitOperation: CloudKitGroupOperation {
 		}
 		let retVal = CKDiscoverAllUserIdentitiesOperation()
 		retVal.userIdentityDiscoveredBlock = userIdentityResponseHandler
-		retVal.discoverAllUserIdentitiesCompletionBlock = userIdentitiesCompletedResponseHandler
+		if #available(iOS 15.0, macOS 10.12, *) {
+			retVal.discoverAllUserIdentitiesResultBlock = userIdentitiesCompletedResponseHandler
+		} else { // This is both introduced and deprecated in macOS 10.12
+			retVal.discoverAllUserIdentitiesCompletionBlock = userIdentitiesCompletedResponseHandler
+		}
 		return retVal
 	}
 
+	@available(iOS, deprecated: 10.0)
 	@available(macOS, deprecated: 10.12)
 	private func contactsResponseHandler(_ discoveredUserInfos: [CKDiscoveredUserInfo]?, _ error: Error?) {
 		if let error = error {
@@ -116,11 +122,21 @@ internal final class DiscoverUsersCloudKitOperation: CloudKitGroupOperation {
 		userInfos.insert(userInfo)
 	}
 	
+	private func userIdentitiesCompletedResponseHandler(_ result: Result<Void,Error>)
+	{
+		switch result {
+		case .failure(let error):
+			finish(withError: error)
+		case .success:
+			finish()
+		}
+	}
+	
 	private func userIdentitiesCompletedResponseHandler(_ error: Error?) {
 		if let error = error {
-			finish(withError: error)
+			userIdentitiesCompletedResponseHandler(.failure(error))
 		} else {
-			finish()
+			userIdentitiesCompletedResponseHandler(.success(()))
 		}
 	}
 }
